@@ -25,9 +25,8 @@ void main() async {
 /// the licence ships with them. This makes them appear on the licences page.
 void _registerFontLicenses() {
   const fonts = {
-    'Playfair Display': 'PlayfairDisplay',
-    'Inter': 'Inter',
     'Cormorant Garamond': 'CormorantGaramond',
+    'Inter': 'Inter',
   };
   LicenseRegistry.addLicense(() async* {
     for (final entry in fonts.entries) {

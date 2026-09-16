@@ -52,16 +52,17 @@ class AppTheme {
   static Color get dividerColor =>
       isLightMode ? LuxColors.border : LuxColors.darkBorder;
 
-  /// luxsav.com type: Playfair Display for headings, Inter for everything else.
-  /// Both are bundled in assets/fonts so text renders with no signal.
-  static const String headingFont = 'PlayfairDisplay';
+  /// luxsav.com type, as the site actually renders it: Cormorant Garamond for
+  /// every heading, card name and price (the site loads Playfair Display but
+  /// never uses it), and Inter for everything else. Both are bundled in
+  /// assets/fonts so text renders with no signal.
+  static const String headingFont = 'CormorantGaramond';
   static const String bodyFont = 'Inter';
 
-  /// Cormorant Garamond — used sparingly for editorial moments, as on the site.
-  static const String editorialFont = 'CormorantGaramond';
-
   static TextTheme _buildTextTheme(TextTheme base) {
-    TextStyle heading(TextStyle? s, {FontWeight weight = FontWeight.w500}) =>
+    // The site sets large headings at 300–400; Cormorant is delicate, so the
+    // smaller mobile title sizes use 500 to stay legible.
+    TextStyle heading(TextStyle? s, {FontWeight weight = FontWeight.w400}) =>
         s!.copyWith(fontFamily: headingFont, fontWeight: weight, letterSpacing: 0);
     // The kit's Material defaults add letter spacing to body text; Inter is
     // designed to be set without it, which is how luxsav.com uses it.
@@ -77,7 +78,7 @@ class AppTheme {
       headlineSmall: heading(base.headlineSmall),
       // Screen titles (TextStyles.title) read from titleLarge, so they get the
       // serif; item titles and section labels (TextStyles.bold) stay in Inter.
-      titleLarge: heading(base.titleLarge, weight: FontWeight.w600),
+      titleLarge: heading(base.titleLarge, weight: FontWeight.w500),
       titleMedium: body(base.titleMedium, weight: FontWeight.w600),
       titleSmall: body(base.titleSmall, weight: FontWeight.w500),
       bodyLarge: body(base.bodyLarge),

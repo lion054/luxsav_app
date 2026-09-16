@@ -65,22 +65,9 @@ flutter:
         - assets/json/
         - assets/fonts/licenses/
 
-    # LuxSav brand fonts (same as luxsav.com), bundled so they render offline.
+    # LuxSav brand fonts — exactly what luxsav.com renders (Cormorant Garamond for
+    # headings, Inter for text), bundled so they render offline.
     fonts:
-        - family: PlayfairDisplay
-          fonts:
-              - asset: assets/fonts/PlayfairDisplay-400.ttf
-              - asset: assets/fonts/PlayfairDisplay-400-Italic.ttf
-                style: italic
-              - asset: assets/fonts/PlayfairDisplay-500.ttf
-                weight: 500
-              - asset: assets/fonts/PlayfairDisplay-500-Italic.ttf
-                weight: 500
-                style: italic
-              - asset: assets/fonts/PlayfairDisplay-600.ttf
-                weight: 600
-              - asset: assets/fonts/PlayfairDisplay-700.ttf
-                weight: 700
         - family: Inter
           fonts:
               - asset: assets/fonts/Inter-400.ttf
@@ -92,6 +79,8 @@ flutter:
                 weight: 700
         - family: CormorantGaramond
           fonts:
+              - asset: assets/fonts/CormorantGaramond-300.ttf
+                weight: 300
               - asset: assets/fonts/CormorantGaramond-400.ttf
               - asset: assets/fonts/CormorantGaramond-400-Italic.ttf
                 style: italic
