@@ -1055,6 +1055,186 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Last Name cannot be empty'**
   String get last_name_cannot_empty;
+
+  /// No description provided for @today.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get today;
+
+  /// No description provided for @trip_tab.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip'**
+  String get trip_tab;
+
+  /// No description provided for @tanova.
+  ///
+  /// In en, this message translates to:
+  /// **'Tanova'**
+  String get tanova;
+
+  /// No description provided for @you.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get you;
+
+  /// No description provided for @good_morning.
+  ///
+  /// In en, this message translates to:
+  /// **'Good morning'**
+  String get good_morning;
+
+  /// No description provided for @good_afternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Good afternoon'**
+  String get good_afternoon;
+
+  /// No description provided for @good_evening.
+  ///
+  /// In en, this message translates to:
+  /// **'Good evening'**
+  String get good_evening;
+
+  /// No description provided for @where_to_next.
+  ///
+  /// In en, this message translates to:
+  /// **'Where to next?'**
+  String get where_to_next;
+
+  /// No description provided for @ask_tanova_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Tell Tanova where, when and who’s coming, and it builds the whole trip around you.'**
+  String get ask_tanova_desc;
+
+  /// No description provided for @start_planning.
+  ///
+  /// In en, this message translates to:
+  /// **'Start planning'**
+  String get start_planning;
+
+  /// No description provided for @plan_your_trip.
+  ///
+  /// In en, this message translates to:
+  /// **'Plan your trip'**
+  String get plan_your_trip;
+
+  /// No description provided for @multi_day.
+  ///
+  /// In en, this message translates to:
+  /// **'Multi-day'**
+  String get multi_day;
+
+  /// No description provided for @day_trip.
+  ///
+  /// In en, this message translates to:
+  /// **'Day trip'**
+  String get day_trip;
+
+  /// No description provided for @destination_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Destination'**
+  String get destination_label;
+
+  /// No description provided for @search_destination_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search a destination'**
+  String get search_destination_hint;
+
+  /// No description provided for @no_destination_match.
+  ///
+  /// In en, this message translates to:
+  /// **'No LuxSav destination matches that search.'**
+  String get no_destination_match;
+
+  /// No description provided for @travellers_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Travellers'**
+  String get travellers_label;
+
+  /// No description provided for @dates_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Dates'**
+  String get dates_label;
+
+  /// No description provided for @choose_dates.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose dates'**
+  String get choose_dates;
+
+  /// No description provided for @choose_day.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a day'**
+  String get choose_day;
+
+  /// No description provided for @time_of_day_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Time of day'**
+  String get time_of_day_label;
+
+  /// No description provided for @morning_window.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning'**
+  String get morning_window;
+
+  /// No description provided for @afternoon_window.
+  ///
+  /// In en, this message translates to:
+  /// **'Afternoon'**
+  String get afternoon_window;
+
+  /// No description provided for @full_day_window.
+  ///
+  /// In en, this message translates to:
+  /// **'Full day'**
+  String get full_day_window;
+
+  /// No description provided for @budget_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Budget'**
+  String get budget_label;
+
+  /// No description provided for @budget_hint.
+  ///
+  /// In en, this message translates to:
+  /// **'Total for your whole party'**
+  String get budget_hint;
+
+  /// No description provided for @build_itinerary.
+  ///
+  /// In en, this message translates to:
+  /// **'Build my itinerary'**
+  String get build_itinerary;
+
+  /// No description provided for @your_plan.
+  ///
+  /// In en, this message translates to:
+  /// **'Your plan'**
+  String get your_plan;
+
+  /// No description provided for @plan_preview_note.
+  ///
+  /// In en, this message translates to:
+  /// **'This preview isn’t connected to luxsav.com yet. Once it is, Tanova sends exactly this request and returns your itinerary options.'**
+  String get plan_preview_note;
+
+  /// No description provided for @experiences_count.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} experiences'**
+  String experiences_count(int count);
 }
 
 class _AppLocalizationsDelegate

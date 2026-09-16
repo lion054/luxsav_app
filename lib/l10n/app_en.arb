@@ -166,5 +166,42 @@
   },
   "@accommodation": {
     "description": "Stay type. Shown as \"Cottage\"."
+  },
+  "today": "Today",
+  "trip_tab": "Trip",
+  "tanova": "Tanova",
+  "you": "You",
+  "good_morning": "Good morning",
+  "good_afternoon": "Good afternoon",
+  "good_evening": "Good evening",
+  "where_to_next": "Where to next?",
+  "ask_tanova_desc": "Tell Tanova where, when and who’s coming, and it builds the whole trip around you.",
+  "start_planning": "Start planning",
+  "plan_your_trip": "Plan your trip",
+  "multi_day": "Multi-day",
+  "day_trip": "Day trip",
+  "destination_label": "Destination",
+  "search_destination_hint": "Search a destination",
+  "no_destination_match": "No LuxSav destination matches that search.",
+  "travellers_label": "Travellers",
+  "dates_label": "Dates",
+  "choose_dates": "Choose dates",
+  "choose_day": "Choose a day",
+  "time_of_day_label": "Time of day",
+  "morning_window": "Morning",
+  "afternoon_window": "Afternoon",
+  "full_day_window": "Full day",
+  "budget_label": "Budget",
+  "budget_hint": "Total for your whole party",
+  "build_itinerary": "Build my itinerary",
+  "your_plan": "Your plan",
+  "plan_preview_note": "This preview isn’t connected to luxsav.com yet. Once it is, Tanova sends exactly this request and returns your itinerary options.",
+  "experiences_count": "{count} experiences",
+  "@experiences_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
   }
 }

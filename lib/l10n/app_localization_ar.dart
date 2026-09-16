@@ -497,4 +497,99 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get last_name_cannot_empty => 'لا يمكن أن يكون الاسم الأخير فارغًا';
+
+  @override
+  String get today => 'Today';
+
+  @override
+  String get trip_tab => 'Trip';
+
+  @override
+  String get tanova => 'Tanova';
+
+  @override
+  String get you => 'You';
+
+  @override
+  String get good_morning => 'Good morning';
+
+  @override
+  String get good_afternoon => 'Good afternoon';
+
+  @override
+  String get good_evening => 'Good evening';
+
+  @override
+  String get where_to_next => 'Where to next?';
+
+  @override
+  String get ask_tanova_desc =>
+      'Tell Tanova where, when and who’s coming, and it builds the whole trip around you.';
+
+  @override
+  String get start_planning => 'Start planning';
+
+  @override
+  String get plan_your_trip => 'Plan your trip';
+
+  @override
+  String get multi_day => 'Multi-day';
+
+  @override
+  String get day_trip => 'Day trip';
+
+  @override
+  String get destination_label => 'Destination';
+
+  @override
+  String get search_destination_hint => 'Search a destination';
+
+  @override
+  String get no_destination_match =>
+      'No LuxSav destination matches that search.';
+
+  @override
+  String get travellers_label => 'Travellers';
+
+  @override
+  String get dates_label => 'Dates';
+
+  @override
+  String get choose_dates => 'Choose dates';
+
+  @override
+  String get choose_day => 'Choose a day';
+
+  @override
+  String get time_of_day_label => 'Time of day';
+
+  @override
+  String get morning_window => 'Morning';
+
+  @override
+  String get afternoon_window => 'Afternoon';
+
+  @override
+  String get full_day_window => 'Full day';
+
+  @override
+  String get budget_label => 'Budget';
+
+  @override
+  String get budget_hint => 'Total for your whole party';
+
+  @override
+  String get build_itinerary => 'Build my itinerary';
+
+  @override
+  String get your_plan => 'Your plan';
+
+  @override
+  String get plan_preview_note =>
+      'This preview isn’t connected to luxsav.com yet. Once it is, Tanova sends exactly this request and returns your itinerary options.';
+
+  @override
+  String experiences_count(int count) {
+    return '$count experiences';
+  }
 }
