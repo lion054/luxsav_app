@@ -42,9 +42,14 @@ class Localfiles {
   // LuxSav brand artwork, from luxsav.com.
   static const String logoWhite = '${baseImageUrl}luxsav_logo_white.png';
   static const String logoGold = '${baseImageUrl}luxsav_logo_gold.png';
-  static const String introduction1 = '${baseImageUrl}introduction1.png';
-  static const String introduction2 = '${baseImageUrl}introduction2.png';
-  static const String introduction3 = '${baseImageUrl}introduction3.png';
+  // Onboarding uses LuxSav photography from the luxsav.com snapshot rather
+  // than the kit's clip-art illustrations.
+  static const String introduction1 =
+      '${baseImageUrl}luxsav/exp_2_helicopter_flight_over_victoria_falls.jpg';
+  static const String introduction2 =
+      '${baseImageUrl}luxsav/exp_8_sundowner_cruise_upper_zambezi.jpg';
+  static const String introduction3 =
+      '${baseImageUrl}luxsav/stay_victoria_falls_safari_lodge.jpg';
   static const String inviteImage = '${baseImageUrl}inviteImage.png';
   static const String mapImage = '${baseImageUrl}mapImage.png';
   static const String userImage = '${baseImageUrl}userImage.png';

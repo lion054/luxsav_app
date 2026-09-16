@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxsav_companion/constants/luxsav_brand.dart';
 import 'package:luxsav_companion/constants/text_styles.dart';
 
 class PagePopup extends StatelessWidget {
@@ -15,9 +16,13 @@ class PagePopup extends StatelessWidget {
           child: Center(
             child: SizedBox(
               width: MediaQuery.of(context).size.width - 120,
+              // Photos get the card radius; the kit's illustrations had none.
               child: AspectRatio(
                 aspectRatio: 1,
-                child: Image.asset(imageData.assetsImage, fit: BoxFit.cover),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(LuxRadius.card),
+                  child: Image.asset(imageData.assetsImage, fit: BoxFit.cover),
+                ),
               ),
             ),
           ),
