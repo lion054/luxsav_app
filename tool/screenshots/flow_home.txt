@@ -1,0 +1,1 @@
+wait:10000 tap:195,748 wait:2500 tap:195,724 wait:2500 tap:195,278 type:demo@luxsav.com tap:195,374 type:password1 wait:500 tap:195,474 wait:4500

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxsav_companion/data/luxsav_snapshot.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:luxsav_companion/constants/text_styles.dart';
@@ -45,7 +46,7 @@ class _GoogleMapUIViewState extends State<GoogleMapUIView> {
                 Container(),
                 GoogleMap(
                   initialCameraPosition: const CameraPosition(
-                    target: LatLng(51.507896, -0.128006),
+                    target: LuxsavSnapshot.pilotDestination,
                     zoom: 13,
                   ),
                   mapType: MapType.normal,

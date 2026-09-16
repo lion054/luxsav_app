@@ -63,6 +63,8 @@ flutter:
     assets:
         - assets/images/
         - assets/json/
+        - assets/fixtures/
+        - assets/images/luxsav/
         - assets/fonts/licenses/
 
     # LuxSav brand fonts — exactly what luxsav.com renders (Cormorant Garamond for

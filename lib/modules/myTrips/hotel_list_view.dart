@@ -176,7 +176,8 @@ class HotelListView extends StatelessWidget {
                                       top: Get.find<Loc>().isRTL ? 2.0 : 0.0,
                                     ),
                                     child: Text(
-                                      Loc.alized.per_night,
+                                      hotelData.priceUnitTxt ??
+                                          Loc.alized.per_night,
                                       style: TextStyles(context).description(),
                                     ),
                                   ),

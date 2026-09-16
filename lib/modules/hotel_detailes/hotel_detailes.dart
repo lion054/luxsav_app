@@ -653,7 +653,7 @@ class _HotelDetailesState extends State<HotelDetailes>
               ),
             ),
             Text(
-              Loc.alized.per_night,
+              widget.hotelData.priceUnitTxt ?? Loc.alized.per_night,
               style: TextStyles(context).regular().copyWith(
                 fontSize: 14,
                 color: isInList

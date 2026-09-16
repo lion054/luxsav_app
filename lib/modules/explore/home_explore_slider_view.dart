@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:luxsav_companion/constants/localfiles.dart';
+import 'package:luxsav_companion/data/luxsav_snapshot.dart';
 import 'package:luxsav_companion/constants/text_styles.dart';
 import 'package:luxsav_companion/constants/themes.dart';
 import 'package:luxsav_companion/language/app_localizations.dart';
@@ -30,27 +30,21 @@ class _HomeExploreSliderViewState extends State<HomeExploreSliderView> {
 
   @override
   void initState() {
-    pageViewModelData.add(
-      PageViewData(
-        titleText: Loc.alized.cape_town,
-        subText: Loc.alized.five_star,
-        assetsImage: Localfiles.explore_2,
-      ),
-    );
-    pageViewModelData.add(
-      PageViewData(
-        titleText: Loc.alized.find_best_deals,
-        subText: Loc.alized.five_star,
-        assetsImage: Localfiles.explore_1,
-      ),
-    );
-    pageViewModelData.add(
-      PageViewData(
-        titleText: Loc.alized.find_best_deals,
-        subText: Loc.alized.five_star,
-        assetsImage: Localfiles.explore_3,
-      ),
-    );
+    // LuxSav destinations from the snapshot, led by the pilot destination.
+    const featured = ['Victoria Falls', 'Capetown', 'Zanzibar'];
+    for (final name in featured) {
+      final d = LuxsavSnapshot.destinations.firstWhereOrNull(
+        (d) => d['name'] == name,
+      );
+      if (d == null) continue;
+      pageViewModelData.add(
+        PageViewData(
+          titleText: d['name'],
+          subText: '${d['experiences']} experiences · ${d['country']}',
+          assetsImage: d['image'],
+        ),
+      );
+    }
 
     sliderTimer = Timer.periodic(const Duration(seconds: 4), (timer) {
       if (mounted) {

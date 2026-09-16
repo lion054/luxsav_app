@@ -16,6 +16,10 @@ class HotelListData {
   double rating;
   int reviews;
   int perNight;
+
+  /// Price unit shown after the price, e.g. "/per person" for experiences.
+  /// Null falls back to the kit's "/per night".
+  String? priceUnitTxt;
   bool isSelected;
   PeopleSleeps? peopleSleeps;
   LatLng? location;
@@ -32,6 +36,7 @@ class HotelListData {
     this.reviews = 80,
     this.rating = 4.5,
     this.perNight = 180,
+    this.priceUnitTxt,
     this.isSelected = false,
     this.date,
     this.peopleSleeps,

@@ -113,7 +113,8 @@ class MapHotelListView extends StatelessWidget {
                                         style: TextStyles(context).price(),
                                       ),
                                       Text(
-                                        Loc.alized.per_night,
+                                        hotelData.priceUnitTxt ??
+                                            Loc.alized.per_night,
                                         style: TextStyles(
                                           context,
                                         ).description().copyWith(fontSize: 14),

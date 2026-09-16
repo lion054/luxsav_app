@@ -143,7 +143,8 @@ class HotelListViewPage extends StatelessWidget {
                                                     : 0.0,
                                               ),
                                               child: Text(
-                                                Loc.alized.per_night,
+                                                hotelData.priceUnitTxt ??
+                                                    Loc.alized.per_night,
                                                 style: TextStyles(context)
                                                     .description()
                                                     .copyWith(fontSize: 14),

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:luxsav_companion/data/luxsav_snapshot.dart';
 import 'package:luxsav_companion/language/app_localizations.dart';
 import 'package:luxsav_companion/logic/controllers/google_map_pin_controller.dart';
 import 'package:luxsav_companion/logic/controllers/theme_provider.dart';
@@ -10,6 +11,7 @@ import 'package:luxsav_companion/luxsav_app.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   _registerFontLicenses();
+  await LuxsavSnapshot.load();
 
   await Get.putAsync<Loc>(() => Loc().init(), permanent: true);
 
