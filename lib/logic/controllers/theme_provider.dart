@@ -9,17 +9,14 @@ class ThemeController extends GetxController {
   bool isLightMode = true;
   ThemeModeType themeModeType = ThemeModeType.system;
   FontFamilyType fontType = FontFamilyType.workSans;
-  ColorType colorType = ColorType.verdigris;
 
   ThemeController({
     required this.themeModeType,
     required this.fontType,
-    required this.colorType,
   });
 
   static Future<ThemeController> init() async {
     ThemeController themeProvider = ThemeController(
-      colorType: await SharedPreferencesKeys().getColorType(),
       fontType: await SharedPreferencesKeys().getFontType(),
       themeModeType: await SharedPreferencesKeys().getThemeMode(),
     );
@@ -77,18 +74,4 @@ class ThemeController extends GetxController {
     update();
   }
 
-  Future updateColorType(ColorType colorData) async {
-    await SharedPreferencesKeys().setColorType(colorData);
-    colorType = colorData;
-    update();
-  }
-
-  void checkAndSetColorType() async {
-    final ColorType colorTypeData =
-        await SharedPreferencesKeys().getColorType();
-    if (colorTypeData != colorType) {
-      colorType = colorTypeData;
-      update();
-    }
-  }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:luxsav_companion/constants/luxsav_colors.dart';
 import 'package:luxsav_companion/logic/controllers/theme_provider.dart';
 import 'package:luxsav_companion/models/enum.dart';
 
@@ -13,42 +14,45 @@ class AppTheme {
     }
   }
 
-  // colors
-  static Color get primaryColor {
-    try {
-      ColorType colortypedata = Get.find<ThemeController>().colorType;
-      return getColor(colortypedata);
-    } catch (e) {
-      return getColor(ColorType.verdigris);
-    }
-  }
+  // Colours — the LuxSav brand is fixed (see LuxColors), unlike the kit, which
+  // let users pick an accent. Green leads on light surfaces; on dark surfaces the
+  // site's own rule applies and gold takes over.
+  static Color get primaryColor =>
+      isLightMode ? LuxColors.green : LuxColors.gold;
+
+  /// Text and icons placed on [primaryColor].
+  static Color get onPrimaryColor =>
+      isLightMode ? LuxColors.white : LuxColors.charcoal;
+
+  /// Gold for text and icons: the darker variant on light backgrounds.
+  static Color get goldTextColor =>
+      isLightMode ? LuxColors.goldOnLight : LuxColors.gold;
 
   static Color get scaffoldBackgroundColor =>
-      isLightMode ? const Color(0xFFF7F7F7) : const Color(0xFF1A1A1A);
+      isLightMode ? LuxColors.ivory : LuxColors.charcoal;
 
-  static Color get redErrorColor =>
-      isLightMode ? const Color(0xFFAC0000) : const Color(0xFFAC0000);
+  static Color get redErrorColor => const Color(0xFFAC0000);
 
   static Color get backgroundColor =>
-      isLightMode ? const Color(0xFFFFFFFF) : const Color(0xFF2C2C2C);
+      isLightMode ? LuxColors.white : LuxColors.darkSurface;
 
   static Color get primaryTextColor =>
-      isLightMode ? const Color(0xFF262626) : const Color(0xFFFFFFFF);
+      isLightMode ? LuxColors.charcoal : LuxColors.ivory;
 
   static Color get secondaryTextColor =>
-      isLightMode ? const Color(0xFFADADAD) : const Color(0xFF6D6D6D);
+      isLightMode ? LuxColors.mutedOnLight : LuxColors.mutedOnDark;
 
-  static Color get whiteColor => const Color(0xFFFFFFFF);
-  static Color get backColor => const Color(0xFF262626);
+  static Color get whiteColor => LuxColors.white;
+  static Color get backColor => LuxColors.charcoal;
 
   static Color get fontcolor =>
-      isLightMode ? const Color(0xFF1A1A1A) : const Color(0xFFF7F7F7);
+      isLightMode ? LuxColors.charcoal : LuxColors.ivory;
 
   static ThemeData get getThemeData =>
       isLightMode ? _buildLightTheme() : _buildDarkTheme();
 
   static Color get dividerColor =>
-      isLightMode ? const Color(0xFFE5E7EB) : const Color(0xFF343434);
+      isLightMode ? LuxColors.border : LuxColors.darkBorder;
 
   static TextTheme _buildTextTheme(TextTheme base) {
     FontFamilyType fontType = FontFamilyType.workSans;
@@ -79,20 +83,6 @@ class AppTheme {
     );
   }
 
-  // we also get some Light and Dark color variants
-  static Color getColor(ColorType colordata) {
-    switch (colordata) {
-      case ColorType.verdigris:
-        return isLightMode ? const Color(0xFF4FBE9F) : const Color(0xFF4FBE9F);
-      case ColorType.malibu:
-        return isLightMode ? const Color(0xFF5DCAEC) : const Color(0xFF5DCAEC);
-      case ColorType.darkSkyBlue:
-        return isLightMode ? const Color(0xFF458CEA) : const Color(0xFF458CEA);
-      case ColorType.bilobaFlower:
-        return isLightMode ? const Color(0xFFff5f5f) : const Color(0xFFff5f5f);
-    }
-  }
-
   static TextStyle getTextStyle(
     FontFamilyType fontFamilyType,
     TextStyle textStyle,
@@ -116,8 +106,10 @@ class AppTheme {
   static ThemeData _buildLightTheme() {
     final ColorScheme colorScheme = const ColorScheme.light().copyWith(
       primary: primaryColor,
-      secondary: primaryColor,
-      background: backgroundColor,
+      onPrimary: onPrimaryColor,
+      secondary: goldTextColor,
+      surface: backgroundColor,
+      error: redErrorColor,
     );
     final ThemeData base = ThemeData.light();
 
@@ -141,8 +133,10 @@ class AppTheme {
   static ThemeData _buildDarkTheme() {
     final ColorScheme colorScheme = const ColorScheme.dark().copyWith(
       primary: primaryColor,
-      secondary: primaryColor,
-      background: backgroundColor,
+      onPrimary: onPrimaryColor,
+      secondary: goldTextColor,
+      surface: backgroundColor,
+      error: redErrorColor,
     );
     final ThemeData base = ThemeData.dark();
 

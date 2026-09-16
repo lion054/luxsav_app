@@ -56,12 +56,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ),
                 itemBuilder: (context, index) {
-                  if (index == 1) {
+                  final title = settingsList[index].titleTxt;
+                  if (title == Loc.alized.theme_mode) {
                     return _themeUI(settingsList[index]);
                   }
                   return InkWell(
                     onTap: () {
-                      if (index == 6) {
+                      if (title == Loc.alized.currency) {
                         NavigationServices(context)
                             .gotoCurrencyScreen()
                             .then((value) {
@@ -71,7 +72,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             });
                           }
                         });
-                      } else if (index == 5) {
+                      } else if (title == Loc.alized.country) {
                         NavigationServices(context)
                             .gotoCountryScreen()
                             .then((value) {
@@ -81,13 +82,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             });
                           }
                         });
-                      } else if (index == 2) {
+                      } else if (title == Loc.alized.fonts) {
                         _getFontPopUI();
-                      } else if (index == 3) {
-                        _getColorPopUI();
-                      } else if (index == 4) {
+                      } else if (title == Loc.alized.language) {
                         _getLanguageUI();
-                      } else if (index == 10) {
+                      } else if (title == Loc.alized.log_out) {
                         _gotoSplashScreen();
                       }
                     },
@@ -108,11 +107,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   ),
                                 ),
                               ),
-                              index == 5
+                              title == Loc.alized.country
                                   ? Padding(
                                       padding: const EdgeInsets.all(16),
                                       child: getTextUi(country))
-                                  : index == 6
+                                  : title == Loc.alized.currency
                                       ? Padding(
                                           padding: const EdgeInsets.all(16),
                                           child: getTextUi(currency),
@@ -342,98 +341,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       ],
                     ),
                   ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  _getColorPopUI() {
-    final List<Widget> fontArray = [];
-
-    ColorType.values.toList().forEach((element) {
-      fontArray.add(
-        Expanded(
-          child: InkWell(
-            splashColor: Colors.transparent,
-            borderRadius: BorderRadius.circular(8.0),
-            onTap: () {
-              Get.find<ThemeController>().updateColorType(element);
-              Navigator.pop(context);
-            },
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Container(
-                    height: 48,
-                    width: 48,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                            color:
-                                Get.find<ThemeController>().colorType == element
-                                    ? AppTheme.getColor(element)
-                                    : Colors.transparent)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: AppTheme.getColor(element)),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-      );
-    });
-    return showDialog(
-      barrierDismissible: true,
-      context: context,
-      builder: (BuildContext context) => Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(48.0),
-            child: CommonCard(
-              color: AppTheme.backgroundColor,
-              radius: 8,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      Loc.alized.selected_color,
-                      style: TextStyles(context).bold().copyWith(fontSize: 22),
-                    ),
-                  ),
-                  const Divider(
-                    height: 16,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        fontArray[0],
-                        fontArray[1],
-                        fontArray[2],
-                        fontArray[3]
-                      ],
-                    ),
-                  )
                 ],
               ),
             ),

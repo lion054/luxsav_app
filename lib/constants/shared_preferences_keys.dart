@@ -60,18 +60,6 @@ class SharedPreferencesKeys {
     await _setIntData(key: 'FontType', id: type.index);
   }
 
-  Future<ColorType> getColorType() async {
-    int? index = await _getIntData(key: 'ColorType');
-    if (index != null) {
-      return ColorType.values[index];
-    } else {
-      return ColorType.verdigris; // Default we set Verdigris
-    }
-  }
-
-  Future setColorType(ColorType type) async {
-    await _setIntData(key: 'ColorType', id: type.index);
-  }
 
   Future setLanguageType(Locale language) async {
     await _setStringData(key: 'language_type', text: language.languageCode);

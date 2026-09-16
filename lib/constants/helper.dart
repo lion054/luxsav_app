@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:luxsav_companion/constants/luxsav_colors.dart';
 import 'package:luxsav_companion/constants/themes.dart';
 import 'package:luxsav_companion/language/app_localizations.dart';
 import 'package:luxsav_companion/models/room_data.dart';
@@ -29,12 +30,14 @@ abstract class Helper {
   static Widget ratingStar({double rating = 4.5}) {
     return RatingBarIndicator(
       rating: rating,
-      itemBuilder: (context, index) => Icon(
+      // Champagne gold, as luxsav.com uses for its star ratings. The review
+      // count always sits beside the stars, so they don't carry meaning alone.
+      itemBuilder: (context, index) => const Icon(
         Icons.star,
-        color: AppTheme.primaryColor,
+        color: LuxColors.gold,
       ),
       itemCount: 5,
-      unratedColor: AppTheme.secondaryTextColor,
+      unratedColor: AppTheme.dividerColor,
       itemSize: 18.0,
       direction: Axis.horizontal,
     );

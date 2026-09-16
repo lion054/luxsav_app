@@ -6,10 +6,3 @@ enum FontFamilyType {
   satisfy,
   kaushanScript,
 }
-
-enum ColorType {
-  verdigris,
-  malibu,
-  darkSkyBlue,
-  bilobaFlower,
-}

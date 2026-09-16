@@ -15,7 +15,7 @@ class CommonButton extends StatelessWidget {
     this.onTap,
     this.buttonText,
     this.buttonTextWidget,
-    this.textColor = Colors.white,
+    this.textColor,
     this.backgroundColor,
     this.padding,
     this.isClickable = true,
@@ -44,7 +44,10 @@ class CommonButton extends StatelessWidget {
                   Text(
                     buttonText ?? "",
                     style: TextStyles(context).regular().copyWith(
-                          color: textColor,
+                          // Default follows the theme: white on green (light),
+                          // charcoal on gold (dark) — white on gold fails contrast.
+                          color: textColor ??
+                              Theme.of(context).colorScheme.onPrimary,
                           fontSize: 16,
                         ),
                   ),

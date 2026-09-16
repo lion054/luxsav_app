@@ -77,11 +77,6 @@ class SettingsListData {
           iconData: FontAwesomeIcons.font,
         ),
         SettingsListData(
-          titleTxt: Loc.alized.color,
-          isSelected: false,
-          iconData: Icons.color_lens,
-        ),
-        SettingsListData(
           titleTxt: Loc.alized.language,
           isSelected: false,
           iconData: Icons.translate_outlined,
