@@ -131,8 +131,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
               top: 8,
             ),
             buttonText: Loc.alized.create_account,
-            backgroundColor: AppTheme.backgroundColor,
-            textColor: AppTheme.primaryTextColor,
+            isOutlined: true,
             onTap: () {
               NavigationServices(context).gotoSignScreen();
             },

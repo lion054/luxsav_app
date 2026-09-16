@@ -89,9 +89,7 @@ class _RoomeBookViewState extends State<RoomeBookView> {
                             widget.roomData.titleTxt,
                             maxLines: 2,
                             textAlign: TextAlign.left,
-                            style: TextStyles(
-                              context,
-                            ).bold().copyWith(fontSize: 24),
+                            style: TextStyles(context).cardName(fontSize: 26),
                             overflow: TextOverflow.ellipsis,
                           ),
                           const Expanded(child: SizedBox()),
@@ -121,9 +119,7 @@ class _RoomeBookViewState extends State<RoomeBookView> {
                           Text(
                             "\$${widget.roomData.perNight}",
                             textAlign: TextAlign.left,
-                            style: TextStyles(
-                              context,
-                            ).bold().copyWith(fontSize: 22),
+                            style: TextStyles(context).price(),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(bottom: 0),

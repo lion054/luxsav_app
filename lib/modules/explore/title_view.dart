@@ -40,7 +40,7 @@ class TitleView extends StatelessWidget {
                   Text(
                     titleTxt,
                     textAlign: TextAlign.left,
-                    style: TextStyles(context).bold().copyWith(fontSize: 18),
+                    style: TextStyles(context).heading(fontSize: 26),
                   ),
                   const Expanded(child: SizedBox()),
                   isLeftButton

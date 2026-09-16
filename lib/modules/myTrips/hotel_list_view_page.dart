@@ -134,7 +134,7 @@ class HotelListViewPage extends StatelessWidget {
                                               textAlign: TextAlign.left,
                                               style: TextStyles(
                                                 context,
-                                              ).bold().copyWith(fontSize: 22),
+                                              ).price(),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.only(

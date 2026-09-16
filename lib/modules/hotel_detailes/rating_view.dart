@@ -26,10 +26,9 @@ class RatingView extends StatelessWidget {
                   child: Text(
                     (hotelData.rating * 2).toStringAsFixed(1),
                     textAlign: TextAlign.left,
-                    style: TextStyles(context).bold().copyWith(
-                      fontSize: 38,
-                      color: Theme.of(context).primaryColor,
-                    ),
+                    style: TextStyles(context)
+                        .heading(fontSize: 42)
+                        .copyWith(color: Theme.of(context).primaryColor),
                   ),
                 ),
                 Expanded(

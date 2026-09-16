@@ -154,10 +154,7 @@ class HotelListViewData extends StatelessWidget {
                           Text(
                             "\$${hotelData.perNight}",
                             textAlign: TextAlign.left,
-                            style: TextStyles(context).regular().copyWith(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 20,
-                            ),
+                            style: TextStyles(context).price(fontSize: 22),
                           ),
                           Padding(
                             padding: EdgeInsets.only(

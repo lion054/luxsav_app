@@ -1,3 +1,4 @@
+import 'package:luxsav_companion/constants/luxsav_brand.dart';
 import 'package:flutter/material.dart';
 import 'package:luxsav_companion/constants/text_styles.dart';
 import 'package:luxsav_companion/constants/themes.dart';
@@ -46,11 +47,10 @@ class CommonTextFieldView extends StatelessWidget {
               ),
             ),
           Card(
+            elevation: 0,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24),
-            ),
-            shadowColor: Colors.black12.withOpacity(
-              Theme.of(context).brightness == Brightness.dark ? 0.6 : 0.2,
+              borderRadius: BorderRadius.circular(LuxRadius.control),
+              side: BorderSide(color: AppTheme.cardBorderColor),
             ),
             child: Padding(
               padding: const EdgeInsets.only(left: 16, right: 16),

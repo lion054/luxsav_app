@@ -43,3 +43,17 @@ class LuxColors {
   static const darkBorder = Color(0xFF3A3A36);
   static const mutedOnDark = Color(0xFFA3A19A);
 }
+
+/// Corner radii, from luxsav.com (`--radius-*` and `.tsoka-btn`).
+class LuxRadius {
+  LuxRadius._();
+
+  /// Buttons and text inputs (`.tsoka-btn` uses 6px).
+  static const double control = 6;
+
+  /// Small surfaces: chips, thumbnails (`--radius-md`).
+  static const double small = 8;
+
+  /// Cards and sheets (`--radius-lg`).
+  static const double card = 16;
+}

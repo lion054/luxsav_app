@@ -130,10 +130,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: <Widget>[
                   Text(
                     Loc.alized.amanda_text,
-                    style: const TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: TextStyles(context).heading(),
                   ),
                   Text(
                     Loc.alized.view_edit,

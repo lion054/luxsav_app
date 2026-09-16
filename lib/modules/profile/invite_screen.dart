@@ -32,7 +32,7 @@ class _InviteFriendState extends State<InviteFriend> {
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
                   Loc.alized.invite_your_friend,
-                  style: TextStyles(context).bold().copyWith(fontSize: 20),
+                  style: TextStyles(context).heading(fontSize: 26),
                 ),
               ),
               Container(

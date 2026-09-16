@@ -27,9 +27,7 @@ class PagePopup extends StatelessWidget {
           child: Text(
             imageData.titleText,
             textAlign: TextAlign.center,
-            style: TextStyles(
-              context,
-            ).title().copyWith(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyles(context).heading(fontSize: 32),
           ),
         ),
         Expanded(

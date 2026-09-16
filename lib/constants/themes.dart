@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:luxsav_companion/constants/luxsav_colors.dart';
+import 'package:luxsav_companion/constants/luxsav_brand.dart';
 import 'package:luxsav_companion/logic/controllers/theme_provider.dart';
 
 class AppTheme {
@@ -51,6 +51,14 @@ class AppTheme {
 
   static Color get dividerColor =>
       isLightMode ? LuxColors.border : LuxColors.darkBorder;
+
+  /// luxsav.com cards are flat with a very light edge (rgba(0,0,0,.06)) rather
+  /// than the kit's drop shadows.
+  static Color get cardBorderColor => isLightMode
+      ? LuxColors.charcoal.withValues(alpha: 0.08)
+      : LuxColors.darkBorder;
+
+  static Border get hairlineBorder => Border.all(color: cardBorderColor);
 
   /// luxsav.com type, as the site actually renders it: Cormorant Garamond for
   /// every heading, card name and price (the site loads Playfair Display but
@@ -150,7 +158,9 @@ class AppTheme {
 
   static ButtonThemeData _buttonThemeData(ColorScheme colorScheme) {
     return ButtonThemeData(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(LuxRadius.control),
+      ),
       colorScheme: colorScheme,
       textTheme: ButtonTextTheme.primary,
     );
@@ -169,9 +179,11 @@ class AppTheme {
       clipBehavior: Clip.antiAlias,
       color: backgroundColor,
       surfaceTintColor: Colors.transparent,
-      shadowColor: secondaryTextColor.withValues(alpha: 0.2),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-      elevation: 8,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(LuxRadius.card),
+        side: BorderSide(color: cardBorderColor),
+      ),
+      elevation: 0,
       margin: const EdgeInsets.all(0),
     );
   }
@@ -179,47 +191,23 @@ class AppTheme {
   static get mapCardDecoration => BoxDecoration(
     color: AppTheme.scaffoldBackgroundColor,
     borderRadius: const BorderRadius.all(Radius.circular(24.0)),
-    boxShadow: <BoxShadow>[
-      BoxShadow(
-        color: AppTheme.getThemeData.dividerColor,
-        offset: const Offset(4, 4),
-        blurRadius: 8.0,
-      ),
-    ],
+    border: hairlineBorder,
   );
   static get buttonDecoration => BoxDecoration(
     color: AppTheme.primaryColor,
     borderRadius: const BorderRadius.all(Radius.circular(24.0)),
-    boxShadow: <BoxShadow>[
-      BoxShadow(
-        color: AppTheme.getThemeData.dividerColor,
-        blurRadius: 8,
-        offset: const Offset(4, 4),
-      ),
-    ],
+    border: hairlineBorder,
   );
   static get searchBarDecoration => BoxDecoration(
     color: AppTheme.scaffoldBackgroundColor,
     borderRadius: const BorderRadius.all(Radius.circular(38)),
-    boxShadow: <BoxShadow>[
-      BoxShadow(
-        color: AppTheme.getThemeData.dividerColor,
-        blurRadius: 8,
-        // offset: Offset(4, 4),
-      ),
-    ],
+    border: hairlineBorder,
   );
 
   static get boxDecoration => BoxDecoration(
     color: AppTheme.scaffoldBackgroundColor,
     borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-    boxShadow: <BoxShadow>[
-      BoxShadow(
-        color: AppTheme.getThemeData.dividerColor,
-        //   offset: Offset(2, 2),
-        blurRadius: 8,
-      ),
-    ],
+    border: hairlineBorder,
   );
 }
 

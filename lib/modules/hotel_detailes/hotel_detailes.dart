@@ -559,8 +559,7 @@ class _HotelDetailesState extends State<HotelDetailes>
               Text(
                 widget.hotelData.titleTxt,
                 textAlign: TextAlign.left,
-                style: TextStyles(context).bold().copyWith(
-                  fontSize: 22,
+                style: TextStyles(context).cardName().copyWith(
                   color: isInList ? AppTheme.fontcolor : Colors.white,
                 ),
               ),
@@ -647,8 +646,7 @@ class _HotelDetailesState extends State<HotelDetailes>
             Text(
               "\$${widget.hotelData.perNight}",
               textAlign: TextAlign.left,
-              style: TextStyles(context).bold().copyWith(
-                fontSize: 22,
+              style: TextStyles(context).price().copyWith(
                 color: isInList
                     ? Theme.of(context).textTheme.bodyLarge!.color
                     : Colors.white,

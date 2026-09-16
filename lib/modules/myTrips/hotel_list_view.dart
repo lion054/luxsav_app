@@ -94,9 +94,7 @@ class HotelListView extends StatelessWidget {
                                     Text(
                                       hotelData.titleTxt,
                                       textAlign: TextAlign.left,
-                                      style: TextStyles(
-                                        context,
-                                      ).bold().copyWith(fontSize: 22),
+                                      style: TextStyles(context).cardName(),
                                     ),
                                     Row(
                                       crossAxisAlignment:
@@ -171,9 +169,7 @@ class HotelListView extends StatelessWidget {
                                   Text(
                                     "\$${hotelData.perNight}",
                                     textAlign: TextAlign.left,
-                                    style: TextStyles(
-                                      context,
-                                    ).bold().copyWith(fontSize: 22),
+                                    style: TextStyles(context).price(),
                                   ),
                                   Padding(
                                     padding: EdgeInsets.only(

@@ -84,10 +84,9 @@ class CategoryView extends StatelessWidget {
                             ),
                             child: Text(
                               popularList.titleTxt,
-                              style: TextStyles(context).bold().copyWith(
-                                fontSize: 24,
-                                color: AppTheme.whiteColor,
-                              ),
+                              style: TextStyles(context)
+                                  .heading(fontSize: 30)
+                                  .copyWith(color: AppTheme.whiteColor),
                             ),
                           ),
                         ),

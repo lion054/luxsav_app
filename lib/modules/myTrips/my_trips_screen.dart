@@ -174,10 +174,7 @@ class _MyTripsScreenState extends State<MyTripsScreen>
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            Loc.alized.my_trips,
-            style: TextStyles(context).bold().copyWith(fontSize: 22),
-          ),
+          Text(Loc.alized.my_trips, style: TextStyles(context).heading()),
         ],
       ),
     );

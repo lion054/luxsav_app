@@ -15,12 +15,14 @@ class CommonCard extends StatefulWidget {
 class _CommonCardState extends State<CommonCard> {
   @override
   Widget build(BuildContext context) {
+    // Flat with a hairline edge, like luxsav.com cards — no drop shadow.
     return Card(
-      //   shadowColor: Theme.of(context).dividerColor,
-      elevation: AppTheme.isLightMode ? 4 : 0,
+      elevation: 0,
+      margin: EdgeInsets.zero,
       color: widget.color,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(widget.radius),
+        side: BorderSide(color: AppTheme.cardBorderColor),
       ),
       child: widget.child,
     );

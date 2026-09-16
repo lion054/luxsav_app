@@ -110,9 +110,7 @@ class MapHotelListView extends StatelessWidget {
                                       Text(
                                         "\$${hotelData.perNight}",
                                         textAlign: TextAlign.left,
-                                        style: TextStyles(
-                                          context,
-                                        ).bold().copyWith(fontSize: 22),
+                                        style: TextStyles(context).price(),
                                       ),
                                       Text(
                                         Loc.alized.per_night,

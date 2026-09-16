@@ -173,7 +173,7 @@ class PagePopup extends StatelessWidget {
                   textAlign: TextAlign.left,
                   style: TextStyles(
                     context,
-                  ).title().copyWith(color: AppTheme.whiteColor),
+                  ).heading(fontSize: 38).copyWith(color: AppTheme.whiteColor),
                 ),
                 const SizedBox(height: 8),
                 Text(

@@ -76,8 +76,11 @@ class _CustomDialogState extends State<CustomDialog>
   Widget dialogContent(BuildContext context) {
     return Card(
       color: AppTheme.backgroundColor,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
-      elevation: 24,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.0),
+        side: BorderSide(color: AppTheme.cardBorderColor),
+      ),
+      elevation: 0,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -248,7 +251,7 @@ class CustomTopIconView extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50.0),
         ),
-        elevation: 6,
+        elevation: 0,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(50.0),
           child: topWidget,
