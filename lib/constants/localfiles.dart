@@ -37,7 +37,11 @@ class Localfiles {
   static const String hotelType_7 = '${baseImageUrl}hotel_Type_7.jpg';
   static const String hotelType_8 = '${baseImageUrl}hotel_Type_8.jpg';
   static const String hotelType_9 = '${baseImageUrl}hotel_Type_9.jpg';
-  static const String introduction = '${baseImageUrl}introduction.jpg';
+  static const String introduction = '${baseImageUrl}splash_victoria_falls.jpg';
+
+  // LuxSav brand artwork, from luxsav.com.
+  static const String logoWhite = '${baseImageUrl}luxsav_logo_white.png';
+  static const String logoGold = '${baseImageUrl}luxsav_logo_gold.png';
   static const String introduction1 = '${baseImageUrl}introduction1.png';
   static const String introduction2 = '${baseImageUrl}introduction2.png';
   static const String introduction3 = '${baseImageUrl}introduction3.png';

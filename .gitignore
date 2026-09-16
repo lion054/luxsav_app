@@ -41,3 +41,4 @@ app.*.map.json
 
 # Vendor reference material from the CodeCanyon kit (the original zip is the source of truth)
 kit_reference/
+.work/

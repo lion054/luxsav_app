@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxsav_companion/constants/luxsav_brand.dart';
 import 'package:get/get.dart';
 import 'package:luxsav_companion/constants/localfiles.dart';
 import 'package:luxsav_companion/constants/text_styles.dart';
@@ -50,34 +51,33 @@ class _SplashScreenState extends State<SplashScreen> {
             height: MediaQuery.of(context).size.height,
             child: Image.asset(Localfiles.introduction, fit: BoxFit.cover),
           ),
+          // Victoria Falls is bright at the top and busy at the bottom, so a
+          // charcoal gradient keeps the logo and buttons legible over it.
+          DecoratedBox(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                stops: const [0.0, 0.35, 0.6, 1.0],
+                colors: [
+                  LuxColors.charcoal.withValues(alpha: 0.55),
+                  LuxColors.charcoal.withValues(alpha: 0.15),
+                  LuxColors.charcoal.withValues(alpha: 0.15),
+                  LuxColors.charcoal.withValues(alpha: 0.75),
+                ],
+              ),
+            ),
+            child: const SizedBox.expand(),
+          ),
           Column(
             children: <Widget>[
               const Expanded(flex: 1, child: SizedBox()),
               Center(
-                child: Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                        color: Theme.of(context).dividerColor,
-                        offset: const Offset(1.1, 1.1),
-                        blurRadius: 10.0,
-                      ),
-                    ],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-                    child: Image.asset(Localfiles.appIcon),
-                  ),
+                child: Image.asset(
+                  Localfiles.logoWhite,
+                  width: 220,
+                  semanticLabel: 'LuxSav',
                 ),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                "Motel",
-                textAlign: TextAlign.left,
-                style: TextStyles(context).bold().copyWith(fontSize: 24),
               ),
               const SizedBox(height: 8),
               AnimatedOpacity(
@@ -85,8 +85,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 duration: const Duration(milliseconds: 420),
                 child: Text(
                   Loc.alized.best_hotel_deals,
-                  textAlign: TextAlign.left,
-                  style: TextStyles(context).regular().copyWith(),
+                  textAlign: TextAlign.center,
+                  style: TextStyles(
+                    context,
+                  ).regular().copyWith(color: AppTheme.whiteColor),
                 ),
               ),
               const Expanded(flex: 4, child: SizedBox()),
