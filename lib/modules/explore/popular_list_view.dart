@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/modules/explore/category_view.dart';
-import 'package:new_motel/widgets/bottom_top_move_animation_view.dart';
+import 'package:luxsav_companion/modules/explore/category_view.dart';
+import 'package:luxsav_companion/widgets/bottom_top_move_animation_view.dart';
 import '../../models/hotel_list_data.dart';
 
 class PopularListView extends StatefulWidget {

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:new_motel/constants/text_styles.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/widgets/common_button.dart';
-import 'package:new_motel/widgets/common_card.dart';
-import 'package:new_motel/widgets/remove_focuse.dart';
+import 'package:luxsav_companion/constants/text_styles.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/widgets/common_button.dart';
+import 'package:luxsav_companion/widgets/common_card.dart';
+import 'package:luxsav_companion/widgets/remove_focuse.dart';
 import '../components/custom_calendar.dart';
 
 class CalendarPopupView extends StatefulWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/constants/text_styles.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/widgets/bottom_top_move_animation_view.dart';
-import 'package:new_motel/widgets/common_card.dart';
+import 'package:luxsav_companion/constants/text_styles.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/widgets/bottom_top_move_animation_view.dart';
+import 'package:luxsav_companion/widgets/common_card.dart';
 import 'favorites_list_view.dart';
 import 'finish_trip_view.dart';
 import 'upcoming_list_view.dart';

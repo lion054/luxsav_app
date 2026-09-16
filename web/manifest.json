@@ -1,11 +1,11 @@
 {
-    "name": "new_motel",
-    "short_name": "new_motel",
+    "name": "LuxSav",
+    "short_name": "LuxSav",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "LuxSav — the trip that looks after itself.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

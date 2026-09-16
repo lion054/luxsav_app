@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:new_motel/models/hotel_list_data.dart';
+import 'package:luxsav_companion/models/hotel_list_data.dart';
 
 class GoogleMapPinController extends GetxController {
   LatLngBounds? _visibleRegion;

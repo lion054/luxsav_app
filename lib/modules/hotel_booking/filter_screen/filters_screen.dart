@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/widgets/common_appbar_view.dart';
-import 'package:new_motel/widgets/common_button.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/widgets/common_appbar_view.dart';
+import 'package:luxsav_companion/widgets/common_button.dart';
 import '../../../models/popular_filter_list.dart';
 import 'range_slider_view.dart';
 import 'slider_view.dart';

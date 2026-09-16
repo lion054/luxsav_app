@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/logic/controllers/theme_provider.dart';
-import 'package:new_motel/modules/bottom_tab/components/tab_button_ui.dart';
-import 'package:new_motel/widgets/common_card.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/logic/controllers/theme_provider.dart';
+import 'package:luxsav_companion/modules/bottom_tab/components/tab_button_ui.dart';
+import 'package:luxsav_companion/widgets/common_card.dart';
 import '../explore/home_explore.dart';
 import '../myTrips/my_trips_screen.dart';
 import '../profile/profile_screen.dart';

@@ -1,4 +1,4 @@
-package com.example.new_motel
+package com.peachpy.luxsav
 
 import io.flutter.embedding.android.FlutterActivity
 

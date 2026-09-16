@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:new_motel/widgets/common_button.dart';
+import 'package:luxsav_companion/widgets/common_button.dart';
 
 class FacebookTwitterButtonView extends StatelessWidget {
   const FacebookTwitterButtonView({Key? key}) : super(key: key);

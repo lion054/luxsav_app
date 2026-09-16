@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:new_motel/constants/shared_preferences_keys.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/models/enum.dart';
+import 'package:luxsav_companion/constants/shared_preferences_keys.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/models/enum.dart';
 
 class ThemeController extends GetxController {
   bool isLightMode = true;

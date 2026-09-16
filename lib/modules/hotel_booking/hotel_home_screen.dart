@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:new_motel/constants/text_styles.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/modules/hotel_booking/components/filter_bar_ui.dart';
-import 'package:new_motel/modules/hotel_booking/components/map_and_list_view.dart';
-import 'package:new_motel/modules/hotel_booking/components/time_date_view.dart';
-import 'package:new_motel/modules/myTrips/hotel_list_view.dart';
-import 'package:new_motel/routes/route_names.dart';
-import 'package:new_motel/widgets/common_card.dart';
-import 'package:new_motel/widgets/common_search_bar.dart';
-import 'package:new_motel/widgets/remove_focuse.dart';
+import 'package:luxsav_companion/constants/text_styles.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/modules/hotel_booking/components/filter_bar_ui.dart';
+import 'package:luxsav_companion/modules/hotel_booking/components/map_and_list_view.dart';
+import 'package:luxsav_companion/modules/hotel_booking/components/time_date_view.dart';
+import 'package:luxsav_companion/modules/myTrips/hotel_list_view.dart';
+import 'package:luxsav_companion/routes/route_names.dart';
+import 'package:luxsav_companion/widgets/common_card.dart';
+import 'package:luxsav_companion/widgets/common_search_bar.dart';
+import 'package:luxsav_companion/widgets/remove_focuse.dart';
 import '../../models/hotel_list_data.dart';
 
 class HotelHomeScreen extends StatefulWidget {

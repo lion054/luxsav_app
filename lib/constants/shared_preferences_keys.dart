@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/models/enum.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/models/enum.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesKeys {

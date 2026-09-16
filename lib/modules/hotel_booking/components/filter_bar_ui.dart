@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/constants/text_styles.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/routes/route_names.dart';
+import 'package:luxsav_companion/constants/text_styles.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/routes/route_names.dart';
 
 class FilterBarUI extends StatelessWidget {
   const FilterBarUI({Key? key}) : super(key: key);

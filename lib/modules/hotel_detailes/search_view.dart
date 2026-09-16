@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/constants/helper.dart';
-import 'package:new_motel/constants/text_styles.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/models/hotel_list_data.dart';
-import 'package:new_motel/widgets/common_card.dart';
-import 'package:new_motel/widgets/list_cell_animation_view.dart';
+import 'package:luxsav_companion/constants/helper.dart';
+import 'package:luxsav_companion/constants/text_styles.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/models/hotel_list_data.dart';
+import 'package:luxsav_companion/widgets/common_card.dart';
+import 'package:luxsav_companion/widgets/list_cell_animation_view.dart';
 
 class SerchView extends StatelessWidget {
   final HotelListData hotelInfo;

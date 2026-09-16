@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/constants/themes.dart';
+import 'package:luxsav_companion/constants/themes.dart';
 
 class TextStyles {
   final BuildContext context;

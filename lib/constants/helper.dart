@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/models/room_data.dart';
-import 'package:new_motel/widgets/custom_dialog.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/models/room_data.dart';
+import 'package:luxsav_companion/widgets/custom_dialog.dart';
 
 abstract class Helper {
   static String getRoomText(RoomData roomData) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/language/app_localizations.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
 
 class SliderView extends StatefulWidget {
   final Function(double) onChnagedistValue;

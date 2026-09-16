@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/modules/myTrips/hotel_list_view.dart';
-import 'package:new_motel/routes/route_names.dart';
+import 'package:luxsav_companion/modules/myTrips/hotel_list_view.dart';
+import 'package:luxsav_companion/routes/route_names.dart';
 import '../../models/hotel_list_data.dart';
 
 class UpcomingListView extends StatefulWidget {

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/constants/text_styles.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/modules/login/facebook_twitter_button_view.dart';
-import 'package:new_motel/routes/route_names.dart';
-import 'package:new_motel/utils/validator.dart';
-import 'package:new_motel/widgets/common_appbar_view.dart';
-import 'package:new_motel/widgets/common_button.dart';
-import 'package:new_motel/widgets/common_text_field_view.dart';
-import 'package:new_motel/widgets/remove_focuse.dart';
+import 'package:luxsav_companion/constants/text_styles.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/modules/login/facebook_twitter_button_view.dart';
+import 'package:luxsav_companion/routes/route_names.dart';
+import 'package:luxsav_companion/utils/validator.dart';
+import 'package:luxsav_companion/widgets/common_appbar_view.dart';
+import 'package:luxsav_companion/widgets/common_button.dart';
+import 'package:luxsav_companion/widgets/common_text_field_view.dart';
+import 'package:luxsav_companion/widgets/remove_focuse.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);

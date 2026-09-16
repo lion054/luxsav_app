@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:new_motel/constants/shared_preferences_keys.dart';
+import 'package:luxsav_companion/constants/shared_preferences_keys.dart';
 
 import '../l10n/app_localization.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/modules/hotel_detailes/review_data_view.dart';
-import 'package:new_motel/widgets/common_appbar_view.dart';
+import 'package:luxsav_companion/modules/hotel_detailes/review_data_view.dart';
+import 'package:luxsav_companion/widgets/common_appbar_view.dart';
 import '../../models/hotel_list_data.dart';
 
 class ReviewsListScreen extends StatefulWidget {

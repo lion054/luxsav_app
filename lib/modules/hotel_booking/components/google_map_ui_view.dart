@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:new_motel/constants/text_styles.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/logic/controllers/google_map_pin_controller.dart';
-import 'package:new_motel/models/hotel_list_data.dart';
+import 'package:luxsav_companion/constants/text_styles.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/logic/controllers/google_map_pin_controller.dart';
+import 'package:luxsav_companion/models/hotel_list_data.dart';
 
 class GoogleMapUIView extends StatefulWidget {
   final List<HotelListData> hotelList;

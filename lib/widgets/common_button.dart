@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/widgets/tap_effect.dart';
-import 'package:new_motel/constants/text_styles.dart';
+import 'package:luxsav_companion/widgets/tap_effect.dart';
+import 'package:luxsav_companion/constants/text_styles.dart';
 
 class CommonButton extends StatelessWidget {
   final VoidCallback? onTap;

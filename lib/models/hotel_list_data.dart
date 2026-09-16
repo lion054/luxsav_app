@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:new_motel/constants/localfiles.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/models/room_data.dart';
+import 'package:luxsav_companion/constants/localfiles.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/models/room_data.dart';
 
 class HotelListData {
   String imagePath;

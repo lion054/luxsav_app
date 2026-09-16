@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/logic/controllers/google_map_pin_controller.dart';
-import 'package:new_motel/logic/controllers/theme_provider.dart';
-import 'package:new_motel/motel_app.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/logic/controllers/google_map_pin_controller.dart';
+import 'package:luxsav_companion/logic/controllers/theme_provider.dart';
+import 'package:luxsav_companion/luxsav_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +16,7 @@ void main() async {
 
   await SystemChrome.setPreferredOrientations(
           [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
-      .then((_) => runApp(const MotelApp()));
+      .then((_) => runApp(const LuxSavApp()));
 }
 
 class AppBinding extends Bindings {

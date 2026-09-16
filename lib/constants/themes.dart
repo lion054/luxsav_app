@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:new_motel/logic/controllers/theme_provider.dart';
-import 'package:new_motel/models/enum.dart';
+import 'package:luxsav_companion/logic/controllers/theme_provider.dart';
+import 'package:luxsav_companion/models/enum.dart';
 
 class AppTheme {
   static bool get isLightMode {

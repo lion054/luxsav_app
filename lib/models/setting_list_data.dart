@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:new_motel/language/app_localizations.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
 
 class SettingsListData {
   String titleTxt;

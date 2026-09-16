@@ -1,4 +1,4 @@
-import 'package:new_motel/language/app_localizations.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
 
 class PopularFilterListData {
   String titleTxt;

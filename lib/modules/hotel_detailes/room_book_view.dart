@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/constants/helper.dart';
-import 'package:new_motel/constants/text_styles.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/models/hotel_list_data.dart';
-import 'package:new_motel/widgets/common_button.dart';
+import 'package:luxsav_companion/constants/helper.dart';
+import 'package:luxsav_companion/constants/text_styles.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/models/hotel_list_data.dart';
+import 'package:luxsav_companion/widgets/common_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class RoomeBookView extends StatefulWidget {

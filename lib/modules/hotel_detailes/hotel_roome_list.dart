@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/constants/localfiles.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/widgets/common_card.dart';
+import 'package:luxsav_companion/constants/localfiles.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/widgets/common_card.dart';
 
 class HotelRoomeList extends StatefulWidget {
   const HotelRoomeList({Key? key}) : super(key: key);

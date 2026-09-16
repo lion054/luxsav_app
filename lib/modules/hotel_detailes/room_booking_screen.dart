@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/constants/text_styles.dart';
-import 'package:new_motel/modules/hotel_detailes/room_book_view.dart';
+import 'package:luxsav_companion/constants/text_styles.dart';
+import 'package:luxsav_companion/modules/hotel_detailes/room_book_view.dart';
 import '../../models/hotel_list_data.dart';
 
 class RoomBookingScreen extends StatefulWidget {

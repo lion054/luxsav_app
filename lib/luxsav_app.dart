@@ -3,27 +3,27 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:new_motel/common/common.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/logic/controllers/theme_provider.dart';
-import 'package:new_motel/main.dart';
-import 'package:new_motel/modules/bottom_tab/bottom_tab_screen.dart';
-import 'package:new_motel/modules/login/login_screen.dart';
-import 'package:new_motel/modules/splash/introduction_screen.dart';
-import 'package:new_motel/modules/splash/splash_screen.dart';
-import 'package:new_motel/routes/routes.dart';
+import 'package:luxsav_companion/common/common.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/logic/controllers/theme_provider.dart';
+import 'package:luxsav_companion/main.dart';
+import 'package:luxsav_companion/modules/bottom_tab/bottom_tab_screen.dart';
+import 'package:luxsav_companion/modules/login/login_screen.dart';
+import 'package:luxsav_companion/modules/splash/introduction_screen.dart';
+import 'package:luxsav_companion/modules/splash/splash_screen.dart';
+import 'package:luxsav_companion/routes/routes.dart';
 
 import 'l10n/app_localization.dart';
 
-class MotelApp extends StatefulWidget {
-  const MotelApp({Key? key}) : super(key: key);
+class LuxSavApp extends StatefulWidget {
+  const LuxSavApp({Key? key}) : super(key: key);
 
   @override
-  State<MotelApp> createState() => _MotelAppState();
+  State<LuxSavApp> createState() => _LuxSavAppState();
 }
 
-class _MotelAppState extends State<MotelApp> {
+class _LuxSavAppState extends State<LuxSavApp> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ThemeController>(
@@ -41,7 +41,7 @@ class _MotelAppState extends State<MotelApp> {
               ],
               navigatorKey: navigatorKey,
               locale: locController.locale,
-              title: 'Motel',
+              title: 'LuxSav',
               debugShowCheckedModeBanner: false,
               theme: theme,
               routes: _buildRoutes(),

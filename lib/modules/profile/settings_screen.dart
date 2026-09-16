@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:new_motel/constants/helper.dart';
-import 'package:new_motel/constants/text_styles.dart';
-import 'package:new_motel/constants/themes.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/logic/controllers/theme_provider.dart';
-import 'package:new_motel/models/enum.dart';
-import 'package:new_motel/routes/route_names.dart';
-import 'package:new_motel/widgets/common_appbar_view.dart';
-import 'package:new_motel/widgets/common_card.dart';
-import 'package:new_motel/widgets/remove_focuse.dart';
+import 'package:luxsav_companion/constants/helper.dart';
+import 'package:luxsav_companion/constants/text_styles.dart';
+import 'package:luxsav_companion/constants/themes.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/logic/controllers/theme_provider.dart';
+import 'package:luxsav_companion/models/enum.dart';
+import 'package:luxsav_companion/routes/route_names.dart';
+import 'package:luxsav_companion/widgets/common_appbar_view.dart';
+import 'package:luxsav_companion/widgets/common_card.dart';
+import 'package:luxsav_companion/widgets/remove_focuse.dart';
 import '../../models/setting_list_data.dart';
 
 class SettingsScreen extends StatefulWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:new_motel/language/app_localizations.dart';
-import 'package:new_motel/widgets/common_appbar_view.dart';
-import 'package:new_motel/widgets/common_button.dart';
-import 'package:new_motel/widgets/common_text_field_view.dart';
-import 'package:new_motel/widgets/remove_focuse.dart';
+import 'package:luxsav_companion/language/app_localizations.dart';
+import 'package:luxsav_companion/widgets/common_appbar_view.dart';
+import 'package:luxsav_companion/widgets/common_button.dart';
+import 'package:luxsav_companion/widgets/common_text_field_view.dart';
+import 'package:luxsav_companion/widgets/remove_focuse.dart';
 
 class ChangepasswordScreen extends StatefulWidget {
   const ChangepasswordScreen({Key? key}) : super(key: key);
