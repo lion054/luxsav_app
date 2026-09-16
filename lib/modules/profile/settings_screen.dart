@@ -6,7 +6,6 @@ import 'package:luxsav_companion/constants/text_styles.dart';
 import 'package:luxsav_companion/constants/themes.dart';
 import 'package:luxsav_companion/language/app_localizations.dart';
 import 'package:luxsav_companion/logic/controllers/theme_provider.dart';
-import 'package:luxsav_companion/models/enum.dart';
 import 'package:luxsav_companion/routes/route_names.dart';
 import 'package:luxsav_companion/widgets/common_appbar_view.dart';
 import 'package:luxsav_companion/widgets/common_card.dart';
@@ -82,8 +81,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             });
                           }
                         });
-                      } else if (title == Loc.alized.fonts) {
-                        _getFontPopUI();
                       } else if (title == Loc.alized.language) {
                         _getLanguageUI();
                       } else if (title == Loc.alized.log_out) {
@@ -233,118 +230,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
             ),
           )
-        ],
-      ),
-    );
-  }
-
-  _getFontPopUI() {
-    final List<Widget> fontArray = [];
-    FontFamilyType.values.toList().forEach(
-      (element) {
-        fontArray.add(
-          Expanded(
-            child: InkWell(
-              splashColor: Colors.transparent,
-              borderRadius: BorderRadius.circular(8.0),
-              onTap: () {
-                Get.find<ThemeController>().updateFontType(element);
-                Navigator.pop(context);
-              },
-              child: Padding(
-                padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Hello",
-                      style: AppTheme.getTextStyle(
-                        element,
-                        TextStyles(context).regular().copyWith(
-                            color:
-                                Get.find<ThemeController>().fontType == element
-                                    ? AppTheme.primaryColor
-                                    : AppTheme.fontcolor),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          top: FontFamilyType.workSans == element ? 3 : 0),
-                      child: Text(
-                        element.toString().split('.')[1],
-                        style: AppTheme.getTextStyle(
-                          element,
-                          TextStyles(context).regular().copyWith(
-                              color: Get.find<ThemeController>().fontType ==
-                                      element
-                                  ? AppTheme.primaryColor
-                                  : AppTheme.fontcolor),
-                        ).copyWith(fontSize: 10),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        );
-      },
-    );
-
-    return showDialog(
-      barrierDismissible: true,
-      context: context,
-      builder: (BuildContext context) => Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(48.0),
-            child: CommonCard(
-              color: AppTheme.backgroundColor,
-              radius: 8,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Text(
-                      Loc.alized.selected_fonts,
-                      style: TextStyles(context).bold().copyWith(fontSize: 22),
-                    ),
-                  ),
-                  const Divider(
-                    height: 1,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            fontArray[0],
-                            fontArray[1],
-                            fontArray[2],
-                          ],
-                        ),
-                        const SizedBox(height: 8),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            fontArray[3],
-                            fontArray[4],
-                            fontArray[5],
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
         ],
       ),
     );

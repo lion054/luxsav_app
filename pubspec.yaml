@@ -33,7 +33,6 @@ dependencies:
     smooth_page_indicator: ^2.0.1
     intl: ^0.20.2
     get: ^4.6.6
-    google_fonts: ^6.1.0
     shared_preferences: ^2.2.2
     google_maps_flutter: ^2.10.0
     flutter_gen: ^5.11.0
@@ -64,6 +63,42 @@ flutter:
     assets:
         - assets/images/
         - assets/json/
+        - assets/fonts/licenses/
+
+    # LuxSav brand fonts (same as luxsav.com), bundled so they render offline.
+    fonts:
+        - family: PlayfairDisplay
+          fonts:
+              - asset: assets/fonts/PlayfairDisplay-400.ttf
+              - asset: assets/fonts/PlayfairDisplay-400-Italic.ttf
+                style: italic
+              - asset: assets/fonts/PlayfairDisplay-500.ttf
+                weight: 500
+              - asset: assets/fonts/PlayfairDisplay-500-Italic.ttf
+                weight: 500
+                style: italic
+              - asset: assets/fonts/PlayfairDisplay-600.ttf
+                weight: 600
+              - asset: assets/fonts/PlayfairDisplay-700.ttf
+                weight: 700
+        - family: Inter
+          fonts:
+              - asset: assets/fonts/Inter-400.ttf
+              - asset: assets/fonts/Inter-500.ttf
+                weight: 500
+              - asset: assets/fonts/Inter-600.ttf
+                weight: 600
+              - asset: assets/fonts/Inter-700.ttf
+                weight: 700
+        - family: CormorantGaramond
+          fonts:
+              - asset: assets/fonts/CormorantGaramond-400.ttf
+              - asset: assets/fonts/CormorantGaramond-400-Italic.ttf
+                style: italic
+              - asset: assets/fonts/CormorantGaramond-500.ttf
+                weight: 500
+              - asset: assets/fonts/CormorantGaramond-600.ttf
+                weight: 600
     #   - images/a_dot_ham.jpeg
 
     # An image asset can refer to one or more resolution-specific "variants", see

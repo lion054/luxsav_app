@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:luxsav_companion/constants/themes.dart';
-import 'package:luxsav_companion/models/enum.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesKeys {
@@ -47,18 +46,6 @@ class SharedPreferencesKeys {
     await _setIntData(key: 'ThemeModeType', id: type.index);
   }
 
-  Future<FontFamilyType> getFontType() async {
-    int? index = await _getIntData(key: 'FontType');
-    if (index != null) {
-      return FontFamilyType.values[index];
-    } else {
-      return FontFamilyType.workSans; // Default we set work span font
-    }
-  }
-
-  Future setFontType(FontFamilyType type) async {
-    await _setIntData(key: 'FontType', id: type.index);
-  }
 
 
   Future setLanguageType(Locale language) async {

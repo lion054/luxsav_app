@@ -72,11 +72,6 @@ class SettingsListData {
           iconData: FontAwesomeIcons.skyatlas,
         ),
         SettingsListData(
-          titleTxt: Loc.alized.fonts,
-          isSelected: false,
-          iconData: FontAwesomeIcons.font,
-        ),
-        SettingsListData(
           titleTxt: Loc.alized.language,
           isSelected: false,
           iconData: Icons.translate_outlined,

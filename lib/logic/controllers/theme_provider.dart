@@ -3,21 +3,17 @@ import 'package:get/get.dart';
 
 import 'package:luxsav_companion/constants/shared_preferences_keys.dart';
 import 'package:luxsav_companion/constants/themes.dart';
-import 'package:luxsav_companion/models/enum.dart';
 
 class ThemeController extends GetxController {
   bool isLightMode = true;
   ThemeModeType themeModeType = ThemeModeType.system;
-  FontFamilyType fontType = FontFamilyType.workSans;
 
   ThemeController({
     required this.themeModeType,
-    required this.fontType,
   });
 
   static Future<ThemeController> init() async {
     ThemeController themeProvider = ThemeController(
-      fontType: await SharedPreferencesKeys().getFontType(),
       themeModeType: await SharedPreferencesKeys().getThemeMode(),
     );
     return themeProvider;
@@ -59,19 +55,5 @@ class ThemeController extends GetxController {
     }
   }
 
-  void checkAndSetFonType() async {
-    final FontFamilyType fontTypeData =
-        await SharedPreferencesKeys().getFontType();
-    if (fontTypeData != fontType) {
-      fontType = fontTypeData;
-      update();
-    }
-  }
-
-  Future updateFontType(FontFamilyType fontTypeData) async {
-    await SharedPreferencesKeys().setFontType(fontTypeData);
-    fontType = fontTypeData;
-    update();
-  }
 
 }

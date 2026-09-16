@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:luxsav_companion/constants/luxsav_colors.dart';
 import 'package:luxsav_companion/logic/controllers/theme_provider.dart';
-import 'package:luxsav_companion/models/enum.dart';
 
 class AppTheme {
   static bool get isLightMode {
@@ -54,53 +52,41 @@ class AppTheme {
   static Color get dividerColor =>
       isLightMode ? LuxColors.border : LuxColors.darkBorder;
 
+  /// luxsav.com type: Playfair Display for headings, Inter for everything else.
+  /// Both are bundled in assets/fonts so text renders with no signal.
+  static const String headingFont = 'PlayfairDisplay';
+  static const String bodyFont = 'Inter';
+
+  /// Cormorant Garamond — used sparingly for editorial moments, as on the site.
+  static const String editorialFont = 'CormorantGaramond';
+
   static TextTheme _buildTextTheme(TextTheme base) {
-    FontFamilyType fontType = FontFamilyType.workSans;
-    try {
-      fontType = Get.find<ThemeController>().fontType;
-    } catch (_) {}
+    TextStyle heading(TextStyle? s, {FontWeight weight = FontWeight.w500}) =>
+        s!.copyWith(fontFamily: headingFont, fontWeight: weight, letterSpacing: 0);
+    // The kit's Material defaults add letter spacing to body text; Inter is
+    // designed to be set without it, which is how luxsav.com uses it.
+    TextStyle body(TextStyle? s, {FontWeight? weight}) =>
+        s!.copyWith(fontFamily: bodyFont, fontWeight: weight, letterSpacing: 0);
 
     return base.copyWith(
-      displayLarge: getTextStyle(fontType, base.displayLarge!), //f-size 96
-      displayMedium: getTextStyle(fontType, base.displayMedium!), //f-size 60
-      displaySmall: getTextStyle(fontType, base.displaySmall!), //f-size 48
-      headlineMedium: getTextStyle(fontType, base.headlineMedium!), //f-size 34
-      headlineSmall: getTextStyle(fontType, base.headlineSmall!), //f-size 24
-      titleLarge: getTextStyle(
-        fontType,
-        base.titleLarge!.copyWith(fontWeight: FontWeight.bold),
-      ), //f-size 20
-      labelLarge: getTextStyle(fontType, base.labelLarge!), //f-size 14
-      bodySmall: getTextStyle(fontType, base.bodySmall!), //f-size 12
-      bodyLarge: getTextStyle(fontType, base.bodyLarge!), //f-size 16
-      bodyMedium: getTextStyle(fontType, base.bodyMedium!), //f-size 14
-      titleMedium: getTextStyle(
-        fontType,
-        base.titleMedium!.copyWith(fontWeight: FontWeight.bold),
-      ), //f-size 16
-      titleSmall: getTextStyle(fontType, base.titleSmall!), //f-size 14
-      labelSmall: getTextStyle(fontType, base.labelSmall!), //f-size 10
+      displayLarge: heading(base.displayLarge),
+      displayMedium: heading(base.displayMedium),
+      displaySmall: heading(base.displaySmall),
+      headlineLarge: heading(base.headlineLarge),
+      headlineMedium: heading(base.headlineMedium),
+      headlineSmall: heading(base.headlineSmall),
+      // Screen titles (TextStyles.title) read from titleLarge, so they get the
+      // serif; item titles and section labels (TextStyles.bold) stay in Inter.
+      titleLarge: heading(base.titleLarge, weight: FontWeight.w600),
+      titleMedium: body(base.titleMedium, weight: FontWeight.w600),
+      titleSmall: body(base.titleSmall, weight: FontWeight.w500),
+      bodyLarge: body(base.bodyLarge),
+      bodyMedium: body(base.bodyMedium),
+      bodySmall: body(base.bodySmall),
+      labelLarge: body(base.labelLarge, weight: FontWeight.w500),
+      labelMedium: body(base.labelMedium, weight: FontWeight.w500),
+      labelSmall: body(base.labelSmall, weight: FontWeight.w500),
     );
-  }
-
-  static TextStyle getTextStyle(
-    FontFamilyType fontFamilyType,
-    TextStyle textStyle,
-  ) {
-    switch (fontFamilyType) {
-      case FontFamilyType.montserrat:
-        return GoogleFonts.montserrat(textStyle: textStyle);
-      case FontFamilyType.workSans:
-        return GoogleFonts.workSans(textStyle: textStyle);
-      case FontFamilyType.varela:
-        return GoogleFonts.varela(textStyle: textStyle);
-      case FontFamilyType.satisfy:
-        return GoogleFonts.satisfy(textStyle: textStyle);
-      case FontFamilyType.dancingScript:
-        return GoogleFonts.dancingScript(textStyle: textStyle);
-      case FontFamilyType.kaushanScript:
-        return GoogleFonts.kaushanScript(textStyle: textStyle);
-    }
   }
 
   static ThemeData _buildLightTheme() {
