@@ -9,33 +9,37 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get best_hotel_deals => 'Best hotel deals for your holiday';
+  String get best_hotel_deals => 'The trip that looks after itself';
 
   @override
-  String get already_have_account => 'Already have account? Log in';
+  String get already_have_account => 'Already have an account? Log in';
 
   @override
   String get get_started => 'Get started';
 
   @override
-  String get plan_your_trips => 'Plan your trips';
+  String get plan_your_trips => 'Plan with Tanova';
 
   @override
   String get book_one_of_your =>
-      'book one of your unique hotel to\nescape the ordinary';
+      'Tell Tanova where, when and who’s coming,\nand it builds the whole trip around you';
 
   @override
-  String get find_best_deals => 'Find best deals';
+  String get find_best_deals => 'Stays and experiences';
 
   @override
   String get find_deals_for_any =>
-      'Find deals for any season from cosy\ncountry homes to city flats';
+      'Handpicked lodges, day trips and adventures,\nfrom Victoria Falls to Zanzibar';
 
   @override
-  String get best_travelling_all_time => 'Best travelling all time';
+  String get best_travelling_all_time => 'Your trip, day by day';
 
   @override
-  String get login => 'Login';
+  String get trip_day_by_day_desc =>
+      'Every booking, voucher and pickup time\nin one place, even with no signal';
+
+  @override
+  String get login => 'Log in';
 
   @override
   String get create_account => 'Create account';
@@ -50,11 +54,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password => 'Password';
 
   @override
-  String get forgot_your_password => 'Forgot your Password?';
+  String get forgot_your_password => 'Forgot your password?';
 
   @override
   String get resend_email_link =>
-      'Enter your email to receive an email to reset your password';
+      'Enter your email and we’ll send you a link to reset your password';
 
   @override
   String get send => 'Send';
@@ -70,7 +74,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get terms_agreed =>
-      'By Signing up,you agreed with our terms of\n Services and privacy policy';
+      'By signing up, you agree to our terms of\nservice and privacy policy';
 
   @override
   String get explore => 'Explore';
@@ -82,7 +86,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profile => 'Profile';
 
   @override
-  String get where_are_you_going => 'Where are you going?';
+  String get where_are_you_going => 'Where would you like to go?';
 
   @override
   String get search_hotel => 'Search';
@@ -91,7 +95,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get hotel_data => 'Hotel';
 
   @override
-  String get backpacker_data => 'Backpacker';
+  String get backpacker_data => 'Backpackers';
 
   @override
   String get resort_data => 'Resort';
@@ -100,22 +104,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get villa_data => 'Villa';
 
   @override
-  String get apartment => 'Apartment';
+  String get apartment => 'Lodge';
 
   @override
   String get guest_house => 'Guest house';
 
   @override
-  String get motel => 'Motel';
+  String get motel => 'Tented camp';
 
   @override
-  String get accommodation => 'Accommodation';
+  String get accommodation => 'Cottage';
 
   @override
-  String get bed_breakfast => 'Bed & Breakfast';
+  String get bed_breakfast => 'Bed & breakfast';
 
   @override
-  String get last_search => 'Last searches';
+  String get last_search => 'Recent searches';
 
   @override
   String get clear_all => 'Clear all';
@@ -124,40 +128,40 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cape_town => 'Cape Town';
 
   @override
-  String get five_star => 'Extraordinary five-star\noutdoor activites';
+  String get five_star => 'Handpicked experiences';
 
   @override
-  String get view_hotel => 'View Hotel';
+  String get view_hotel => 'Explore';
 
   @override
-  String get hotel_found => 'Hotel Found';
+  String get hotel_found => 'results';
 
   @override
-  String get filtter => 'Filtter';
+  String get filtter => 'Filter';
 
   @override
-  String get popular_destination => 'Popular Destination';
+  String get popular_destination => 'Destinations';
 
   @override
-  String get best_deal => 'Best Deals';
+  String get best_deal => 'Handpicked for you';
 
   @override
   String get view_all => 'View all';
 
   @override
-  String get km_to_city => 'km to city';
+  String get km_to_city => 'km to town centre';
 
   @override
   String get per_night => '/per night';
 
   @override
-  String get reviews => 'Reviews';
+  String get reviews => 'reviews';
 
   @override
   String get book_now => 'Book now';
 
   @override
-  String get more_details => 'More Details';
+  String get more_details => 'More details';
 
   @override
   String get summary => 'Summary';
@@ -181,7 +185,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get location => 'Location';
 
   @override
-  String get price => 'Prcie';
+  String get price => 'Price';
 
   @override
   String get room_photo => 'Photo';
@@ -193,7 +197,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reply => 'Reply';
 
   @override
-  String get my_trips => 'My Trip';
+  String get my_trips => 'My trips';
 
   @override
   String get upcoming => 'Upcoming';
@@ -202,19 +206,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get finished => 'Finished';
 
   @override
-  String get favorites => 'Favorites';
+  String get favorites => 'Saved';
 
   @override
-  String get price_text => 'price (for 1 night)';
+  String get price_text => 'Price';
 
   @override
-  String get popular_filter => 'Popular filter';
+  String get popular_filter => 'Popular filters';
 
   @override
-  String get distance_from_city => 'Distance from city center';
+  String get distance_from_city => 'Distance from town centre';
 
   @override
-  String get type_of_accommodation => 'Type of Accommodation';
+  String get type_of_accommodation => 'Type of stay';
 
   @override
   String get apply_text => 'Apply';
@@ -226,19 +230,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get home_text => 'Home';
 
   @override
-  String get free_breakfast => 'Free Breakfast';
+  String get free_breakfast => 'Breakfast included';
 
   @override
-  String get free_Parking => 'Free Parking';
+  String get free_Parking => 'Free parking';
 
   @override
   String get pool_text => 'Pool';
 
   @override
-  String get pet_friendlly => 'Pet Friendlly';
+  String get pet_friendlly => 'Pet friendly';
 
   @override
-  String get free_wifi => 'Free Wifi';
+  String get free_wifi => 'Free Wi-Fi';
 
   @override
   String get less_than => 'Less than';
@@ -250,19 +254,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get amanda_text => 'Amanda';
 
   @override
-  String get view_edit => 'View and Edit profile';
+  String get view_edit => 'View and edit profile';
 
   @override
-  String get edit_profile => 'Edit Profile';
+  String get edit_profile => 'Edit profile';
 
   @override
-  String get username_text => 'UserName';
+  String get username_text => 'Username';
 
   @override
   String get phone => 'Phone';
 
   @override
-  String get date_of_birth => 'Date of Birth';
+  String get date_of_birth => 'Date of birth';
 
   @override
   String get address_text => 'Address';
@@ -271,80 +275,80 @@ class AppLocalizationsEn extends AppLocalizations {
   String get mail_text => 'Email';
 
   @override
-  String get change_password => 'Change Password';
+  String get change_password => 'Change password';
 
   @override
   String get enter_your_new_password =>
       'Enter your new password and confirm your password';
 
   @override
-  String get new_password => 'New Password';
+  String get new_password => 'New password';
 
   @override
-  String get confirm_password => 'Confirm Password';
+  String get confirm_password => 'Confirm password';
 
   @override
-  String get invite_friend => 'Invite Friend';
+  String get invite_friend => 'Invite a friend';
 
   @override
-  String get invite_your_friend => 'Invite your Friend';
+  String get invite_your_friend => 'Invite a friend';
 
   @override
   String get invite_friend_desc =>
-      'are you one of those who makes everything at the last moment';
+      'Share LuxSav with someone planning their next trip';
 
   @override
   String get share_text => 'Share';
 
   @override
-  String get credit_coupons => 'Crdit & Coupons';
+  String get credit_coupons => 'Credit & coupons';
 
   @override
-  String get help_center => 'Help Center';
+  String get help_center => 'Help centre';
 
   @override
-  String get how_can_help_you => 'How can we help';
+  String get how_can_help_you => 'How can we help?';
 
   @override
-  String get search_help_artical => 'Search help articales';
+  String get search_help_artical => 'Search help articles';
 
   @override
-  String get paying_for_a_reservation => 'Paying for a reservation';
+  String get paying_for_a_reservation => 'Paying for a booking';
 
   @override
-  String get trust_and_safety => 'Trust and Safety';
+  String get trust_and_safety => 'Trust and safety';
 
   @override
-  String get how_do_i => 'How do I cancel my rooms reservation?';
+  String get how_do_i => 'How do I cancel a booking?';
 
   @override
-  String get what_methods => 'What methods of payment does Roome accept?';
+  String get what_methods => 'Which payment methods does LuxSav accept?';
 
   @override
   String get i_m_a_guest_what =>
-      'I\'m a guest. What are some safety tips I can follow?';
+      'I’m travelling. What safety tips should I follow?';
 
   @override
-  String get when_am_i_charged => 'When am I charged for a reservation?';
+  String get when_am_i_charged => 'When am I charged for a booking?';
 
   @override
   String get how_do_i_edit => 'How do I edit or remove a payment method?';
 
   @override
   String get you_can_cancel =>
-      'You can cancel a reservation any time before Or during your trip. To cancel a reservation:';
+      'You can cancel a booking before or during your trip. To cancel:';
 
   @override
   String get go_to_trips_and_choose_yotr_trip =>
-      'GO to Trips and choose yotr trip Click Your home reservation Click Modify reservation';
+      'Go to Trips, choose your trip, then choose the booking you want to cancel.';
 
   @override
   String get you_be_taken_to =>
-      'You\'ll be taken to a new page where you either change or cancel your reservation. Click the Next button under Cancel reservation to Start the cancellation process.';
+      'You’ll see the options to change or cancel it. Choose cancel to start the cancellation.';
 
   @override
   String get if_you_cancel_your =>
-      'If you cancel, your refund Will be determined by your host\'r cancellation policy. We\'ll show your refund breakdown before you finalize the cancellation.';
+      'Your refund depends on the supplier’s cancellation policy. We’ll show you the refund before you confirm.';
 
   @override
   String get give_feedback => 'Give feedback';
@@ -353,34 +357,34 @@ class AppLocalizationsEn extends AppLocalizations {
   String get related_articles => 'Related articles';
 
   @override
-  String get can_i_change => 'Can I change a reservation as a guest?';
+  String get can_i_change => 'Can I change a booking?';
 
   @override
-  String get how_do_i_cancel => 'How do I cancel a reservation request?';
+  String get how_do_i_cancel => 'How do I cancel a booking request?';
 
   @override
-  String get what_is_the => 'What is the Resolution Center?';
+  String get what_is_the => 'How do I reach the LuxSav team?';
 
   @override
   String get payment_text => 'Payment';
 
   @override
-  String get setting_text => 'Setting';
+  String get setting_text => 'Settings';
 
   @override
   String get notifications => 'Notifications';
 
   @override
-  String get theme_mode => 'Theme Mode';
+  String get theme_mode => 'Appearance';
 
   @override
-  String get light => 'light';
+  String get light => 'Light';
 
   @override
-  String get dark => 'dark';
+  String get dark => 'Dark';
 
   @override
-  String get system => 'system';
+  String get system => 'System';
 
   @override
   String get fonts => 'Fonts';
@@ -407,13 +411,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get currency => 'Currency';
 
   @override
-  String get terms_of_services => 'Terms of Services';
+  String get terms_of_services => 'Terms of service';
 
   @override
   String get privacy_policy => 'Privacy Policy';
 
   @override
-  String get give_us_feedbacks => 'Give Us Feedbacks';
+  String get give_us_feedbacks => 'Give us feedback';
 
   @override
   String get log_out => 'Log out';
@@ -425,7 +429,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get room_selected => 'Room selected';
 
   @override
-  String get number_room => 'Number of Room';
+  String get number_room => 'Rooms & guests';
 
   @override
   String get people_data => 'People';
@@ -434,7 +438,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get room_data => 'Room';
 
   @override
-  String get choose_date => 'Choose Date';
+  String get choose_date => 'Dates';
 
   @override
   String get apply_date => 'Apply';
@@ -455,22 +459,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enter_new_password => 'enter new password';
 
   @override
-  String get enter_confirm_password => 'enter confirm password';
+  String get enter_confirm_password => 'confirm password';
 
   @override
   String get password_cannot_empty => 'Password cannot be empty';
 
   @override
   String get valid_new_password =>
-      'We cannot allow less than 6 lengths of the password, please enter a valid new password';
+      'Your new password must be at least 6 characters.';
 
   @override
-  String get valid_password =>
-      'We cannot allow less than 6 lengths of the password, please enter a valid password';
+  String get valid_password => 'Your password must be at least 6 characters.';
 
   @override
-  String get password_not_match =>
-      'Password does not match, please enter a valid password';
+  String get password_not_match => 'The passwords don’t match.';
 
   @override
   String get enter_your_email => 'enter your email';
@@ -480,7 +482,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get enter_valid_email =>
-      'Please enter a valid email address, abc@xyz.com';
+      'Please enter a valid email address, e.g. name@example.com';
 
   @override
   String get enter_password => 'enter password';
@@ -489,7 +491,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enter_first_name => 'Enter first name';
 
   @override
-  String get enter_last_name => 'Enter first name';
+  String get enter_last_name => 'Enter last name';
 
   @override
   String get first_name_cannot_empty => 'First Name cannot be empty';

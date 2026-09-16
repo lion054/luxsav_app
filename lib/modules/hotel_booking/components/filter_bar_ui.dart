@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luxsav_companion/models/hotel_list_data.dart';
 import 'package:luxsav_companion/constants/text_styles.dart';
 import 'package:luxsav_companion/constants/themes.dart';
 import 'package:luxsav_companion/language/app_localizations.dart';
@@ -24,7 +25,10 @@ class FilterBarUI extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("530", style: TextStyles(context).regular()),
+                  child: Text(
+                    "${HotelListData.hotelList.length}",
+                    style: TextStyles(context).regular(),
+                  ),
                 ),
                 Expanded(
                   child: Padding(

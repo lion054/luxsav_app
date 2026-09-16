@@ -190,10 +190,10 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
               child: CommonCard(
                 color: AppTheme.backgroundColor,
                 radius: 36,
-                child: const CommonSearchBar(
+                child: CommonSearchBar(
                   enabled: true,
                   ishsow: false,
-                  text: "London...",
+                  text: Loc.alized.where_are_you_going,
                 ),
               ),
             ),

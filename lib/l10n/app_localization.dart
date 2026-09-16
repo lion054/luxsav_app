@@ -105,13 +105,13 @@ abstract class AppLocalizations {
   /// No description provided for @best_hotel_deals.
   ///
   /// In en, this message translates to:
-  /// **'Best hotel deals for your holiday'**
+  /// **'The trip that looks after itself'**
   String get best_hotel_deals;
 
   /// No description provided for @already_have_account.
   ///
   /// In en, this message translates to:
-  /// **'Already have account? Log in'**
+  /// **'Already have an account? Log in'**
   String get already_have_account;
 
   /// No description provided for @get_started.
@@ -123,37 +123,43 @@ abstract class AppLocalizations {
   /// No description provided for @plan_your_trips.
   ///
   /// In en, this message translates to:
-  /// **'Plan your trips'**
+  /// **'Plan with Tanova'**
   String get plan_your_trips;
 
   /// No description provided for @book_one_of_your.
   ///
   /// In en, this message translates to:
-  /// **'book one of your unique hotel to\nescape the ordinary'**
+  /// **'Tell Tanova where, when and who’s coming,\nand it builds the whole trip around you'**
   String get book_one_of_your;
 
   /// No description provided for @find_best_deals.
   ///
   /// In en, this message translates to:
-  /// **'Find best deals'**
+  /// **'Stays and experiences'**
   String get find_best_deals;
 
   /// No description provided for @find_deals_for_any.
   ///
   /// In en, this message translates to:
-  /// **'Find deals for any season from cosy\ncountry homes to city flats'**
+  /// **'Handpicked lodges, day trips and adventures,\nfrom Victoria Falls to Zanzibar'**
   String get find_deals_for_any;
 
   /// No description provided for @best_travelling_all_time.
   ///
   /// In en, this message translates to:
-  /// **'Best travelling all time'**
+  /// **'Your trip, day by day'**
   String get best_travelling_all_time;
+
+  /// No description provided for @trip_day_by_day_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Every booking, voucher and pickup time\nin one place, even with no signal'**
+  String get trip_day_by_day_desc;
 
   /// No description provided for @login.
   ///
   /// In en, this message translates to:
-  /// **'Login'**
+  /// **'Log in'**
   String get login;
 
   /// No description provided for @create_account.
@@ -183,13 +189,13 @@ abstract class AppLocalizations {
   /// No description provided for @forgot_your_password.
   ///
   /// In en, this message translates to:
-  /// **'Forgot your Password?'**
+  /// **'Forgot your password?'**
   String get forgot_your_password;
 
   /// No description provided for @resend_email_link.
   ///
   /// In en, this message translates to:
-  /// **'Enter your email to receive an email to reset your password'**
+  /// **'Enter your email and we’ll send you a link to reset your password'**
   String get resend_email_link;
 
   /// No description provided for @send.
@@ -219,7 +225,7 @@ abstract class AppLocalizations {
   /// No description provided for @terms_agreed.
   ///
   /// In en, this message translates to:
-  /// **'By Signing up,you agreed with our terms of\n Services and privacy policy'**
+  /// **'By signing up, you agree to our terms of\nservice and privacy policy'**
   String get terms_agreed;
 
   /// No description provided for @explore.
@@ -243,7 +249,7 @@ abstract class AppLocalizations {
   /// No description provided for @where_are_you_going.
   ///
   /// In en, this message translates to:
-  /// **'Where are you going?'**
+  /// **'Where would you like to go?'**
   String get where_are_you_going;
 
   /// No description provided for @search_hotel.
@@ -261,7 +267,7 @@ abstract class AppLocalizations {
   /// No description provided for @backpacker_data.
   ///
   /// In en, this message translates to:
-  /// **'Backpacker'**
+  /// **'Backpackers'**
   String get backpacker_data;
 
   /// No description provided for @resort_data.
@@ -276,10 +282,10 @@ abstract class AppLocalizations {
   /// **'Villa'**
   String get villa_data;
 
-  /// No description provided for @apartment.
+  /// Stay type. Shown as "Lodge", which LuxSav sells; apartments are not offered.
   ///
   /// In en, this message translates to:
-  /// **'Apartment'**
+  /// **'Lodge'**
   String get apartment;
 
   /// No description provided for @guest_house.
@@ -288,28 +294,28 @@ abstract class AppLocalizations {
   /// **'Guest house'**
   String get guest_house;
 
-  /// No description provided for @motel.
+  /// Stay type. LuxSav has no motels; this slot is shown as "Tented camp".
   ///
   /// In en, this message translates to:
-  /// **'Motel'**
+  /// **'Tented camp'**
   String get motel;
 
-  /// No description provided for @accommodation.
+  /// Stay type. Shown as "Cottage".
   ///
   /// In en, this message translates to:
-  /// **'Accommodation'**
+  /// **'Cottage'**
   String get accommodation;
 
   /// No description provided for @bed_breakfast.
   ///
   /// In en, this message translates to:
-  /// **'Bed & Breakfast'**
+  /// **'Bed & breakfast'**
   String get bed_breakfast;
 
   /// No description provided for @last_search.
   ///
   /// In en, this message translates to:
-  /// **'Last searches'**
+  /// **'Recent searches'**
   String get last_search;
 
   /// No description provided for @clear_all.
@@ -327,37 +333,37 @@ abstract class AppLocalizations {
   /// No description provided for @five_star.
   ///
   /// In en, this message translates to:
-  /// **'Extraordinary five-star\noutdoor activites'**
+  /// **'Handpicked experiences'**
   String get five_star;
 
   /// No description provided for @view_hotel.
   ///
   /// In en, this message translates to:
-  /// **'View Hotel'**
+  /// **'Explore'**
   String get view_hotel;
 
   /// No description provided for @hotel_found.
   ///
   /// In en, this message translates to:
-  /// **'Hotel Found'**
+  /// **'results'**
   String get hotel_found;
 
   /// No description provided for @filtter.
   ///
   /// In en, this message translates to:
-  /// **'Filtter'**
+  /// **'Filter'**
   String get filtter;
 
   /// No description provided for @popular_destination.
   ///
   /// In en, this message translates to:
-  /// **'Popular Destination'**
+  /// **'Destinations'**
   String get popular_destination;
 
   /// No description provided for @best_deal.
   ///
   /// In en, this message translates to:
-  /// **'Best Deals'**
+  /// **'Handpicked for you'**
   String get best_deal;
 
   /// No description provided for @view_all.
@@ -369,7 +375,7 @@ abstract class AppLocalizations {
   /// No description provided for @km_to_city.
   ///
   /// In en, this message translates to:
-  /// **'km to city'**
+  /// **'km to town centre'**
   String get km_to_city;
 
   /// No description provided for @per_night.
@@ -381,7 +387,7 @@ abstract class AppLocalizations {
   /// No description provided for @reviews.
   ///
   /// In en, this message translates to:
-  /// **'Reviews'**
+  /// **'reviews'**
   String get reviews;
 
   /// No description provided for @book_now.
@@ -393,7 +399,7 @@ abstract class AppLocalizations {
   /// No description provided for @more_details.
   ///
   /// In en, this message translates to:
-  /// **'More Details'**
+  /// **'More details'**
   String get more_details;
 
   /// No description provided for @summary.
@@ -441,7 +447,7 @@ abstract class AppLocalizations {
   /// No description provided for @price.
   ///
   /// In en, this message translates to:
-  /// **'Prcie'**
+  /// **'Price'**
   String get price;
 
   /// No description provided for @room_photo.
@@ -465,7 +471,7 @@ abstract class AppLocalizations {
   /// No description provided for @my_trips.
   ///
   /// In en, this message translates to:
-  /// **'My Trip'**
+  /// **'My trips'**
   String get my_trips;
 
   /// No description provided for @upcoming.
@@ -483,31 +489,31 @@ abstract class AppLocalizations {
   /// No description provided for @favorites.
   ///
   /// In en, this message translates to:
-  /// **'Favorites'**
+  /// **'Saved'**
   String get favorites;
 
   /// No description provided for @price_text.
   ///
   /// In en, this message translates to:
-  /// **'price (for 1 night)'**
+  /// **'Price'**
   String get price_text;
 
   /// No description provided for @popular_filter.
   ///
   /// In en, this message translates to:
-  /// **'Popular filter'**
+  /// **'Popular filters'**
   String get popular_filter;
 
   /// No description provided for @distance_from_city.
   ///
   /// In en, this message translates to:
-  /// **'Distance from city center'**
+  /// **'Distance from town centre'**
   String get distance_from_city;
 
   /// No description provided for @type_of_accommodation.
   ///
   /// In en, this message translates to:
-  /// **'Type of Accommodation'**
+  /// **'Type of stay'**
   String get type_of_accommodation;
 
   /// No description provided for @apply_text.
@@ -531,13 +537,13 @@ abstract class AppLocalizations {
   /// No description provided for @free_breakfast.
   ///
   /// In en, this message translates to:
-  /// **'Free Breakfast'**
+  /// **'Breakfast included'**
   String get free_breakfast;
 
   /// No description provided for @free_Parking.
   ///
   /// In en, this message translates to:
-  /// **'Free Parking'**
+  /// **'Free parking'**
   String get free_Parking;
 
   /// No description provided for @pool_text.
@@ -549,13 +555,13 @@ abstract class AppLocalizations {
   /// No description provided for @pet_friendlly.
   ///
   /// In en, this message translates to:
-  /// **'Pet Friendlly'**
+  /// **'Pet friendly'**
   String get pet_friendlly;
 
   /// No description provided for @free_wifi.
   ///
   /// In en, this message translates to:
-  /// **'Free Wifi'**
+  /// **'Free Wi-Fi'**
   String get free_wifi;
 
   /// No description provided for @less_than.
@@ -579,19 +585,19 @@ abstract class AppLocalizations {
   /// No description provided for @view_edit.
   ///
   /// In en, this message translates to:
-  /// **'View and Edit profile'**
+  /// **'View and edit profile'**
   String get view_edit;
 
   /// No description provided for @edit_profile.
   ///
   /// In en, this message translates to:
-  /// **'Edit Profile'**
+  /// **'Edit profile'**
   String get edit_profile;
 
   /// No description provided for @username_text.
   ///
   /// In en, this message translates to:
-  /// **'UserName'**
+  /// **'Username'**
   String get username_text;
 
   /// No description provided for @phone.
@@ -603,7 +609,7 @@ abstract class AppLocalizations {
   /// No description provided for @date_of_birth.
   ///
   /// In en, this message translates to:
-  /// **'Date of Birth'**
+  /// **'Date of birth'**
   String get date_of_birth;
 
   /// No description provided for @address_text.
@@ -621,7 +627,7 @@ abstract class AppLocalizations {
   /// No description provided for @change_password.
   ///
   /// In en, this message translates to:
-  /// **'Change Password'**
+  /// **'Change password'**
   String get change_password;
 
   /// No description provided for @enter_your_new_password.
@@ -633,31 +639,31 @@ abstract class AppLocalizations {
   /// No description provided for @new_password.
   ///
   /// In en, this message translates to:
-  /// **'New Password'**
+  /// **'New password'**
   String get new_password;
 
   /// No description provided for @confirm_password.
   ///
   /// In en, this message translates to:
-  /// **'Confirm Password'**
+  /// **'Confirm password'**
   String get confirm_password;
 
   /// No description provided for @invite_friend.
   ///
   /// In en, this message translates to:
-  /// **'Invite Friend'**
+  /// **'Invite a friend'**
   String get invite_friend;
 
   /// No description provided for @invite_your_friend.
   ///
   /// In en, this message translates to:
-  /// **'Invite your Friend'**
+  /// **'Invite a friend'**
   String get invite_your_friend;
 
   /// No description provided for @invite_friend_desc.
   ///
   /// In en, this message translates to:
-  /// **'are you one of those who makes everything at the last moment'**
+  /// **'Share LuxSav with someone planning their next trip'**
   String get invite_friend_desc;
 
   /// No description provided for @share_text.
@@ -669,61 +675,61 @@ abstract class AppLocalizations {
   /// No description provided for @credit_coupons.
   ///
   /// In en, this message translates to:
-  /// **'Crdit & Coupons'**
+  /// **'Credit & coupons'**
   String get credit_coupons;
 
   /// No description provided for @help_center.
   ///
   /// In en, this message translates to:
-  /// **'Help Center'**
+  /// **'Help centre'**
   String get help_center;
 
   /// No description provided for @how_can_help_you.
   ///
   /// In en, this message translates to:
-  /// **'How can we help'**
+  /// **'How can we help?'**
   String get how_can_help_you;
 
   /// No description provided for @search_help_artical.
   ///
   /// In en, this message translates to:
-  /// **'Search help articales'**
+  /// **'Search help articles'**
   String get search_help_artical;
 
   /// No description provided for @paying_for_a_reservation.
   ///
   /// In en, this message translates to:
-  /// **'Paying for a reservation'**
+  /// **'Paying for a booking'**
   String get paying_for_a_reservation;
 
   /// No description provided for @trust_and_safety.
   ///
   /// In en, this message translates to:
-  /// **'Trust and Safety'**
+  /// **'Trust and safety'**
   String get trust_and_safety;
 
   /// No description provided for @how_do_i.
   ///
   /// In en, this message translates to:
-  /// **'How do I cancel my rooms reservation?'**
+  /// **'How do I cancel a booking?'**
   String get how_do_i;
 
   /// No description provided for @what_methods.
   ///
   /// In en, this message translates to:
-  /// **'What methods of payment does Roome accept?'**
+  /// **'Which payment methods does LuxSav accept?'**
   String get what_methods;
 
   /// No description provided for @i_m_a_guest_what.
   ///
   /// In en, this message translates to:
-  /// **'I\'m a guest. What are some safety tips I can follow?'**
+  /// **'I’m travelling. What safety tips should I follow?'**
   String get i_m_a_guest_what;
 
   /// No description provided for @when_am_i_charged.
   ///
   /// In en, this message translates to:
-  /// **'When am I charged for a reservation?'**
+  /// **'When am I charged for a booking?'**
   String get when_am_i_charged;
 
   /// No description provided for @how_do_i_edit.
@@ -735,25 +741,25 @@ abstract class AppLocalizations {
   /// No description provided for @you_can_cancel.
   ///
   /// In en, this message translates to:
-  /// **'You can cancel a reservation any time before Or during your trip. To cancel a reservation:'**
+  /// **'You can cancel a booking before or during your trip. To cancel:'**
   String get you_can_cancel;
 
   /// No description provided for @go_to_trips_and_choose_yotr_trip.
   ///
   /// In en, this message translates to:
-  /// **'GO to Trips and choose yotr trip Click Your home reservation Click Modify reservation'**
+  /// **'Go to Trips, choose your trip, then choose the booking you want to cancel.'**
   String get go_to_trips_and_choose_yotr_trip;
 
   /// No description provided for @you_be_taken_to.
   ///
   /// In en, this message translates to:
-  /// **'You\'ll be taken to a new page where you either change or cancel your reservation. Click the Next button under Cancel reservation to Start the cancellation process.'**
+  /// **'You’ll see the options to change or cancel it. Choose cancel to start the cancellation.'**
   String get you_be_taken_to;
 
   /// No description provided for @if_you_cancel_your.
   ///
   /// In en, this message translates to:
-  /// **'If you cancel, your refund Will be determined by your host\'r cancellation policy. We\'ll show your refund breakdown before you finalize the cancellation.'**
+  /// **'Your refund depends on the supplier’s cancellation policy. We’ll show you the refund before you confirm.'**
   String get if_you_cancel_your;
 
   /// No description provided for @give_feedback.
@@ -771,19 +777,19 @@ abstract class AppLocalizations {
   /// No description provided for @can_i_change.
   ///
   /// In en, this message translates to:
-  /// **'Can I change a reservation as a guest?'**
+  /// **'Can I change a booking?'**
   String get can_i_change;
 
   /// No description provided for @how_do_i_cancel.
   ///
   /// In en, this message translates to:
-  /// **'How do I cancel a reservation request?'**
+  /// **'How do I cancel a booking request?'**
   String get how_do_i_cancel;
 
   /// No description provided for @what_is_the.
   ///
   /// In en, this message translates to:
-  /// **'What is the Resolution Center?'**
+  /// **'How do I reach the LuxSav team?'**
   String get what_is_the;
 
   /// No description provided for @payment_text.
@@ -795,7 +801,7 @@ abstract class AppLocalizations {
   /// No description provided for @setting_text.
   ///
   /// In en, this message translates to:
-  /// **'Setting'**
+  /// **'Settings'**
   String get setting_text;
 
   /// No description provided for @notifications.
@@ -807,25 +813,25 @@ abstract class AppLocalizations {
   /// No description provided for @theme_mode.
   ///
   /// In en, this message translates to:
-  /// **'Theme Mode'**
+  /// **'Appearance'**
   String get theme_mode;
 
   /// No description provided for @light.
   ///
   /// In en, this message translates to:
-  /// **'light'**
+  /// **'Light'**
   String get light;
 
   /// No description provided for @dark.
   ///
   /// In en, this message translates to:
-  /// **'dark'**
+  /// **'Dark'**
   String get dark;
 
   /// No description provided for @system.
   ///
   /// In en, this message translates to:
-  /// **'system'**
+  /// **'System'**
   String get system;
 
   /// No description provided for @fonts.
@@ -879,7 +885,7 @@ abstract class AppLocalizations {
   /// No description provided for @terms_of_services.
   ///
   /// In en, this message translates to:
-  /// **'Terms of Services'**
+  /// **'Terms of service'**
   String get terms_of_services;
 
   /// No description provided for @privacy_policy.
@@ -891,7 +897,7 @@ abstract class AppLocalizations {
   /// No description provided for @give_us_feedbacks.
   ///
   /// In en, this message translates to:
-  /// **'Give Us Feedbacks'**
+  /// **'Give us feedback'**
   String get give_us_feedbacks;
 
   /// No description provided for @log_out.
@@ -915,7 +921,7 @@ abstract class AppLocalizations {
   /// No description provided for @number_room.
   ///
   /// In en, this message translates to:
-  /// **'Number of Room'**
+  /// **'Rooms & guests'**
   String get number_room;
 
   /// No description provided for @people_data.
@@ -933,7 +939,7 @@ abstract class AppLocalizations {
   /// No description provided for @choose_date.
   ///
   /// In en, this message translates to:
-  /// **'Choose Date'**
+  /// **'Dates'**
   String get choose_date;
 
   /// No description provided for @apply_date.
@@ -975,7 +981,7 @@ abstract class AppLocalizations {
   /// No description provided for @enter_confirm_password.
   ///
   /// In en, this message translates to:
-  /// **'enter confirm password'**
+  /// **'confirm password'**
   String get enter_confirm_password;
 
   /// No description provided for @password_cannot_empty.
@@ -987,19 +993,19 @@ abstract class AppLocalizations {
   /// No description provided for @valid_new_password.
   ///
   /// In en, this message translates to:
-  /// **'We cannot allow less than 6 lengths of the password, please enter a valid new password'**
+  /// **'Your new password must be at least 6 characters.'**
   String get valid_new_password;
 
   /// No description provided for @valid_password.
   ///
   /// In en, this message translates to:
-  /// **'We cannot allow less than 6 lengths of the password, please enter a valid password'**
+  /// **'Your password must be at least 6 characters.'**
   String get valid_password;
 
   /// No description provided for @password_not_match.
   ///
   /// In en, this message translates to:
-  /// **'Password does not match, please enter a valid password'**
+  /// **'The passwords don’t match.'**
   String get password_not_match;
 
   /// No description provided for @enter_your_email.
@@ -1017,7 +1023,7 @@ abstract class AppLocalizations {
   /// No description provided for @enter_valid_email.
   ///
   /// In en, this message translates to:
-  /// **'Please enter a valid email address, abc@xyz.com'**
+  /// **'Please enter a valid email address, e.g. name@example.com'**
   String get enter_valid_email;
 
   /// No description provided for @enter_password.
@@ -1035,7 +1041,7 @@ abstract class AppLocalizations {
   /// No description provided for @enter_last_name.
   ///
   /// In en, this message translates to:
-  /// **'Enter first name'**
+  /// **'Enter last name'**
   String get enter_last_name;
 
   /// No description provided for @first_name_cannot_empty.

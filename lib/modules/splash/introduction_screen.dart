@@ -43,7 +43,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
     pageViewModelData.add(
       PageViewData(
         titleText: Loc.alized.best_travelling_all_time,
-        subText: Loc.alized.find_deals_for_any,
+        subText: Loc.alized.trip_day_by_day_desc,
         assetsImage: Localfiles.introduction3,
       ),
     );

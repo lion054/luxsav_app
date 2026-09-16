@@ -138,7 +138,7 @@ class HotelListView extends StatelessWidget {
                                         children: <Widget>[
                                           Helper.ratingStar(),
                                           Text(
-                                            " ${hotelData.reviews}",
+                                            " ${hotelData.reviews} ",
                                             style: TextStyles(
                                               context,
                                             ).description(),

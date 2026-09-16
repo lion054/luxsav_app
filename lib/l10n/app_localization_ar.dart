@@ -34,6 +34,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get best_travelling_all_time => 'أفضل السفر طوال الوقت';
 
   @override
+  String get trip_day_by_day_desc =>
+      'Every booking, voucher and pickup time\nin one place, even with no signal';
+
+  @override
   String get login => 'تسجيل الدخول';
 
   @override
