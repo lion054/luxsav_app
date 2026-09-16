@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LuxSav Companion — Vision &amp; Build Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root{
+    /* luxsav.com tokens — public/css/tsoka/tsoka.css */
+    --green:#1F4D3A; --green2:#2E6B53; --green9:#173B2D;
+    --gold:#D6B87A; --goldText:#7A5C28; --tint:#F4EEDF;
+    --ivory:#F6F5F1; --cream:#EAE7E0; --line:#D9D9D9;
+    --ink:#1C1C1C; --ink7:#3A3A36; --ink5:#6B6A64; --ink3:#A3A19A;
+    --ok:#4F7A5C; --bad:#A24A3F;
+  }
+  *{ box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  html,body{ margin:0; padding:0; }
+  body{ font-family:'Inter',Helvetica,Arial,sans-serif; color:var(--ink); font-size:8.9pt; line-height:1.5; }
+  .page{ width:210mm; height:297mm; padding:17mm 16mm 16mm; position:relative; overflow:hidden;
+         page-break-after:always; background:#fff; }
+  .page:last-child{ page-break-after:auto; }
+  .foot{ position:absolute; left:16mm; right:16mm; bottom:8mm; display:flex; justify-content:space-between;
+         font-size:6.8pt; color:var(--ink3); border-top:1px solid var(--line); padding-top:3mm; }
+  .eyebrow{ font-size:7pt; letter-spacing:1.8px; text-transform:uppercase; font-weight:600; color:var(--goldText); }
+  h1,h2,h3{ font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; letter-spacing:-.2px; margin:0; }
+  h2{ font-size:21pt; line-height:1.14; margin:2mm 0 4mm; }
+  h3{ font-size:12.5pt; line-height:1.2; }
+  p{ margin:0 0 3mm; }
+  .lede{ font-size:10.4pt; line-height:1.55; color:var(--ink7); }
+  code{ font-family:Menlo,Consolas,monospace; font-size:7.6pt; background:var(--cream); padding:0 3px; border-radius:3px; }
+
+  /* cover */
+  .cover{ background:var(--green); color:var(--ivory); padding:24mm 20mm; }
+  .cover .eyebrow{ color:var(--gold); }
+  .cover h1{ font-size:44pt; line-height:1.04; margin:8mm 0 7mm; color:var(--ivory); letter-spacing:-.6px; }
+  .cover h1 em{ font-style:italic; color:var(--gold); }
+  .cover .sub{ font-size:12pt; line-height:1.55; color:#CFDDD5; max-width:140mm; }
+  .cover .rule{ width:22mm; height:2px; background:var(--gold); margin:10mm 0 0; }
+  .cover .bottom{ position:absolute; left:20mm; right:20mm; bottom:20mm; display:flex; justify-content:space-between;
+                  align-items:flex-end; font-size:7.6pt; color:#A9C2B6; }
+  .cover .line{ position:absolute; left:20mm; right:20mm; top:150mm; font-family:'Cormorant Garamond',serif; font-style:italic;
+                font-size:17pt; color:var(--gold); line-height:1.35; border-left:2px solid var(--gold); padding-left:6mm; }
+
+  /* idea page */
+  .shift{ display:grid; grid-template-columns:1fr 7mm 1fr; align-items:center; padding:2.6mm 0; border-bottom:1px solid var(--line); }
+  .shift .from{ color:var(--ink5); } .shift .arrow{ color:var(--goldText); text-align:center; font-size:11pt; }
+  .shift .to{ font-weight:600; }
+  .stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:3mm; margin:4mm 0 3mm; }
+  .stat{ border:1px solid var(--line); border-radius:3mm; padding:3.5mm; background:var(--ivory); }
+  .stat .n{ font-family:'Cormorant Garamond',serif; font-size:21pt; color:var(--green); line-height:1; }
+  .stat .l{ font-size:7.3pt; color:var(--ink7); margin-top:1.8mm; line-height:1.35; }
+  .quote{ font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15pt; line-height:1.3; color:var(--ink);
+          border-left:3px solid var(--gold); padding:1mm 0 1mm 5mm; margin:5mm 0; }
+
+  /* signatures */
+  .sig{ display:grid; grid-template-columns:1fr 1fr; gap:3.5mm; margin-top:4mm; }
+  .card{ border:1px solid var(--line); border-radius:3.5mm; padding:4.5mm; background:#fff; }
+  .card .num{ font-family:'Cormorant Garamond',serif; font-size:9pt; color:var(--goldText); font-weight:600; }
+  .card h3{ margin:1mm 0 2mm; }
+  .card .one{ font-size:9.2pt; line-height:1.45; color:var(--ink7); min-height:19mm; }
+  .card .on{ margin-top:2.5mm; padding-top:2.5mm; border-top:1px dashed var(--line); font-size:7.2pt; color:var(--ink5); }
+  .card .on b{ color:var(--green); font-weight:600; }
+  .band{ margin-top:4mm; background:var(--tint); border:1px solid rgba(214,184,122,.7); border-radius:3.5mm;
+         padding:4mm 5mm; display:flex; gap:5mm; align-items:center; }
+  .band .t{ font-family:'Cormorant Garamond',serif; font-size:12pt; white-space:nowrap; color:var(--green); }
+
+  /* phones */
+  .phones{ display:grid; grid-template-columns:repeat(3,1fr); gap:5mm; margin-top:5mm; }
+  .phone{ width:100%; height:122mm; border:2.4mm solid #1C1C1C; border-radius:8mm; background:var(--ivory);
+          overflow:hidden; position:relative; }
+  .phone .bar{ display:flex; justify-content:space-between; font-size:6pt; font-weight:600; padding:2.4mm 4mm 1mm; color:var(--ink7); }
+  .phone .scr{ padding:1mm 3.2mm; font-size:6.6pt; line-height:1.42; }
+  .phone .ey{ font-size:5.6pt; letter-spacing:.8px; text-transform:uppercase; color:var(--ink5); font-weight:600; }
+  .phone .ttl{ font-family:'Cormorant Garamond',serif; font-size:12pt; line-height:1.1; margin:.6mm 0 2.4mm; }
+  .pc{ background:#fff; border:1px solid var(--line); border-radius:2.6mm; padding:2.6mm; margin-bottom:2mm; }
+  .pc.acc{ background:var(--tint); border-color:rgba(214,184,122,.8); }
+  .pc .h{ font-weight:600; font-size:7pt; margin-bottom:.8mm; }
+  .pc .h .tv{ color:var(--goldText); }
+  .pc .m{ color:var(--ink5); font-size:6.1pt; }
+  .btns{ display:flex; gap:1.6mm; margin-top:2mm; }
+  .b{ flex:1; text-align:center; border-radius:1.6mm; padding:1.3mm 0; font-size:5.6pt; font-weight:600;
+      letter-spacing:.6px; text-transform:uppercase; border:1px solid var(--line); background:#fff; }
+  .b.p{ background:var(--green); color:#fff; border-color:var(--green); }
+  .tl{ display:grid; grid-template-columns:9mm 1fr; gap:1.4mm; padding:1.4mm 0; border-bottom:1px solid var(--line); font-size:6.3pt; }
+  .tl .tm{ color:var(--ink5); font-weight:600; } .tl .x{ color:var(--goldText); font-weight:600; }
+  .pr{ display:flex; justify-content:space-between; padding:1.1mm 0; font-size:6.2pt; border-bottom:1px dotted var(--line); }
+  .pr .k{ color:var(--ink5); } .pr.tot{ border:0; font-weight:700; font-size:8pt; padding-top:2mm; }
+  .tab{ position:absolute; left:0; right:0; bottom:0; height:10mm; background:#fff; border-top:1px solid var(--line);
+        display:flex; justify-content:space-around; align-items:center; font-size:5.4pt; color:var(--ink3); }
+  .tab .fab{ width:7mm; height:7mm; border-radius:50%; background:var(--gold); margin-top:-4mm; border:1mm solid #fff; }
+  .tab .act{ color:var(--green); font-weight:600; }
+  .cap{ margin-top:3mm; }
+  .cap .n{ font-family:'Cormorant Garamond',serif; font-size:10.5pt; color:var(--green); }
+  .cap p{ font-size:7.8pt; color:var(--ink7); margin-top:1mm; }
+
+  /* deep dives */
+  .dive{ border-top:2px solid var(--green); padding-top:4mm; margin-bottom:6mm; }
+  .dive .head{ display:flex; align-items:baseline; gap:4mm; }
+  .dive .idx{ font-family:'Cormorant Garamond',serif; font-size:26pt; color:var(--goldText); line-height:.9; }
+  .dive h3{ font-size:17pt; }
+  .dive .tag{ font-size:8.6pt; color:var(--ink5); margin:1mm 0 3mm; }
+  .moment{ background:var(--green); color:var(--ivory); border-radius:3.5mm; padding:4mm 5mm; margin:3mm 0 3.5mm;
+           font-family:'Cormorant Garamond',serif; font-size:10.2pt; line-height:1.5; }
+  .moment .lab{ font-family:'Inter',sans-serif; font-size:6.5pt; letter-spacing:1.4px; text-transform:uppercase; color:var(--gold); font-weight:600; display:block; margin-bottom:1.5mm; }
+  .q4{ display:grid; grid-template-columns:1fr 1fr; gap:3mm 6mm; }
+  .q4 .k{ font-size:6.8pt; letter-spacing:1.1px; text-transform:uppercase; font-weight:700; color:var(--green); margin-bottom:1mm; }
+  .q4 .k.lim{ color:var(--bad); }
+  .q4 p{ font-size:8.3pt; line-height:1.48; margin:0; color:var(--ink7); }
+
+  /* tables */
+  table{ width:100%; border-collapse:collapse; font-size:8pt; margin:3mm 0; }
+  th{ text-align:left; font-size:6.8pt; letter-spacing:.8px; text-transform:uppercase; color:#fff;
+      background:var(--green); padding:2.2mm 2.6mm; font-weight:600; }
+  td{ padding:2.3mm 2.6mm; border-bottom:1px solid var(--line); vertical-align:top; line-height:1.42; }
+  tr:nth-child(even) td{ background:var(--ivory); }
+  .pill{ display:inline-block; font-size:6.5pt; font-weight:600; padding:.3mm 2mm; border-radius:99px; white-space:nowrap; }
+  .kit{ background:#E1ECE5; color:var(--green); } .new{ background:var(--tint); color:var(--goldText); } .mix{ background:#EDE7F3; color:#6A5687; }
+  .none{ background:#F6E3E1; color:var(--bad); } .part{ background:#F5EBD6; color:#8A6420; }
+  .note{ border:1px solid var(--line); background:var(--ivory); border-radius:3mm; padding:3.5mm 4.5mm; margin:4mm 0; font-size:8.3pt; }
+  .note .t{ font-weight:700; margin-bottom:1mm; color:var(--green); }
+  .note.warn{ background:#FBF0EF; border-color:rgba(162,74,63,.3); } .note.warn .t{ color:var(--bad); }
+
+  /* architecture */
+  .arch{ margin-top:4mm; }
+  .layer{ border-radius:3mm; padding:3.2mm 4mm; margin-bottom:2.6mm; }
+  .layer .ln{ font-size:6.8pt; letter-spacing:1.2px; text-transform:uppercase; font-weight:700; margin-bottom:2mm; }
+  .l1{ background:var(--green); color:var(--ivory); } .l1 .ln{ color:var(--gold); }
+  .l2{ background:var(--cream); } .l3{ background:var(--ivory); border:1px solid var(--line); }
+  .boxes{ display:flex; flex-wrap:wrap; gap:1.8mm; }
+  .bx{ font-size:7.5pt; padding:1.6mm 2.6mm; border-radius:2mm; background:#fff; border:1px solid var(--line); color:var(--ink); }
+  .l1 .bx{ background:var(--green9); border-color:var(--green2); color:var(--ivory); }
+  .bx.nw{ border:1.3px dashed var(--goldText); }
+  .l1 .bx.nw{ border-color:var(--gold); }
+  .bx.ex{ border-left:3px solid var(--ok); }
+  .legend{ display:flex; gap:6mm; font-size:7.2pt; color:var(--ink5); margin:2mm 0 1mm; }
+  .legend span{ display:inline-flex; align-items:center; gap:1.6mm; }
+  .sw{ width:6mm; height:3.5mm; border-radius:1mm; background:#fff; border:1px solid var(--line); display:inline-block; }
+  .sw.nw{ border:1.3px dashed var(--goldText); } .sw.ex{ border-left:3px solid var(--ok); }
+  .down{ text-align:center; color:var(--ink3); font-size:9pt; line-height:1; margin:-1mm 0 1.2mm; }
+
+  /* codebase page */
+  .swatches{ display:grid; grid-template-columns:repeat(6,1fr); gap:2.4mm; margin:3mm 0; }
+  .swatch .chip{ height:13mm; border-radius:2mm; border:1px solid rgba(0,0,0,.08); }
+  .swatch .nm{ font-size:7.2pt; font-weight:600; margin-top:1.4mm; line-height:1.2; }
+  .swatch .hx{ font-family:Menlo,Consolas,monospace; font-size:6.6pt; color:var(--ink5); }
+  .swatch .rl{ font-size:6.6pt; color:var(--ink5); line-height:1.3; }
+  .typebox{ border:1px solid var(--line); border-radius:3mm; padding:3mm 4mm; background:#fff; }
+  .typebox .smp{ line-height:1.1; margin:1mm 0 1.2mm; }
+  .mini{ width:100%; border-collapse:collapse; font-size:7.6pt; margin:1.5mm 0 0; }
+  .mini td{ padding:1.7mm 2mm; border-bottom:1px solid var(--line); vertical-align:top; background:transparent !important; }
+  .mini td:first-child{ font-weight:600; width:30%; color:var(--green); }
+  .rules{ display:grid; grid-template-columns:repeat(3,1fr); gap:2.4mm; margin-top:2.4mm; }
+  .rule6{ background:var(--ivory); border:1px solid var(--line); border-radius:2.4mm; padding:2.4mm 3mm; font-size:7.6pt; line-height:1.38; }
+  .rule6 b{ display:block; color:var(--green); font-size:7.8pt; margin-bottom:.6mm; }
+
+  /* roadmap */
+  .ms{ display:grid; grid-template-columns:27mm 1fr; gap:4mm; padding:3.4mm 0; border-bottom:1px solid var(--line); }
+  .ms .wk{ font-size:6.8pt; letter-spacing:1px; text-transform:uppercase; color:var(--ink5); font-weight:600; }
+  .ms .mn{ font-family:'Cormorant Garamond',serif; font-size:17pt; color:var(--goldText); line-height:1; margin-top:1mm; }
+  .ms h3{ font-size:12pt; margin-bottom:1.4mm; }
+  .ms .bld{ font-size:8.1pt; color:var(--ink7); margin-bottom:2mm; }
+  .hand{ background:var(--tint); border-radius:2.4mm; padding:2.2mm 3mm; font-size:8.1pt; }
+  .hand b{ color:var(--green); }
+  .cols2{ display:grid; grid-template-columns:1.05fr .95fr; gap:7mm; }
+  ul.clean{ list-style:none; padding:0; margin:2mm 0; }
+  ul.clean li{ padding:2.2mm 0 2.2mm 5mm; border-bottom:1px solid var(--line); position:relative; font-size:8.3pt; }
+  ul.clean li:before{ content:''; position:absolute; left:0; top:3.8mm; width:2mm; height:2mm; border-radius:50%; background:var(--gold); }
+  .closer{ margin-top:6mm; background:var(--green); color:var(--ivory); border-radius:4mm; padding:8mm; text-align:center; }
+  .closer .l{ font-family:'Cormorant Garamond',serif; font-size:19pt; line-height:1.25; }
+  .closer .l em{ color:var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- ============ 1 COVER ============ -->
+<section class="page cover">
+  <div class="eyebrow">LuxSav &middot; Product vision &amp; build plan</div>
+  <h1>The trip that<br><em>looks after</em><br>itself.</h1>
+  <p class="sub">LuxSav Companion is a travel app that doesn't stop at checkout. It runs the journey — re-planning the day when things change, filling free time with experiences that genuinely fit, and showing the true price of everything, even where there is no signal.</p>
+  <div class="rule"></div>
+  <div class="line">Other apps stop at the sale.<br>LuxSav runs the trip.</div>
+  <div class="bottom">
+    <img src="file:///home/lionel/Documents/tsokatravel/luxsav/luxsav-gold.png" alt="LuxSav" style="height:13mm;display:block">
+    <div style="text-align:right">September 2026 &middot; Version 3.1<br>Corrects the brand typeface</div>
+  </div>
+</section>
+
+<!-- ============ 2 THE IDEA ============ -->
+<section class="page">
+  <div class="eyebrow">01 &middot; The idea</div>
+  <h2>Every travel app ends at checkout.<br>LuxSav starts there.</h2>
+  <p class="lede">Booking platforms compete at the moment of purchase — inventory, photos, price. After that the traveller is on their own with PDF vouchers, WhatsApp threads and a driver who may or may not be outside arrivals. The days that matter most, the ones actually spent travelling, belong to no one.</p>
+  <p class="lede">LuxSav Companion claims those days. The itinerary stops being a document and becomes a live object that knows the time, the weather, the party, the budget and the free hours — and acts on them.</p>
+
+  <div style="margin:5mm 0 2mm" class="eyebrow">Four shifts</div>
+  <div class="shift"><div class="from">A static itinerary, rebuilt by phone when plans break</div><div class="arrow">→</div><div class="to">A living day that re-plans itself</div></div>
+  <div class="shift"><div class="from">A catalogue the traveller has to search</div><div class="arrow">→</div><div class="to">Experiences sold into the traveller's actual free time</div></div>
+  <div class="shift"><div class="from">"From US$X per person", corrected on the invoice</div><div class="arrow">→</div><div class="to">The true all-in price for this exact party</div></div>
+  <div class="shift"><div class="from">An app that only talks to the traveller</div><div class="arrow">→</div><div class="to">A traveller and a lodge looking at the same trip</div></div>
+
+  <div class="quote">Book once. Then let the trip run itself.</div>
+
+  <div class="eyebrow">Why LuxSav is unusually well placed</div>
+  <div class="stats">
+    <div class="stat"><div class="n">1,449</div><div class="l">Itineraries already generated by Tanova, day by day, with time slots</div></div>
+    <div class="stat"><div class="n">248</div><div class="l">Live experiences, each with duration, part-of-day and party-size limits</div></div>
+    <div class="stat"><div class="n">32</div><div class="l">Supplier pricing models catalogued across 43 properties' 2027 rates</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">Shared platform linking LuxSav with its operator portal</div></div>
+  </div>
+  <p style="font-size:8.3pt;color:var(--ink5)">Most platforms would need to build these assets before they could attempt the features in this plan. LuxSav already has them — they are simply not yet connected to a traveller's phone.</p>
+
+  <div style="margin:6mm 0 2mm" class="eyebrow">Who wins</div>
+  <div class="stats" style="grid-template-columns:repeat(3,1fr)">
+    <div class="stat" style="background:#fff"><div class="n" style="font-size:12pt">The traveller</div><div class="l" style="font-size:8pt">Fewer surprises at the lodge, no anxiety at the border, and free time that becomes the best part of the trip instead of dead hours.</div></div>
+    <div class="stat" style="background:#fff"><div class="n" style="font-size:12pt">The lodge &amp; operator</div><div class="l" style="font-size:8pt">Late arrivals, dietary needs and changes known before the guest walks in — not discovered at the front desk.</div></div>
+    <div class="stat" style="background:#fff"><div class="n" style="font-size:12pt">LuxSav</div><div class="l" style="font-size:8pt">Revenue from time the guest has already paid to be in, a reason to open the app every day, and the context to sell the next trip.</div></div>
+  </div>
+
+  <div class="foot"><span>LuxSav Companion — Vision &amp; build plan</span><span>2</span></div>
+</section>
+
+<!-- ============ 3 SIX SIGNATURES ============ -->
+<section class="page">
+  <div class="eyebrow">02 &middot; What makes it LuxSav</div>
+  <h2>Six signature experiences</h2>
+  <p class="lede">A UI kit can give LuxSav a good-looking hotel app. None of these come in a kit. They are what a traveller will tell other travellers about — and what the industry will notice.</p>
+
+  <div class="sig">
+    <div class="card"><div class="num">01</div><h3>Living Itinerary</h3>
+      <div class="one">The day re-plans itself when a flight slips, rain rolls in or the group is running late — and asks the guest one question.</div>
+      <div class="on"><b>Built on</b> Tanova's day plans, which already carry duration and part-of-day for every item</div></div>
+    <div class="card"><div class="num">02</div><h3>Gap Commerce</h3>
+      <div class="one">A free afternoon becomes a one-tap experience that fits the hours, the party and the budget left.</div>
+      <div class="on"><b>Built on</b> live search by time window, party size and budget — already running on luxsav.com</div></div>
+    <div class="card"><div class="num">03</div><h3>True Price</h3>
+      <div class="one">Every quote is the real total for this party — levies, park fees, supplements and child rates included.</div>
+      <div class="on"><b>Built on</b> 32 pricing models already catalogued from supplier rate sheets</div></div>
+    <div class="card"><div class="num">04</div><h3>Safari Offline</h3>
+      <div class="one">The whole trip, vouchers, maps and Tanova's answers keep working in the bush, with no signal.</div>
+      <div class="on"><b>Built on</b> the trip already being one structured object, retrievable in a single request</div></div>
+    <div class="card"><div class="num">05</div><h3>Connected Camp</h3>
+      <div class="one">The lodge sees what the guest sees — arrival time, dietary needs, changes — the moment they happen.</div>
+      <div class="on"><b>Built on</b> LuxSav and its operator portal already sharing one platform</div></div>
+    <div class="card"><div class="num">06</div><h3>Border-Smart Journeys</h3>
+      <div class="one">Multi-country trips that know what each crossing needs, days before the guest reaches it.</div>
+      <div class="on"><b>Built on</b> itineraries that already span Victoria Falls, Chobe and beyond in one trip</div></div>
+  </div>
+
+  <div class="band">
+    <div class="t">Behind all six: Tanova</div>
+    <div style="font-size:8.4pt;color:var(--ink7)">The same concierge in the app and on WhatsApp — the channel travellers in the region already use every day — handing over to a human LuxSav expert with the whole trip in context.</div>
+  </div>
+
+  <div class="foot"><span>LuxSav Companion — Vision &amp; build plan</span><span>3</span></div>
+</section>
+
+<!-- ============ 4 THREE MOMENTS ============ -->
+<section class="page">
+  <div class="eyebrow">03 &middot; On the phone</div>
+  <h2>Three moments</h2>
+  <p class="lede">What a traveller actually sees, in the luxsav.com brand. The experiences and prices are real LuxSav inventory and 2027 supplier rates; the scenarios are illustrative.</p>
+
+  <div class="phones">
+    <div>
+      <div class="phone">
+        <div class="bar"><span>07:02</span><span>●●● ▮</span></div>
+        <div class="scr">
+          <div class="ey">Day 3 &middot; Chobe</div>
+          <div class="ttl">Today</div>
+          <div class="pc acc">
+            <div class="h"><span class="tv">✦</span> Tanova re-planned your morning</div>
+            <div class="m">Rain over Kasane until 07:15. Your game drive now leaves at 07:30 and breakfast moves to 06:45. The lodge already knows.</div>
+            <div class="btns"><div class="b p">Keep new plan</div><div class="b">Undo</div></div>
+          </div>
+          <div class="tl"><div class="tm">06:45</div><div>Breakfast <span class="x">moved</span></div></div>
+          <div class="tl"><div class="tm">07:30</div><div>Full-day Chobe trip <span class="x">moved</span></div></div>
+          <div class="tl"><div class="tm">13:00</div><div>Lunch on the river</div></div>
+          <div class="tl"><div class="tm">17:30</div><div>Return to lodge</div></div>
+        </div>
+        <div class="tab"><span class="act">Today</span><span>Trip</span><span class="fab"></span><span>Explore</span><span>You</span></div>
+      </div>
+      <div class="cap"><div class="n">Living Itinerary</div><p>No call centre, no rebuilt PDF. One card, one decision.</p></div>
+    </div>
+
+    <div>
+      <div class="phone">
+        <div class="bar"><span>19:40</span><span>●●● ▮</span></div>
+        <div class="scr">
+          <div class="ey">Victoria Falls &middot; 4 guests</div>
+          <div class="ttl">Free time</div>
+          <div class="pc acc">
+            <div class="h"><span class="tv">✦</span> Tomorrow, free 08:00 – 12:00</div>
+            <div class="m">Helicopter Flight over Victoria Falls</div>
+            <div class="m">1 hr &middot; morning departure &middot; US$150 pp</div>
+            <div class="pr tot" style="font-size:7pt;padding-top:1.4mm"><span>4 guests</span><span>US$600</span></div>
+            <div class="btns"><div class="b p">Add to my trip</div></div>
+          </div>
+          <div class="pc">
+            <div class="h">Tomorrow, free from 16:30</div>
+            <div class="m">Sundowner Cruise — Upper Zambezi</div>
+            <div class="m">2 hrs &middot; evening &middot; US$52 pp</div>
+            <div class="pr tot" style="font-size:7pt;padding-top:1.4mm"><span>4 guests</span><span>US$208</span></div>
+            <div class="btns"><div class="b">Add to my trip</div></div>
+          </div>
+          <div class="m" style="font-size:5.9pt;color:var(--ink5);text-align:center">Both fit within your US$1,200 remaining budget</div>
+        </div>
+        <div class="tab"><span>Today</span><span class="act">Trip</span><span class="fab"></span><span>Explore</span><span>You</span></div>
+      </div>
+      <div class="cap"><div class="n">Gap Commerce</div><p>An offer shaped to a specific hole in a specific day — not a banner.</p></div>
+    </div>
+
+    <div>
+      <div class="phone">
+        <div class="bar"><span>11:15</span><span>●●● ▮</span></div>
+        <div class="scr">
+          <div class="ey">Hwange &middot; High season</div>
+          <div class="ttl">Nantwich Lodge</div>
+          <div class="m" style="margin-bottom:2mm;color:var(--ink5)">3 nights &middot; 2 adults, 1 child (age 9)</div>
+          <div class="pc">
+            <div class="pr"><span class="k">Adults 2 × 3 nts × 860</span><span>5,160</span></div>
+            <div class="pr"><span class="k">Child rate 50% × 3 nts</span><span>1,290</span></div>
+            <div class="pr"><span class="k">Grow Africa Levy</span><span>180</span></div>
+            <div class="pr"><span class="k">National park fees</span><span>180</span></div>
+            <div class="pr tot"><span>Total, all in</span><span>US$6,810</span></div>
+          </div>
+          <div class="pc acc"><div class="m" style="color:var(--ink7)">Includes meals, drinks, two activities a day and laundry. Nothing more is added at the lodge.</div></div>
+          <div class="btns"><div class="b p">Reserve</div></div>
+        </div>
+        <div class="tab"><span>Today</span><span>Trip</span><span class="fab"></span><span class="act">Explore</span><span>You</span></div>
+      </div>
+      <div class="cap"><div class="n">True Price</div><p>Four supplier charging rules resolved into one honest number.</p></div>
+    </div>
+  </div>
+
+  <div style="margin-top:7mm" class="eyebrow">Three rules every screen follows</div>
+  <div class="stats" style="grid-template-columns:repeat(3,1fr)">
+    <div class="stat"><div class="n" style="font-size:12pt">Tanova proposes, the guest decides</div><div class="l" style="font-size:8pt">Nothing is booked, moved or charged without one tap. Gold marks anything Tanova suggested.</div></div>
+    <div class="stat"><div class="n" style="font-size:12pt">Every price is the whole price</div><div class="l" style="font-size:8pt">Where the engine can't yet cover a supplier's full rules, the screen says so instead of guessing.</div></div>
+    <div class="stat"><div class="n" style="font-size:12pt">Assume there's no signal</div><div class="l" style="font-size:8pt">Anything a guest needs on the day is on the phone already, with the time it was last updated.</div></div>
+  </div>
+
+  <div class="foot"><span>LuxSav Companion — Vision &amp; build plan</span><span>4</span></div>
+</section>
+
+<!-- ============ 5 DIVES 1-2 ============ -->
+<section class="page">
+  <div class="eyebrow">04 &middot; The signatures in detail</div>
+  <div style="height:3mm"></div>
+
+  <div class="dive">
+    <div class="head"><div class="idx">01</div><div><h3>Living Itinerary</h3></div></div>
+    <div class="tag">The day re-plans itself — and asks the guest one question.</div>
+    <div class="moment"><span class="lab">The moment</span>The flight lands ninety minutes late. Before the guest has cleared immigration, Tanova has moved the transfer, pushed back check-in, shifted the afternoon drive to tomorrow and told everyone involved. The guest sees one card: “Your afternoon has been rearranged. Keep it?”</div>
+    <div class="q4">
+      <div><div class="k">Why it's new</div><p>Itineraries today are documents. When reality diverges, a person rebuilds them by phone. Here the itinerary is a model of times, durations and dependencies, so it can be solved again in seconds.</p></div>
+      <div><div class="k">What LuxSav already has</div><p>Tanova already assembles day-by-day plans from each experience's duration and part-of-day slot. Every one of the 248 experiences carries both.</p></div>
+      <div><div class="k">What we build</div><p>The trip as a dependency chain (flight → transfer → check-in → activity); triggers from flight status, weather and a “running late” button; a re-planning engine; supplier notifications.</p></div>
+      <div><div class="k lim">Honest limit</div><p>Suppliers have to accept changes. Version 1: Tanova proposes and a LuxSav concierge confirms within minutes. Automatic confirmation arrives supplier by supplier as live connections land — the booking record already has a field for them.</p></div>
+    </div>
+  </div>
+
+  <div class="dive">
+    <div class="head"><div class="idx">02</div><div><h3>Gap Commerce</h3></div></div>
+    <div class="tag">Free time becomes the storefront.</div>
+    <div class="moment"><span class="lab">The moment</span>“You're free from 16:30 tomorrow. The Upper Zambezi sundowner cruise runs two hours and is back before dinner — US$208 for all four of you, well inside your remaining budget. Add it?”</div>
+    <div class="q4">
+      <div><div class="k">Why it's new</div><p>Upselling today is a banner or an email. This is an offer that fits a specific hole in a specific day, for a specific party, inside the money they have left to spend.</p></div>
+      <div><div class="k">What LuxSav already has</div><p>Live search on luxsav.com that filters experiences by time window, party size and total budget, and returns party pricing. It was built and deployed this month.</p></div>
+      <div><div class="k">What we build</div><p>Gap detection across each day; travel time between points; availability checks; one-tap add that updates the itinerary, the payment and the lodge in a single step.</p></div>
+      <div><div class="k lim">Honest limit</div><p>Travel time needs a location for every experience and lodge — none are stored yet. Suggestions also need real availability, not just the catalogue, before they can be promised.</p></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>LuxSav Companion — Vision &amp; build plan</span><span>5</span></div>
+</section>
+
+<!-- ============ 6 DIVES 3-4 ============ -->
+<section class="page">
+  <div class="dive">
+    <div class="head"><div class="idx">03</div><div><h3>True Price</h3></div></div>
+    <div class="tag">The real total for this party, before they commit.</div>
+    <div class="moment"><span class="lab">The moment</span>A family picks Nantwich Lodge for two adults and a nine-year-old. The price on screen is US$6,810 — accommodation, the child rate, the conservation levy and park fees. Nothing is added at checkout, and nothing is added at the lodge.</div>
+    <div class="q4">
+      <div><div class="k">Why it's new</div><p>Southern African pricing is notoriously hard to compare: per person sharing, per room, per unit, whole-camp buy-outs, flat or percentage single supplements, levies charged nightly, per stay or capped. Most platforms show a “from” price and let the invoice sort out the rest.</p></div>
+      <div><div class="k">What LuxSav already has</div><p>32 distinct pricing models catalogued from 43 properties' 2027 rate sheets, including capped levies, per-stay fees and age-banded child rates — the hard part of the research is done.</p></div>
+      <div><div class="k">What we build</div><p>A pricing engine that picks the right model for the party and dates; levy and park-fee tables; a way to load each supplier's new rates every year.</p></div>
+      <div><div class="k lim">Honest limit</div><p>Rate sheets change annually and need a named owner. Launch with the suppliers already catalogued, and only label a price “all in” where the engine covers that supplier's full model.</p></div>
+    </div>
+  </div>
+
+  <div class="dive">
+    <div class="head"><div class="idx">04</div><div><h3>Safari Offline</h3></div></div>
+    <div class="tag">Built for the places LuxSav actually sells.</div>
+    <div class="moment"><span class="lab">The moment</span>No signal at Mana Pools. The guest still opens tomorrow's plan, shows the voucher QR at the gate, and asks Tanova “what time is my pickup?” — and gets the right answer.</div>
+    <div class="q4">
+      <div><div class="k">Why it's new</div><p>Travel apps assume connectivity. Many of the camps and parks LuxSav sells have none, which is precisely when a guest most needs their documents and their plan.</p></div>
+      <div><div class="k">What LuxSav already has</div><p>The whole trip — days, items, stays and totals — is already one structured object returned by a single API request, which is exactly the shape that can be stored on a device.</p></div>
+      <div><div class="k">What we build</div><p>On-device storage for the trip, vouchers and documents; offline map tiles for the trip's area; an offline Tanova that answers from the downloaded trip; a queue that syncs changes when signal returns.</p></div>
+      <div><div class="k lim">Honest limit</div><p>Offline Tanova answers about the trip, not about the wider world. Booking still needs signal — requests wait in the queue and every screen shows when its data was last updated.</p></div>
+    </div>
+  </div>
+
+  <div class="foot"><span>LuxSav Companion — Vision &amp; build plan</span><span>6</span></div>
+</section>
+
+<!-- ============ 7 DIVES 5-6 ============ -->
+<section class="page">
+  <div class="dive">
+    <div class="head"><div class="idx">05</div><div><h3>Connected Camp</h3></div></div>
+    <div class="tag">Traveller and lodge, looking at the same trip.</div>
+    <div class="moment"><span class="lab">The moment</span>The guest taps “running 40 minutes late”. The lodge's portal updates, the kitchen holds lunch, the guide moves the drive — and the guest gets a message from the camp itself, not a call centre.</div>
+    <div class="q4">
+      <div><div class="k">Why it's new</div><p>Travel apps talk to travellers. Operators find out about changes by email, if at all. Here both sides of the journey look at one live record.</p></div>
+      <div><div class="k">What LuxSav already has</div><p>LuxSav and its operator portal already run on one shared platform, and the booking record already stores the operator, the sales channel and property-system references.</p></div>
+      <div><div class="k">What we build</div><p>An operator view of arriving and in-house guests; live changes and guest notes (dietary needs, celebrations, mobility); two-way messaging tied to the booking.</p></div>
+      <div><div class="k lim">Honest limit</div><p>The value depends on operators using it. Start with LuxSav's own experiences and the lodges already in the rate book, and measure before expanding.</p></div>
+    </div>
+  </div>
+
+  <div class="dive">
+    <div class="head"><div class="idx">06</div><div><h3>Border-Smart Journeys</h3></div></div>
+    <div class="tag">Multi-country trips without the anxiety.</div>
+    <div class="moment"><span class="lab">The moment</span>A Victoria Falls to Chobe day crosses a border and back. Three days before, Tanova checks the passport in the guest's wallet has enough validity and blank pages, explains which visa covers the crossing, and reminds them what to carry for fees.</div>
+    <div class="q4">
+      <div><div class="k">Why it's new</div><p>Multi-country trips are where travel in Southern Africa is most complex and where guests are most anxious. Apps treat each country as a separate booking.</p></div>
+      <div><div class="k">What LuxSav already has</div><p>Itineraries and products that already span borders in a single trip — including a three-day Victoria Falls and Chobe package in the live catalogue.</p></div>
+      <div><div class="k">What we build</div><p>A per-crossing rules library; document checks against the Wallet; reminders timed to the itinerary rather than the booking date.</p></div>
+      <div><div class="k lim">Honest limit</div><p>Border rules change. Every rule needs an owner and a review date, a concierge fallback, and wording that is clearly guidance rather than legal advice.</p></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="t">Tanova, everywhere</div>
+    The concierge behind all six works in the app and on WhatsApp, with the same trip context in both, and hands over to a human LuxSav expert without the guest repeating themselves. <span style="color:var(--bad)">Limit:</span> WhatsApp Business requires approval and carries per-conversation costs, so it launches after the in-app version is proven.
+  </div>
+
+  <div class="foot"><span>LuxSav Companion — Vision &amp; build plan</span><span>7</span></div>
+</section>
+
+<!-- ============ 8 EVERYDAY APP ============ -->
+<section class="page">
+  <div class="eyebrow">05 &middot; The everyday app</div>
+  <h2>Signatures need a great app underneath</h2>
+  <p class="lede">The strategy's everyday companion is the floor, not the headline. This is where the purchased UI kit earns its keep — and where it stops.</p>
+
+  <table>
+    <thead><tr><th style="width:21%">Area</th><th>What the traveller gets</th><th style="width:30%">Comes from</th></tr></thead>
+    <tbody>
+      <tr><td><b>Today</b></td><td>Where I am, what's next, weather, pickup, tasks, free-time offers</td><td><span class="pill new">New build</span></td></tr>
+      <tr><td><b>My Trip</b></td><td>Day-by-day timeline; every item's time, meeting point, voucher, terms, contact</td><td><span class="pill mix">Timeline new · detail from kit</span></td></tr>
+      <tr><td><b>Explore</b></td><td>Categories, search, filters, map, prioritised to the trip's destinations</td><td><span class="pill kit">Kit</span> explore, list, filters, map</td></tr>
+      <tr><td><b>Experience &amp; stay detail</b></td><td>Gallery, reviews, rooms, map, True Price</td><td><span class="pill kit">Kit</span> detail + <span class="pill new">pricing</span></td></tr>
+      <tr><td><b>Booking</b></td><td>Dates, party, payment, instant add to the trip</td><td><span class="pill kit">Kit</span> calendar + <span class="pill new">payment</span></td></tr>
+      <tr><td><b>Tanova</b></td><td>Planner, chat, actions, human handover</td><td><span class="pill new">New build</span></td></tr>
+      <tr><td><b>Concierge</b></td><td>Chat, call, WhatsApp, emergency help</td><td><span class="pill new">New build</span></td></tr>
+      <tr><td><b>Wallet</b></td><td>Tickets, vouchers, QR codes, passport and visa copies, offline</td><td><span class="pill new">New build</span></td></tr>
+      <tr><td><b>You</b></td><td>Profile, fellow travellers, currency, settings, help</td><td><span class="pill kit">Kit</span> seven profile screens</td></tr>
+      <tr><td><b>Sign-in &amp; onboarding</b></td><td>Account, password reset, first-run introduction</td><td><span class="pill kit">Kit UI</span> + <span class="pill new">backend</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <div class="t">What the UI kit is — and isn't</div>
+    It supplies 24 polished screens on Android and iOS — roughly the Explore, detail, booking, profile and onboarding half of the app. Like any template it runs on sample content, with no accounts and no connection to luxsav.com. Its value is time: it covers the familiar screens so the effort goes into the six signatures, which no kit contains.
+  </div>
+
+  <div class="note">
+    <div class="t">Adapting it</div>
+    Its colours live in one theme file, so the luxsav.com green-and-gold brand replaces the kit's teal accent and its colour picker quickly — though the kit uses its main colour in 79 places, for prices and icons as well as buttons, so each use is reviewed. The real work is its hotel-shaped data model: 29 files assume a “hotel with rooms per night”, while LuxSav sells stays, experiences, day trips and packages. That model is generalised once, early, rather than patched screen by screen.
+  </div>
+
+  <div class="foot"><span>LuxSav Companion — Vision &amp; build plan</span><span>8</span></div>
+</section>
+
+<!-- ============ 9 ARCHITECTURE ============ -->
+<section class="page">
+  <div class="eyebrow">06 &middot; How it's built</div>
+  <h2>One platform, two sides of the journey</h2>
+  <p class="lede">The phone is the visible part. The signatures live in the platform behind it — which is why most of the work in this plan is on luxsav.com, not in the app.</p>
+
+  <div class="legend">
+    <span><i class="sw ex"></i> Exists today</span>
+    <span><i class="sw nw"></i> To build</span>
+  </div>
+
+  <div class="arch">
+    <div class="layer l1">
+      <div class="ln">Traveller app · Flutter on the UI kit · com.peachpy.luxsav · luxsav.com brand</div>
+      <div class="boxes">
+        <span class="bx nw">Today</span><span class="bx nw">My Trip</span><span class="bx nw">Explore</span><span class="bx nw">Tanova</span><span class="bx nw">Wallet</span><span class="bx nw">You</span>
+        <span class="bx nw">Offline trip store</span><span class="bx nw">Push</span>
+      </div>
+    </div>
+    <div class="down">↕</div>
+    <div class="layer l2">
+      <div class="ln" style="color:var(--green)">LuxSav platform API · luxsav.com</div>
+      <div class="boxes">
+        <span class="bx ex">Trips</span><span class="bx ex">Experience search · window, party, budget</span><span class="bx ex">Bookings</span>
+        <span class="bx nw">Accounts</span><span class="bx nw">Pricing engine</span><span class="bx nw">Re-planning engine</span><span class="bx nw">Gap detection</span><span class="bx nw">Mobile payments</span><span class="bx nw">Notifications scheduler</span>
+      </div>
+    </div>
+    <div class="down">↕</div>
+    <div class="layer l3">
+      <div class="ln" style="color:var(--ink5)">Data</div>
+      <div class="boxes">
+        <span class="bx ex">1,449 Tanova itineraries</span><span class="bx ex">248 experiences · duration, time slot</span><span class="bx ex">Party-size limits</span><span class="bx ex">Guest reviews table</span>
+        <span class="bx nw">Rate book in code (32 models)</span><span class="bx nw">Locations</span><span class="bx nw">Live availability</span><span class="bx nw">Border rules</span>
+      </div>
+    </div>
+    <div class="down">↕</div>
+    <div class="cols2" style="gap:3mm">
+      <div class="layer l3" style="margin:0">
+        <div class="ln" style="color:var(--ink5)">Operator side</div>
+        <div class="boxes"><span class="bx ex">Operator portal</span><span class="bx nw">Arrivals &amp; in-house guests</span><span class="bx nw">Live changes</span><span class="bx nw">Guest messages</span></div>
+      </div>
+      <div class="layer l3" style="margin:0">
+        <div class="ln" style="color:var(--ink5)">Outside services</div>
+        <div class="boxes"><span class="bx nw">Flight status</span><span class="bx nw">Weather</span><span class="bx nw">Maps</span><span class="bx nw">WhatsApp Business</span><span class="bx ex">PayPal (web)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:5mm">
+    <div class="t">Architecture decisions already taken in this plan</div>
+    <ul class="clean" style="margin:1mm 0 0">
+      <li>The app stays on the kit's existing GetX structure rather than mixing in a second state-management approach.</li>
+      <li>Every signature is computed on the platform, so the app, WhatsApp and the operator portal always agree.</li>
+      <li>Offline is designed in from the start — retrofitting it into a connected-only app is far more expensive.</li>
+      <li>Screens open through named routes, so a link from luxsav.com or a notification can open a specific trip or experience.</li>
+      <li>The app follows the luxsav.com brand exactly — colours, fonts and button styles come from the website's own stylesheet.</li>
+    </ul>
+  </div>
+
+  <div class="foot"><span>LuxSav Companion — Vision &amp; build plan</span><span>9</span></div>
+</section>
+
+<!-- ============ 10 CODEBASE ============ -->
+<section class="page">
+  <div class="eyebrow">07 &middot; The codebase</div>
+  <h2>Starting point: the UI kit, in LuxSav's own brand</h2>
+  <p class="lede" style="font-size:9.6pt">The app is built on the purchased UI kit, now in <code>Documents/Work/luxsav_companion</code> under version control, with the app ID <code>com.peachpy.luxsav</code>. The first step is not a feature: it is making every screen unmistakably luxsav.com.</p>
+
+  <div class="eyebrow" style="margin-top:4mm">Brand — taken from the luxsav.com stylesheet</div>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#1F4D3A"></div><div class="nm">Forest green</div><div class="hx">#1F4D3A</div><div class="rl">Primary buttons, selected tab</div></div>
+    <div class="swatch"><div class="chip" style="background:#2E6B53"></div><div class="nm">Hover green</div><div class="hx">#2E6B53</div><div class="rl">Pressed states</div></div>
+    <div class="swatch"><div class="chip" style="background:#D6B87A"></div><div class="nm">Champagne gold</div><div class="hx">#D6B87A</div><div class="rl">Accent on dark; Tanova</div></div>
+    <div class="swatch"><div class="chip" style="background:#7A5C28"></div><div class="nm">Gold on light</div><div class="hx">#7A5C28</div><div class="rl">Gold text on light backgrounds</div></div>
+    <div class="swatch"><div class="chip" style="background:#F6F5F1"></div><div class="nm">Ivory</div><div class="hx">#F6F5F1</div><div class="rl">App background</div></div>
+    <div class="swatch"><div class="chip" style="background:#1C1C1C"></div><div class="nm">Charcoal</div><div class="hx">#1C1C1C</div><div class="rl">Text</div></div>
+  </div>
+  <div class="cols2" style="grid-template-columns:1fr 1fr;gap:3mm">
+    <div class="typebox"><div class="eyebrow" style="font-size:6.3pt">Headings</div><div class="smp" style="font-family:'Cormorant Garamond',serif;font-size:19pt">Victoria Falls</div><div style="font-size:7.4pt;color:var(--ink5)">Cormorant Garamond — what luxsav.com actually renders</div></div>
+    <div class="typebox"><div class="eyebrow" style="font-size:6.3pt">Everything else</div><div class="smp" style="font-family:'Inter',sans-serif;font-size:14pt;font-weight:500">Sundowner Cruise · 2 hrs</div><div style="font-size:7.4pt;color:var(--ink5)">Inter — bundled in the app so it shows with no signal</div></div>
+  </div>
+  <p style="font-size:7.8pt;color:var(--ink5);margin:2.4mm 0 0">The old <code>luxsav_app</code> scaffold used an ink-and-brass palette with a different serif. That was never the LuxSav brand and is not carried forward.</p>
+
+  <div class="cols2" style="grid-template-columns:1fr 1fr;gap:6mm;margin-top:4.5mm">
+    <div>
+      <div class="eyebrow">What comes from where</div>
+      <table class="mini">
+        <tr><td>UI kit</td><td>24 screens: Explore, search, filters, map, detail, booking calendar, My Trips, profile, onboarding</td></tr>
+        <tr><td>luxsav_app</td><td>Tanova planner, trip model, five-tab bar with the raised Tanova button, Today screen</td></tr>
+        <tr><td>New</td><td>Live Today, Tanova chat, day timeline, Wallet and the six signatures</td></tr>
+        <tr><td>Left behind</td><td>Ink-and-brass palette, a second state framework, the hard-coded sample trip</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="eyebrow">From hotel app to LuxSav</div>
+      <table class="mini">
+        <tr><td>Hotels</td><td>Stays, experiences, day trips and packages</td></tr>
+        <tr><td>Price per night</td><td>Price with its unit — per person or per night</td></tr>
+        <tr><td>Rooms &amp; guests</td><td>The party, with children's ages; rooms for stays</td></tr>
+        <tr><td>Hotel search</td><td>LuxSav's destinations</td></tr>
+        <tr><td>Sample ratings</td><td>Guest reviews collected after each trip</td></tr>
+        <tr><td>Three tabs</td><td>Today · Trip · Tanova · Explore · You</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:4.5mm">Rules taken from how luxsav.com works</div>
+  <div class="rules">
+    <div class="rule6"><b>Trip type comes first</b>Day trip or multi-day — the same first question as on the website.</div>
+    <div class="rule6"><b>Categories come from the platform</b>Activity, day trip or package, set by duration on luxsav.com.</div>
+    <div class="rule6"><b>Budget is for the whole party</b>Never per person.</div>
+    <div class="rule6"><b>Prices come from the platform</b>Always shown with their unit; the app never adds up its own totals.</div>
+    <div class="rule6"><b>A trip is a Tanova plan</b>Plus the option the traveller chose from the ones Tanova offered.</div>
+    <div class="rule6"><b>Payment happens on the platform</b>The app never handles card details.</div>
+  </div>
+  <p style="font-size:7.6pt;color:var(--ink5);margin-top:3mm">The full screen-by-screen mapping and the order of work are in <code>docs/MERGE_PLAN.md</code> in the codebase.</p>
+
+  <div class="foot"><span>LuxSav Companion — Vision &amp; build plan</span><span>10</span></div>
+</section>
+
+<!-- ============ 11 FOUNDATIONS ============ -->
+<section class="page">
+  <div class="eyebrow">08 &middot; What has to be true first</div>
+  <h2>Foundations</h2>
+  <p class="lede">None of these appear in a mock-up, and every signature depends on at least one of them. Checked against the live platform in September 2026.</p>
+
+  <table>
+    <thead><tr><th style="width:22%">Foundation</th><th style="width:36%">Where it stands today</th><th>What depends on it</th></tr></thead>
+    <tbody>
+      <tr><td><b>Traveller accounts</b></td><td><span class="pill none">None</span> luxsav.com has no sign-in at all. Its 11 user records were created as a side-effect of the payment flow.</td><td>Every personal feature: My Trip, Wallet, Today, saved preferences</td></tr>
+      <tr><td><b>Locations</b></td><td><span class="pill none">None</span> Not one of the 248 experiences has coordinates.</td><td>Maps, travel time, Gap Commerce, offline maps</td></tr>
+      <tr><td><b>Pricing engine</b></td><td><span class="pill part">Researched</span> 32 models catalogued in a spreadsheet, not yet in code.</td><td>True Price</td></tr>
+      <tr><td><b>Capacity &amp; availability</b></td><td><span class="pill part">Partial</span> Party-size limits exist but use a uniform default; no live availability.</td><td>Gap Commerce, Living Itinerary</td></tr>
+      <tr><td><b>Mobile payments</b></td><td><span class="pill part">Web only</span> A server-rendered PayPal flow, repaired this month.</td><td>One-tap add, in-app booking</td></tr>
+      <tr><td><b>Guest reviews</b></td><td><span class="pill part">Table ready</span> <code>lux_guest_reviews</code> exists but is empty.</td><td>Ratings on product screens</td></tr>
+      <tr><td><b>Supplier change channel</b></td><td><span class="pill none">Email &amp; phone</span></td><td>Living Itinerary, Connected Camp</td></tr>
+      <tr><td><b>Release basics</b></td><td><span class="pill part">Partial</span> App ID decided (<code>com.peachpy.luxsav</code>) and the kit includes an iOS project; Maps key and release signing still missing.</td><td>Any build a traveller can install</td></tr>
+      <tr><td><b>Content owners</b></td><td><span class="pill none">Unassigned</span></td><td>Rate sheets, border rules, destination content</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note warn">
+    <div class="t">One to fix before anything ships</div>
+    Booking references take the form <code>TSK-2026-074887</code> — the last six digits of a timestamp — which makes them easy to guess. Any “find my trip” feature must require the matching email as well, and the existing booking lookup should be reviewed for what it returns without one.
+  </div>
+
+  <div class="foot"><span>LuxSav Companion — Vision &amp; build plan</span><span>11</span></div>
+</section>
+
+<!-- ============ 12 ROADMAP ============ -->
+<section class="page">
+  <div class="eyebrow">09 &middot; Roadmap</div>
+  <h2>Every milestone ends in a phone you can hand to someone</h2>
+  <p class="lede" style="font-size:9.4pt">Each milestone passes one test: does the phone show something real that a traveller would use? Timings are indicative, assuming one Flutter and one Laravel developer working full-time.</p>
+
+  <div class="ms"><div><div class="wk">Weeks 1–4</div><div class="mn">M1</div></div><div>
+    <h3>Real trip in hand</h3>
+    <div class="bld">Look and feel matched to luxsav.com (first ~2½ weeks) · Tanova planner, trip model and Today screen merged in · five-tab shell · traveller accounts on luxsav.com · Explore and detail on live inventory · My Trips from real Tanova itineraries · maps key and signing</div>
+    <div class="hand"><b>In your hand:</b> sign in, open a real LuxSav trip with its actual days, stays and totals, and browse all 248 live experiences at real prices.</div>
+  </div></div>
+
+  <div class="ms"><div><div class="wk">Weeks 5–10</div><div class="mn">M2</div></div><div>
+    <h3>Free time that sells itself</h3>
+    <div class="bld">Today dashboard · day timeline and item detail · locations for the pilot destination · Gap Commerce v1 · Wallet with vouchers and QR · mobile payment</div>
+    <div class="hand"><b>In your hand:</b> a real trip shows its free afternoon, suggests experiences that genuinely fit, and adds one — paid for — to the itinerary.</div>
+  </div></div>
+
+  <div class="ms"><div><div class="wk">Weeks 11–16</div><div class="mn">M3</div></div><div>
+    <h3>True price, even offline</h3>
+    <div class="bld">Pricing engine for catalogued suppliers · True Price quotes · Safari Offline · Tanova chat in the app · concierge handover · post-trip review prompt</div>
+    <div class="hand"><b>In your hand:</b> quote a family at Nantwich to the dollar; switch on airplane mode and the trip, vouchers and Tanova's answers still work.</div>
+  </div></div>
+
+  <div class="ms"><div><div class="wk">Weeks 17–22</div><div class="mn">M4</div></div><div>
+    <h3>The day that fixes itself</h3>
+    <div class="bld">Living Itinerary v1 (propose, concierge confirms) · flight and weather triggers · push notifications · Connected Camp for LuxSav's own products · Tanova on WhatsApp</div>
+    <div class="hand"><b>In your hand:</b> delay a flight in the test harness and watch the day re-plan, the operator portal update and the guest receive a single card to approve.</div>
+  </div></div>
+
+  <div class="ms" style="border-bottom:0"><div><div class="wk">Weeks 23–28</div><div class="mn">M5</div></div><div>
+    <h3>Launch</h3>
+    <div class="bld">Border-Smart Journeys for Zimbabwe, Zambia and Botswana · security review · iOS build · store listings · analytics and crash reporting</div>
+    <div class="hand"><b>In your hand:</b> store-ready Android and iOS builds.</div>
+  </div></div>
+
+  <div class="foot"><span>LuxSav Companion — Vision &amp; build plan</span><span>12</span></div>
+</section>
+
+<!-- ============ 13 RISKS & DECISIONS ============ -->
+<section class="page">
+  <div class="eyebrow">10 &middot; Risks and decisions</div>
+  <h2>What could go wrong, and what we need from you</h2>
+
+  <table>
+    <thead><tr><th style="width:38%">Risk</th><th>How the plan handles it</th></tr></thead>
+    <tbody>
+      <tr><td>Suppliers won't accept automated changes</td><td>Every change routes through a LuxSav concierge in version 1; automation is switched on supplier by supplier.</td></tr>
+      <tr><td>Rate data goes out of date</td><td>A named owner per supplier; the engine refuses to show “all in” on expired rates.</td></tr>
+      <tr><td>Operators don't use their side</td><td>Start with LuxSav's own experiences; measure before expanding to partner lodges.</td></tr>
+      <tr><td>Offline answers are wrong</td><td>Offline Tanova answers only from the downloaded trip and always shows when it was last updated.</td></tr>
+      <tr><td>Border rules change</td><td>Dated rules with a reviewer, a concierge fallback, and guidance wording — never presented as legal advice.</td></tr>
+      <tr><td>Six signatures at once is too much</td><td>They ship one milestone at a time, and each must pass its “in your hand” test before the next begins.</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:4mm" class="eyebrow">Decisions needed before M1</div>
+  <ul class="clean">
+    <li><b>Account model.</b> Email and password, phone code, or both? A phone code suits WhatsApp-first travellers.</li>
+    <li><b>Languages at launch.</b> English only, or English and Arabic for the Dubai market? The kit also ships French and Japanese.</li>
+    <li><b>Dark mode.</b> luxsav.com has none — design one, or launch light-only?</li>
+    <li><b>Pilot destination</b> for locations and Gap Commerce. Victoria Falls is recommended: 51 live experiences and the only top destination where every signature applies. Dubai has more inventory (66) but little use for most signatures.</li>
+    <li><b>In-app payment provider</b> to sit alongside PayPal.</li>
+    <li><b>Owners</b> for the rate book, border rules and destination content.</li>
+    <li><b>iOS timing</b> — at launch in M5, or earlier for investor and partner demos.</li>
+    <li><b>Licence.</b> Confirm the CodeCanyon licence covers this app.</li>
+  </ul>
+  <p style="font-size:7.9pt;color:var(--ink5);margin-top:2mm"><b style="color:var(--green)">Already decided:</b> the UI kit is the codebase &middot; app ID <code>com.peachpy.luxsav</code> &middot; the luxsav.com brand &middot; GetX throughout.</p>
+
+  <div class="closer">
+    <div class="l">Other apps stop at the sale.<br><em>LuxSav runs the trip.</em></div>
+  </div>
+
+  <div class="foot"><span>LuxSav Companion — Vision &amp; build plan</span><span>13</span></div>
+</section>
+
+</body>
+</html>

@@ -42,3 +42,7 @@ app.*.map.json
 # Vendor reference material from the CodeCanyon kit (the original zip is the source of truth)
 kit_reference/
 .work/
+
+# Full-size review screenshots stay local; each set's _sheet.png is committed.
+docs/look-and-feel/**/*.png
+!docs/look-and-feel/**/_sheet.png
