@@ -38,7 +38,8 @@ class _HowDoScreenState extends State<HowDoScreen> {
             Expanded(
               child: ListView.builder(
                 padding: EdgeInsets.only(
-                    bottom: 16 + MediaQuery.of(context).padding.bottom),
+                  bottom: 16 + MediaQuery.of(context).padding.bottom,
+                ),
                 itemCount: subHelpList.length,
                 itemBuilder: (context, index) {
                   return InkWell(
@@ -56,28 +57,30 @@ class _HowDoScreenState extends State<HowDoScreen> {
                                         padding: const EdgeInsets.all(16.0),
                                         child: Text(
                                           subHelpList[index].titleTxt,
-                                          style: TextStyles(context)
-                                              .bold()
-                                              .copyWith(fontSize: 18),
+                                          style: TextStyles(
+                                            context,
+                                          ).bold().copyWith(fontSize: 18),
                                         ),
                                       )
                                     : Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 16,
-                                            right: 16,
-                                            top: 8,
-                                            bottom: 16),
+                                          left: 16,
+                                          right: 16,
+                                          top: 8,
+                                          bottom: 16,
+                                        ),
                                         child: Text(
                                           subHelpList[index].subTxt,
                                           style: TextStyles(context)
                                               .regular()
                                               .copyWith(
                                                 fontSize: 16,
-                                                color: subHelpList[index]
+                                                color:
+                                                    subHelpList[index]
                                                         .isSelected
                                                     ? AppTheme.primaryColor
                                                     : AppTheme
-                                                        .secondaryTextColor,
+                                                          .secondaryTextColor,
                                               ),
                                         ),
                                       ),
@@ -88,17 +91,15 @@ class _HowDoScreenState extends State<HowDoScreen> {
                         subHelpList[index].isSelected
                             ? const Padding(
                                 padding: EdgeInsets.only(left: 16, right: 16),
-                                child: Divider(
-                                  height: 1,
-                                ),
+                                child: Divider(height: 1),
                               )
-                            : const SizedBox()
+                            : const SizedBox(),
                       ],
                     ),
                   );
                 },
               ),
-            )
+            ),
           ],
         ),
       ),

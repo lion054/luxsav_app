@@ -23,9 +23,13 @@ class ListCellAnimationView extends StatelessWidget {
         return FadeTransition(
           opacity: animation,
           child: Transform(
-              transform: Matrix4.translationValues(
-                  0.0, yTranslation * (1.0 - animation.value), 0.0),
-              child: child),
+            transform: Matrix4.translationValues(
+              0.0,
+              yTranslation * (1.0 - animation.value),
+              0.0,
+            ),
+            child: child,
+          ),
         );
       },
     );

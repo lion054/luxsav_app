@@ -37,17 +37,13 @@ class CommonAppbarView extends StatelessWidget {
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(32.0),
-                    ),
+                    borderRadius: const BorderRadius.all(Radius.circular(32.0)),
                     onTap: onBackClick,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: backWidget ??
-                          Icon(
-                            iconData,
-                            color: AppTheme.primaryTextColor,
-                          ),
+                      child:
+                          backWidget ??
+                          Icon(iconData, color: AppTheme.primaryTextColor),
                     ),
                   ),
                 ),

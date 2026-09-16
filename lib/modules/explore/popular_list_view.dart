@@ -6,9 +6,11 @@ import '../../models/hotel_list_data.dart';
 class PopularListView extends StatefulWidget {
   final Function(int) callBack;
   final AnimationController animationController;
-  const PopularListView(
-      {Key? key, required this.callBack, required this.animationController})
-      : super(key: key);
+  const PopularListView({
+    Key? key,
+    required this.callBack,
+    required this.animationController,
+  }) : super(key: key);
   @override
   State<PopularListView> createState() => _PopularListViewState();
 }
@@ -21,7 +23,9 @@ class _PopularListViewState extends State<PopularListView>
   @override
   void initState() {
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 1000), vsync: this);
+      duration: const Duration(milliseconds: 1000),
+      vsync: this,
+    );
     super.initState();
   }
 
@@ -51,16 +55,25 @@ class _PopularListViewState extends State<PopularListView>
             } else {
               return ListView.builder(
                 padding: const EdgeInsets.only(
-                    top: 0, bottom: 0, right: 24, left: 8),
+                  top: 0,
+                  bottom: 0,
+                  right: 24,
+                  left: 8,
+                ),
                 itemCount: popularList.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   var count = popularList.length > 10 ? 10 : popularList.length;
                   var animation = Tween(begin: 0.0, end: 1.0).animate(
-                      CurvedAnimation(
-                          parent: animationController!,
-                          curve: Interval((1 / count) * index, 1.0,
-                              curve: Curves.fastOutSlowIn)));
+                    CurvedAnimation(
+                      parent: animationController!,
+                      curve: Interval(
+                        (1 / count) * index,
+                        1.0,
+                        curve: Curves.fastOutSlowIn,
+                      ),
+                    ),
+                  );
                   animationController?.forward();
                   //Population animation photo and text view
                   return CategoryView(

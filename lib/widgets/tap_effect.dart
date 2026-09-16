@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TapEffect extends StatefulWidget {
-  const TapEffect(
-      {Key? key,
-      this.isClickable = true,
-      required this.onClick,
-      required this.child})
-      : super(key: key);
+  const TapEffect({
+    Key? key,
+    this.isClickable = true,
+    required this.onClick,
+    required this.child,
+  }) : super(key: key);
 
   final bool isClickable;
   final VoidCallback onClick;
@@ -25,9 +25,14 @@ class _TapEffectState extends State<TapEffect>
   @override
   void initState() {
     animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 800));
-    animationController!.animateTo(1.0,
-        duration: const Duration(milliseconds: 0), curve: Curves.fastOutSlowIn);
+      vsync: this,
+      duration: const Duration(milliseconds: 800),
+    );
+    animationController!.animateTo(
+      1.0,
+      duration: const Duration(milliseconds: 0),
+      curve: Curves.fastOutSlowIn,
+    );
     super.initState();
   }
 
@@ -40,9 +45,11 @@ class _TapEffectState extends State<TapEffect>
   Future<void> onTapCancel() async {
     if (widget.isClickable) {
       await _onDelayed();
-      animationController!.animateTo(1.0,
-          duration: const Duration(milliseconds: 240),
-          curve: Curves.fastOutSlowIn);
+      animationController!.animateTo(
+        1.0,
+        duration: const Duration(milliseconds: 240),
+        curve: Curves.fastOutSlowIn,
+      );
     }
     isProgress = false;
   }
@@ -50,11 +57,13 @@ class _TapEffectState extends State<TapEffect>
   Future<void> _onDelayed() async {
     if (widget.isClickable) {
       //this logic creator like more press experience with some delay
-      final int tapDuration = DateTime.now().millisecondsSinceEpoch -
+      final int tapDuration =
+          DateTime.now().millisecondsSinceEpoch -
           tapTime.millisecondsSinceEpoch;
       if (tapDuration < 120) {
         await Future<dynamic>.delayed(
-            Duration(milliseconds: 120 - tapDuration));
+          Duration(milliseconds: 120 - tapDuration),
+        );
       }
     }
   }
@@ -76,9 +85,11 @@ class _TapEffectState extends State<TapEffect>
       onTapDown: (TapDownDetails details) {
         if (widget.isClickable) {
           tapTime = DateTime.now();
-          animationController!.animateTo(0.9,
-              duration: const Duration(milliseconds: 120),
-              curve: Curves.fastOutSlowIn);
+          animationController!.animateTo(
+            0.9,
+            duration: const Duration(milliseconds: 120),
+            curve: Curves.fastOutSlowIn,
+          );
         }
         isProgress = true;
       },

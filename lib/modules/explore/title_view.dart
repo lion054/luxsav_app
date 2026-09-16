@@ -10,15 +10,15 @@ class TitleView extends StatelessWidget {
   final VoidCallback click;
   final bool isLeftButton;
 
-  const TitleView(
-      {Key? key,
-      this.titleTxt = "",
-      this.subTxt = "",
-      required this.animationController,
-      required this.animation,
-      required this.click,
-      this.isLeftButton = false})
-      : super(key: key);
+  const TitleView({
+    Key? key,
+    this.titleTxt = "",
+    this.subTxt = "",
+    required this.animationController,
+    required this.animation,
+    required this.click,
+    this.isLeftButton = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,10 @@ class TitleView extends StatelessWidget {
           opacity: animation,
           child: Transform(
             transform: Matrix4.translationValues(
-                0.0, 30 * (1.0 - animation.value), 0.0),
+              0.0,
+              30 * (1.0 - animation.value),
+              0.0,
+            ),
             child: Padding(
               padding: const EdgeInsets.only(left: 24, right: 24),
               child: Row(
@@ -37,19 +40,16 @@ class TitleView extends StatelessWidget {
                   Text(
                     titleTxt,
                     textAlign: TextAlign.left,
-                    style: TextStyles(context).bold().copyWith(
-                          fontSize: 18,
-                        ),
+                    style: TextStyles(context).bold().copyWith(fontSize: 18),
                   ),
-                  const Expanded(
-                    child: SizedBox(),
-                  ),
+                  const Expanded(child: SizedBox()),
                   isLeftButton
                       ? Material(
                           color: Colors.transparent,
                           child: InkWell(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(4.0)),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(4.0),
+                            ),
                             onTap: () {
                               return click();
                             },
@@ -62,8 +62,9 @@ class TitleView extends StatelessWidget {
                                     subTxt,
                                     textAlign: TextAlign.left,
                                     style: TextStyles(context).bold().copyWith(
-                                        fontSize: 16,
-                                        color: AppTheme.primaryColor),
+                                      fontSize: 16,
+                                      color: AppTheme.primaryColor,
+                                    ),
                                   ),
                                   SizedBox(
                                     height: 38,
@@ -79,7 +80,7 @@ class TitleView extends StatelessWidget {
                             ),
                           ),
                         )
-                      : const SizedBox()
+                      : const SizedBox(),
                 ],
               ),
             ),

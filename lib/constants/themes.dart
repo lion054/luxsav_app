@@ -63,7 +63,11 @@ class AppTheme {
     // The site sets large headings at 300–400; Cormorant is delicate, so the
     // smaller mobile title sizes use 500 to stay legible.
     TextStyle heading(TextStyle? s, {FontWeight weight = FontWeight.w400}) =>
-        s!.copyWith(fontFamily: headingFont, fontWeight: weight, letterSpacing: 0);
+        s!.copyWith(
+          fontFamily: headingFont,
+          fontWeight: weight,
+          letterSpacing: 0,
+        );
     // The kit's Material defaults add letter spacing to body text; Inter is
     // designed to be set without it, which is how luxsav.com uses it.
     TextStyle body(TextStyle? s, {FontWeight? weight}) =>

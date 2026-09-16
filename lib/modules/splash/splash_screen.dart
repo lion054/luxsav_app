@@ -19,8 +19,9 @@ class _SplashScreenState extends State<SplashScreen> {
   bool isLoadText = false;
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) =>
-        _loadAppLocalizations()); // call after first frame receiver so we have context
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _loadAppLocalizations(),
+    ); // call after first frame receiver so we have context
     super.initState();
   }
 
@@ -40,7 +41,10 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             foregroundDecoration: !Get.find<ThemeController>().isLightMode
                 ? BoxDecoration(
-                    color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.4))
+                    color: Theme.of(
+                      context,
+                    ).scaffoldBackgroundColor.withOpacity(0.4),
+                  )
                 : null,
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -48,46 +52,34 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           Column(
             children: <Widget>[
-              const Expanded(
-                flex: 1,
-                child: SizedBox(),
-              ),
+              const Expanded(flex: 1, child: SizedBox()),
               Center(
                 child: Container(
                   width: 60,
                   height: 60,
                   decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(8.0),
-                    ),
+                    borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                     boxShadow: <BoxShadow>[
                       BoxShadow(
-                          color: Theme.of(context).dividerColor,
-                          offset: const Offset(1.1, 1.1),
-                          blurRadius: 10.0),
+                        color: Theme.of(context).dividerColor,
+                        offset: const Offset(1.1, 1.1),
+                        blurRadius: 10.0,
+                      ),
                     ],
                   ),
                   child: ClipRRect(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(8.0),
-                    ),
+                    borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                     child: Image.asset(Localfiles.appIcon),
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
               Text(
                 "Motel",
                 textAlign: TextAlign.left,
-                style: TextStyles(context).bold().copyWith(
-                      fontSize: 24,
-                    ),
+                style: TextStyles(context).bold().copyWith(fontSize: 24),
               ),
-              const SizedBox(
-                height: 8,
-              ),
+              const SizedBox(height: 8),
               AnimatedOpacity(
                 opacity: isLoadText ? 1.0 : 0.0,
                 duration: const Duration(milliseconds: 420),
@@ -97,16 +89,17 @@ class _SplashScreenState extends State<SplashScreen> {
                   style: TextStyles(context).regular().copyWith(),
                 ),
               ),
-              const Expanded(
-                flex: 4,
-                child: SizedBox(),
-              ),
+              const Expanded(flex: 4, child: SizedBox()),
               AnimatedOpacity(
                 opacity: isLoadText ? 1.0 : 0.0,
                 duration: const Duration(milliseconds: 680),
                 child: CommonButton(
                   padding: const EdgeInsets.only(
-                      left: 48, right: 48, bottom: 8, top: 8),
+                    left: 48,
+                    right: 48,
+                    bottom: 8,
+                    top: 8,
+                  ),
                   buttonText: Loc.alized.get_started,
                   onTap: () {
                     NavigationServices(context).gotoIntroductionScreen();
@@ -118,14 +111,15 @@ class _SplashScreenState extends State<SplashScreen> {
                 duration: const Duration(milliseconds: 1200),
                 child: Padding(
                   padding: EdgeInsets.only(
-                      bottom: 24.0 + MediaQuery.of(context).padding.bottom,
-                      top: 16),
+                    bottom: 24.0 + MediaQuery.of(context).padding.bottom,
+                    top: 16,
+                  ),
                   child: Text(
                     Loc.alized.already_have_account,
                     textAlign: TextAlign.left,
-                    style: TextStyles(context).description().copyWith(
-                          color: AppTheme.whiteColor,
-                        ),
+                    style: TextStyles(
+                      context,
+                    ).description().copyWith(color: AppTheme.whiteColor),
                   ),
                 ),
               ),

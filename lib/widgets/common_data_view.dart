@@ -6,11 +6,7 @@ class DataView extends StatelessWidget {
 
   final String? peopledata;
 
-  const DataView({
-    Key? key,
-    this.roomdata,
-    this.peopledata,
-  }) : super(key: key);
+  const DataView({Key? key, this.roomdata, this.peopledata}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Row(

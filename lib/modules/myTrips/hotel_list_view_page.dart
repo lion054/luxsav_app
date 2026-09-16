@@ -16,14 +16,14 @@ class HotelListViewPage extends StatelessWidget {
   final AnimationController animationController;
   final Animation<double> animation;
 
-  const HotelListViewPage(
-      {Key? key,
-      required this.hotelData,
-      required this.animationController,
-      required this.animation,
-      required this.callback,
-      this.isShowDate = false})
-      : super(key: key);
+  const HotelListViewPage({
+    Key? key,
+    required this.hotelData,
+    required this.animationController,
+    required this.animation,
+    required this.callback,
+    this.isShowDate = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,9 +52,8 @@ class HotelListViewPage extends StatelessWidget {
                       Expanded(
                         child: Container(
                           padding: EdgeInsets.all(
-                              MediaQuery.of(context).size.width >= 360
-                                  ? 12
-                                  : 8),
+                            MediaQuery.of(context).size.width >= 360 ? 12 : 8,
+                          ),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,17 +62,16 @@ class HotelListViewPage extends StatelessWidget {
                                 hotelData.titleTxt,
                                 maxLines: 2,
                                 textAlign: TextAlign.left,
-                                style: TextStyles(context).bold().copyWith(
-                                      fontSize: 16,
-                                    ),
+                                style: TextStyles(
+                                  context,
+                                ).bold().copyWith(fontSize: 16),
                                 overflow: TextOverflow.ellipsis,
                               ),
                               Text(
                                 hotelData.subTxt,
-                                style:
-                                    TextStyles(context).description().copyWith(
-                                          fontSize: 14,
-                                        ),
+                                style: TextStyles(
+                                  context,
+                                ).description().copyWith(fontSize: 14),
                               ),
                               Expanded(
                                 child: Row(
@@ -93,17 +91,16 @@ class HotelListViewPage extends StatelessWidget {
                                               Icon(
                                                 FontAwesomeIcons.locationDot,
                                                 size: 12,
-                                                color: Theme.of(context)
-                                                    .primaryColor,
+                                                color: Theme.of(
+                                                  context,
+                                                ).primaryColor,
                                               ),
                                               Text(
                                                 " ${hotelData.dist.toStringAsFixed(1)} ",
                                                 overflow: TextOverflow.ellipsis,
                                                 style: TextStyles(context)
                                                     .description()
-                                                    .copyWith(
-                                                      fontSize: 14,
-                                                    ),
+                                                    .copyWith(fontSize: 14),
                                               ),
                                               Expanded(
                                                 child: Text(
@@ -112,9 +109,7 @@ class HotelListViewPage extends StatelessWidget {
                                                       TextOverflow.ellipsis,
                                                   style: TextStyles(context)
                                                       .description()
-                                                      .copyWith(
-                                                        fontSize: 14,
-                                                      ),
+                                                      .copyWith(fontSize: 14),
                                                 ),
                                               ),
                                             ],
@@ -125,8 +120,9 @@ class HotelListViewPage extends StatelessWidget {
                                     ),
                                     FittedBox(
                                       child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 8),
+                                        padding: const EdgeInsets.only(
+                                          right: 8,
+                                        ),
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -136,22 +132,21 @@ class HotelListViewPage extends StatelessWidget {
                                             Text(
                                               "\$${hotelData.perNight}",
                                               textAlign: TextAlign.left,
-                                              style: TextStyles(context)
-                                                  .bold()
-                                                  .copyWith(fontSize: 22),
+                                              style: TextStyles(
+                                                context,
+                                              ).bold().copyWith(fontSize: 22),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.only(
-                                                  top: Get.find<Loc>().isRTL
-                                                      ? 2.0
-                                                      : 0.0),
+                                                top: Get.find<Loc>().isRTL
+                                                    ? 2.0
+                                                    : 0.0,
+                                              ),
                                               child: Text(
                                                 Loc.alized.per_night,
                                                 style: TextStyles(context)
                                                     .description()
-                                                    .copyWith(
-                                                      fontSize: 14,
-                                                    ),
+                                                    .copyWith(fontSize: 14),
                                               ),
                                             ),
                                           ],
@@ -171,15 +166,16 @@ class HotelListViewPage extends StatelessWidget {
                     color: Colors.transparent,
                     child: InkWell(
                       highlightColor: Colors.transparent,
-                      splashColor:
-                          Theme.of(context).primaryColor.withOpacity(0.1),
+                      splashColor: Theme.of(
+                        context,
+                      ).primaryColor.withOpacity(0.1),
                       onTap: () {
                         try {
                           callback();
                         } catch (_) {}
                       },
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

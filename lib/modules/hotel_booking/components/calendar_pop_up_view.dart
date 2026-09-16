@@ -42,7 +42,9 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
   @override
   void initState() {
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 400), vsync: this);
+      duration: const Duration(milliseconds: 400),
+      vsync: this,
+    );
     startDate = widget.initialStartDate;
     endDate = widget.initialEndDate;
     animationController.forward();
@@ -85,8 +87,10 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                             _getFromToUi(
                               Loc.alized.from_text,
                               startDate != null
-                                  ? DateFormat("EEE, dd MMM", languageCode)
-                                      .format(startDate!)
+                                  ? DateFormat(
+                                      "EEE, dd MMM",
+                                      languageCode,
+                                    ).format(startDate!)
                                   : "--/-- ",
                             ),
                             Container(
@@ -97,15 +101,15 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                             _getFromToUi(
                               Loc.alized.to_text,
                               endDate != null
-                                  ? DateFormat("EEE, dd MMM", languageCode)
-                                      .format(endDate!)
+                                  ? DateFormat(
+                                      "EEE, dd MMM",
+                                      languageCode,
+                                    ).format(endDate!)
                                   : "--/-- ",
                             ),
                           ],
                         ),
-                        const Divider(
-                          height: 1,
-                        ),
+                        const Divider(height: 1),
                         //Custome calendar page view
                         CustomCalendarView(
                           minimumDate: widget.minimumDate,
@@ -114,15 +118,19 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                           initialStartDate: widget.initialStartDate,
                           startEndDateChange:
                               (DateTime startDateData, DateTime endDateData) {
-                            setState(() {
-                              startDate = startDateData;
-                              endDate = endDateData;
-                            });
-                          },
+                                setState(() {
+                                  startDate = startDateData;
+                                  endDate = endDateData;
+                                });
+                              },
                         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 16, right: 16, bottom: 16, top: 8),
+                            left: 16,
+                            right: 16,
+                            bottom: 16,
+                            top: 8,
+                          ),
                           child: CommonButton(
                             buttonText: Loc.alized.apply_date,
                             onTap: () {
@@ -132,7 +140,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
                               } catch (_) {}
                             },
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -154,18 +162,12 @@ class _CalendarPopupViewState extends State<CalendarPopupView>
           Text(
             title,
             textAlign: TextAlign.left,
-            style: TextStyles(context).description().copyWith(
-                  fontSize: 16,
-                ),
+            style: TextStyles(context).description().copyWith(fontSize: 16),
           ),
-          const SizedBox(
-            height: 4,
-          ),
+          const SizedBox(height: 4),
           Text(
             subtext,
-            style: TextStyles(context).bold().copyWith(
-                  fontSize: 16,
-                ),
+            style: TextStyles(context).bold().copyWith(fontSize: 16),
           ),
         ],
       ),

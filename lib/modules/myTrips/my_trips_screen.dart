@@ -12,7 +12,7 @@ class MyTripsScreen extends StatefulWidget {
   final AnimationController animationController;
 
   const MyTripsScreen({Key? key, required this.animationController})
-      : super(key: key);
+    : super(key: key);
   @override
   State<MyTripsScreen> createState() => _MyTripsScreenState();
 }
@@ -27,10 +27,10 @@ class _MyTripsScreenState extends State<MyTripsScreen>
   @override
   void initState() {
     tabAnimationController = AnimationController(
-        duration: const Duration(milliseconds: 400), vsync: this);
-    indexView = UpcomingListView(
-      animationController: tabAnimationController,
+      duration: const Duration(milliseconds: 400),
+      vsync: this,
     );
+    indexView = UpcomingListView(animationController: tabAnimationController);
     tabAnimationController.forward();
     widget.animationController.forward();
 
@@ -63,9 +63,7 @@ class _MyTripsScreenState extends State<MyTripsScreen>
           //upcoming finished favorites selected
           tabViewUI(topBarType),
           //hotel list view
-          Expanded(
-            child: indexView,
-          ),
+          Expanded(child: indexView),
         ],
       ),
     );
@@ -108,32 +106,36 @@ class _MyTripsScreenState extends State<MyTripsScreen>
           children: <Widget>[
             Row(
               children: <Widget>[
-                _getTopBarUi(() {
-                  tabClick(TopBarType.upcomming);
-                },
-                    tabType == TopBarType.upcomming
-                        ? AppTheme.primaryColor
-                        : AppTheme.secondaryTextColor,
-                    Loc.alized.upcoming),
-                _getTopBarUi(() {
-                  tabClick(TopBarType.finished);
-                },
-                    tabType == TopBarType.finished
-                        ? AppTheme.primaryColor
-                        : AppTheme.secondaryTextColor,
-                    Loc.alized.finished),
-                _getTopBarUi(() {
-                  tabClick(TopBarType.favorites);
-                },
-                    tabType == TopBarType.favorites
-                        ? AppTheme.primaryColor
-                        : AppTheme.secondaryTextColor,
-                    Loc.alized.favorites),
+                _getTopBarUi(
+                  () {
+                    tabClick(TopBarType.upcomming);
+                  },
+                  tabType == TopBarType.upcomming
+                      ? AppTheme.primaryColor
+                      : AppTheme.secondaryTextColor,
+                  Loc.alized.upcoming,
+                ),
+                _getTopBarUi(
+                  () {
+                    tabClick(TopBarType.finished);
+                  },
+                  tabType == TopBarType.finished
+                      ? AppTheme.primaryColor
+                      : AppTheme.secondaryTextColor,
+                  Loc.alized.finished,
+                ),
+                _getTopBarUi(
+                  () {
+                    tabClick(TopBarType.favorites);
+                  },
+                  tabType == TopBarType.favorites
+                      ? AppTheme.primaryColor
+                      : AppTheme.secondaryTextColor,
+                  Loc.alized.favorites,
+                ),
               ],
             ),
-            SizedBox(
-              height: MediaQuery.of(context).padding.bottom,
-            )
+            SizedBox(height: MediaQuery.of(context).padding.bottom),
           ],
         ),
       ),
@@ -154,9 +156,9 @@ class _MyTripsScreenState extends State<MyTripsScreen>
             child: Center(
               child: Text(
                 text,
-                style: TextStyles(context)
-                    .regular()
-                    .copyWith(fontWeight: FontWeight.w600, color: color),
+                style: TextStyles(
+                  context,
+                ).regular().copyWith(fontWeight: FontWeight.w600, color: color),
               ),
             ),
           ),
@@ -172,8 +174,10 @@ class _MyTripsScreenState extends State<MyTripsScreen>
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(Loc.alized.my_trips,
-              style: TextStyles(context).bold().copyWith(fontSize: 22)),
+          Text(
+            Loc.alized.my_trips,
+            style: TextStyles(context).bold().copyWith(fontSize: 22),
+          ),
         ],
       ),
     );

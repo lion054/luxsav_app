@@ -36,19 +36,24 @@ class GoogleMapPinController extends GetxController {
       _visibleRegion = await _mapController?.getVisibleRegion();
       if (_visibleRegion != null) {
         var sSize = _visibleScreenSize;
-        var sdl = _visibleRegion!.northeast.latitude -
+        var sdl =
+            _visibleRegion!.northeast.latitude -
             _visibleRegion!.southwest.latitude;
-        var sdlg = _visibleRegion!.southwest.longitude -
+        var sdlg =
+            _visibleRegion!.southwest.longitude -
             _visibleRegion!.northeast.longitude;
         if (_mapController != null) {
           for (var item in _hotelList) {
             if (item.location != null) {
               var fdl =
                   _visibleRegion!.northeast.latitude - item.location!.latitude;
-              var fdlg = _visibleRegion!.southwest.longitude -
+              var fdlg =
+                  _visibleRegion!.southwest.longitude -
                   item.location!.longitude;
               item.screenMapPin = Offset(
-                  (fdlg * sSize!.width) / sdlg, (fdl * sSize.height) / sdl);
+                (fdlg * sSize!.width) / sdlg,
+                (fdl * sSize.height) / sdl,
+              );
             }
           }
         }

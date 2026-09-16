@@ -35,7 +35,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(
-                          top: 16.0, bottom: 16.0, left: 24, right: 24),
+                        top: 16.0,
+                        bottom: 16.0,
+                        left: 24,
+                        right: 24,
+                      ),
                       child: Row(
                         children: <Widget>[
                           Expanded(
@@ -57,14 +61,20 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       titleText: Loc.alized.your_mail,
                       errorText: _errorEmail,
                       padding: const EdgeInsets.only(
-                          left: 24, right: 24, bottom: 24),
+                        left: 24,
+                        right: 24,
+                        bottom: 24,
+                      ),
                       hintText: Loc.alized.enter_your_email,
                       keyboardType: TextInputType.emailAddress,
                       onChanged: (String txt) {},
                     ),
                     CommonButton(
                       padding: const EdgeInsets.only(
-                          left: 24, right: 24, bottom: 16),
+                        left: 24,
+                        right: 24,
+                        bottom: 16,
+                      ),
                       buttonText: Loc.alized.send,
                       onTap: () {
                         if (_allValidation()) Navigator.pop(context);
@@ -73,7 +83,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

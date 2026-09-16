@@ -22,18 +22,17 @@ class _InviteFriendState extends State<InviteFriend> {
             children: <Widget>[
               Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).padding.top,
-                    left: 16,
-                    right: 16),
+                  top: MediaQuery.of(context).padding.top,
+                  left: 16,
+                  right: 16,
+                ),
                 child: Image.asset(Localfiles.inviteImage),
               ),
               Container(
                 padding: const EdgeInsets.only(top: 8),
                 child: Text(
                   Loc.alized.invite_your_friend,
-                  style: TextStyles(context).bold().copyWith(
-                        fontSize: 20,
-                      ),
+                  style: TextStyles(context).bold().copyWith(fontSize: 20),
                 ),
               ),
               Container(
@@ -41,9 +40,7 @@ class _InviteFriendState extends State<InviteFriend> {
                 child: Text(
                   Loc.alized.invite_friend_desc,
                   textAlign: TextAlign.center,
-                  style: TextStyles(context).regular().copyWith(
-                        fontSize: 16,
-                      ),
+                  style: TextStyles(context).regular().copyWith(fontSize: 16),
                 ),
               ),
               Expanded(
@@ -67,9 +64,9 @@ class _InviteFriendState extends State<InviteFriend> {
                               padding: const EdgeInsets.all(4.0),
                               child: Text(
                                 Loc.alized.share_text,
-                                style: TextStyles(context)
-                                    .regular()
-                                    .copyWith(color: AppTheme.whiteColor),
+                                style: TextStyles(context).regular().copyWith(
+                                  color: AppTheme.whiteColor,
+                                ),
                               ),
                             ),
                           ],
@@ -78,14 +75,12 @@ class _InviteFriendState extends State<InviteFriend> {
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
           Padding(
             padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-            child: Row(
-              children: <Widget>[appBar()],
-            ),
+            child: Row(children: <Widget>[appBar()]),
           ),
         ],
       ),
@@ -103,9 +98,7 @@ class _InviteFriendState extends State<InviteFriend> {
           child: Material(
             color: Colors.transparent,
             child: InkWell(
-              borderRadius: const BorderRadius.all(
-                Radius.circular(32.0),
-              ),
+              borderRadius: const BorderRadius.all(Radius.circular(32.0)),
               onTap: () {
                 Navigator.pop(context);
               },

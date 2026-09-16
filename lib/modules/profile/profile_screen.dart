@@ -11,7 +11,7 @@ class ProfileScreen extends StatefulWidget {
   final AnimationController animationController;
 
   const ProfileScreen({Key? key, required this.animationController})
-      : super(key: key);
+    : super(key: key);
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
@@ -79,32 +79,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 child: Text(
                                   userSettingsList[index].titleTxt,
                                   style: TextStyles(context).regular().copyWith(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16,
+                                  ),
                                 ),
                               ),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(16),
-                              child: Icon(userSettingsList[index].iconData,
-                                  color: AppTheme.secondaryTextColor
-                                      .withOpacity(0.7)),
-                            )
+                              child: Icon(
+                                userSettingsList[index].iconData,
+                                color: AppTheme.secondaryTextColor.withOpacity(
+                                  0.7,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
                       const Padding(
                         padding: EdgeInsets.only(left: 16, right: 16),
-                        child: Divider(
-                          height: 1,
-                        ),
-                      )
+                        child: Divider(height: 1),
+                      ),
                     ],
                   ),
                 );
               },
             ),
-          )
+          ),
         ],
       ),
     );
@@ -145,8 +147,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           Padding(
-            padding:
-                const EdgeInsets.only(right: 24, top: 16, bottom: 16, left: 24),
+            padding: const EdgeInsets.only(
+              right: 24,
+              top: 16,
+              bottom: 16,
+              left: 24,
+            ),
             child: SizedBox(
               width: 70,
               height: 70,
@@ -155,7 +161,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Image.asset(Localfiles.userImage),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

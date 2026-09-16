@@ -53,39 +53,30 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     children: <Widget>[
                       // hotel price filter
                       priceBarFilter(),
-                      const Divider(
-                        height: 1,
-                      ),
+                      const Divider(height: 1),
                       // facilitate filter in hotel
                       popularFilter(),
-                      const Divider(
-                        height: 1,
-                      ),
+                      const Divider(height: 1),
                       //hotel distance from city
                       distanceViewUI(),
-                      const Divider(
-                        height: 1,
-                      ),
+                      const Divider(height: 1),
                       // all type of  accommodation
-                      allAccommodationUI()
+                      allAccommodationUI(),
                     ],
                   ),
                 ),
               ),
             ),
-            const Divider(
-              height: 1,
-            ),
+            const Divider(height: 1),
             Padding(
               padding: EdgeInsets.only(
-                  left: 16,
-                  right: 16,
-                  bottom: 16 + MediaQuery.of(context).padding.bottom,
-                  top: 8),
-              child: CommonButton(
-                buttonText: Loc.alized.apply_text,
+                left: 16,
+                right: 16,
+                bottom: 16 + MediaQuery.of(context).padding.bottom,
+                top: 8,
               ),
-            )
+              child: CommonButton(buttonText: Loc.alized.apply_text),
+            ),
           ],
         ),
       ),
@@ -98,26 +89,27 @@ class _FiltersScreenState extends State<FiltersScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding:
-              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
+          padding: const EdgeInsets.only(
+            left: 16,
+            right: 16,
+            top: 16,
+            bottom: 8,
+          ),
           child: Text(
             Loc.alized.type_of_accommodation,
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: Colors.grey,
-                fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
-                fontWeight: FontWeight.normal),
+              color: Colors.grey,
+              fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(right: 16, left: 16),
-          child: Column(
-            children: getAccomodationListUI(),
-          ),
+          child: Column(children: getAccomodationListUI()),
         ),
-        const SizedBox(
-          height: 8,
-        ),
+        const SizedBox(height: 8),
       ],
     );
   }
@@ -140,11 +132,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: <Widget>[
-                  Expanded(
-                    child: Text(
-                      date.titleTxt,
-                    ),
-                  ),
+                  Expanded(child: Text(date.titleTxt)),
                   CupertinoSwitch(
                     activeColor: date.isSelected
                         ? Theme.of(context).primaryColor
@@ -163,9 +151,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
         ),
       );
       if (i == 0) {
-        noList.add(const Divider(
-          height: 1,
-        ));
+        noList.add(const Divider(height: 1));
       }
     }
     return noList;
@@ -210,15 +196,20 @@ class _FiltersScreenState extends State<FiltersScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding:
-              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
+          padding: const EdgeInsets.only(
+            left: 16,
+            right: 16,
+            top: 16,
+            bottom: 8,
+          ),
           child: Text(
             Loc.alized.distance_from_city,
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: Colors.grey,
-                fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
-                fontWeight: FontWeight.normal),
+              color: Colors.grey,
+              fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ),
         SliderView(
@@ -227,9 +218,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
             distValue = value;
           },
         ),
-        const SizedBox(
-          height: 8,
-        ),
+        const SizedBox(height: 8),
       ],
     );
   }
@@ -240,26 +229,27 @@ class _FiltersScreenState extends State<FiltersScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
-          padding:
-              const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
+          padding: const EdgeInsets.only(
+            left: 16,
+            right: 16,
+            top: 16,
+            bottom: 8,
+          ),
           child: Text(
             Loc.alized.popular_filter,
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: Colors.grey,
-                fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
-                fontWeight: FontWeight.normal),
+              color: Colors.grey,
+              fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(right: 16, left: 16),
-          child: Column(
-            children: getPList(),
-          ),
+          child: Column(children: getPList()),
         ),
-        const SizedBox(
-          height: 8,
-        )
+        const SizedBox(height: 8),
       ],
     );
   }
@@ -280,8 +270,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   Material(
                     color: Colors.transparent,
                     child: InkWell(
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(4.0)),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(4.0),
+                      ),
                       onTap: () {
                         setState(() {
                           date.isSelected = !date.isSelected;
@@ -289,7 +280,11 @@ class _FiltersScreenState extends State<FiltersScreen> {
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(
-                            left: 8.0, top: 8, bottom: 8, right: 0),
+                          left: 8.0,
+                          top: 8,
+                          bottom: 8,
+                          right: 0,
+                        ),
                         child: Row(
                           children: <Widget>[
                             Icon(
@@ -300,14 +295,10 @@ class _FiltersScreenState extends State<FiltersScreen> {
                                   ? Theme.of(context).primaryColor
                                   : Colors.grey.withOpacity(0.6),
                             ),
-                            const SizedBox(
-                              width: 4,
-                            ),
+                            const SizedBox(width: 4),
                             FittedBox(
                               fit: BoxFit.cover,
-                              child: Text(
-                                date.titleTxt,
-                              ),
+                              child: Text(date.titleTxt),
                             ),
                           ],
                         ),
@@ -321,12 +312,14 @@ class _FiltersScreenState extends State<FiltersScreen> {
           cout += 1;
         } catch (_) {}
       }
-      noList.add(Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: listUI,
-      ));
+      noList.add(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: listUI,
+        ),
+      );
     }
     return noList;
   }
@@ -342,9 +335,10 @@ class _FiltersScreenState extends State<FiltersScreen> {
             Loc.alized.price_text,
             textAlign: TextAlign.left,
             style: TextStyle(
-                color: Colors.grey,
-                fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
-                fontWeight: FontWeight.normal),
+              color: Colors.grey,
+              fontSize: MediaQuery.of(context).size.width > 360 ? 18 : 16,
+              fontWeight: FontWeight.normal,
+            ),
           ),
         ),
         RangeSliderView(
@@ -353,9 +347,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
             _values = values;
           },
         ),
-        const SizedBox(
-          height: 8,
-        )
+        const SizedBox(height: 8),
       ],
     );
   }

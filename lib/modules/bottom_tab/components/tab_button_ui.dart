@@ -8,18 +8,19 @@ class TabButtonUI extends StatelessWidget {
   final bool isSelected;
   final String text;
 
-  const TabButtonUI(
-      {Key? key,
-      this.onTap,
-      required this.icon,
-      required this.isSelected,
-      required this.text})
-      : super(key: key);
+  const TabButtonUI({
+    Key? key,
+    this.onTap,
+    required this.icon,
+    required this.isSelected,
+    required this.text,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final color =
-        isSelected ? AppTheme.primaryColor : AppTheme.secondaryTextColor;
+    final color = isSelected
+        ? AppTheme.primaryColor
+        : AppTheme.secondaryTextColor;
     return Expanded(
       child: Material(
         color: Colors.transparent,
@@ -29,17 +30,11 @@ class TabButtonUI extends StatelessWidget {
           onTap: onTap,
           child: Column(
             children: <Widget>[
-              const SizedBox(
-                height: 4,
-              ),
+              const SizedBox(height: 4),
               SizedBox(
                 width: 40,
                 height: 32,
-                child: Icon(
-                  icon,
-                  size: 26,
-                  color: color,
-                ),
+                child: Icon(icon, size: 26, color: color),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 0),
@@ -47,12 +42,12 @@ class TabButtonUI extends StatelessWidget {
                   fit: BoxFit.fill,
                   child: Text(
                     text,
-                    style: TextStyles(context).description().copyWith(
-                          color: color,
-                        ),
+                    style: TextStyles(
+                      context,
+                    ).description().copyWith(color: color),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

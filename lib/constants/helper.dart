@@ -32,10 +32,8 @@ abstract class Helper {
       rating: rating,
       // Champagne gold, as luxsav.com uses for its star ratings. The review
       // count always sits beside the stars, so they don't carry meaning alone.
-      itemBuilder: (context, index) => const Icon(
-        Icons.star,
-        color: LuxColors.gold,
-      ),
+      itemBuilder: (context, index) =>
+          const Icon(Icons.star, color: LuxColors.gold),
       itemCount: 5,
       unratedColor: AppTheme.dividerColor,
       itemSize: 18.0,
@@ -44,8 +42,12 @@ abstract class Helper {
   }
 
   static Future<bool> showCommonPopup(
-      String title, String descriptionText, BuildContext context,
-      {bool isYesOrNoPopup = false, bool barrierDismissible = true}) async {
+    String title,
+    String descriptionText,
+    BuildContext context, {
+    bool isYesOrNoPopup = false,
+    bool barrierDismissible = true,
+  }) async {
     bool isOkClick = false;
     return await showDialog(
       context: context,
@@ -72,7 +74,7 @@ abstract class Helper {
                     isOkClick = true;
                     Navigator.of(context).pop();
                   },
-                )
+                ),
               ]
             : <Widget>[
                 CustomDialogActionButton(
@@ -81,7 +83,7 @@ abstract class Helper {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                )
+                ),
               ],
       ),
     ).then((_) {

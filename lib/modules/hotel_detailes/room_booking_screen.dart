@@ -7,7 +7,7 @@ class RoomBookingScreen extends StatefulWidget {
   final String hotelName;
 
   const RoomBookingScreen({Key? key, required this.hotelName})
-      : super(key: key);
+    : super(key: key);
   @override
   State<RoomBookingScreen> createState() => _RoomBookingScreenState();
 }
@@ -20,7 +20,9 @@ class _RoomBookingScreenState extends State<RoomBookingScreen>
   @override
   void initState() {
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 2000), vsync: this);
+      duration: const Duration(milliseconds: 2000),
+      vsync: this,
+    );
     super.initState();
   }
 
@@ -43,10 +45,15 @@ class _RoomBookingScreenState extends State<RoomBookingScreen>
               itemBuilder: (context, index) {
                 var count = romeList.length > 10 ? 10 : romeList.length;
                 var animation = Tween(begin: 0.0, end: 1.0).animate(
-                    CurvedAnimation(
-                        parent: animationController,
-                        curve: Interval((1 / count) * index, 1.0,
-                            curve: Curves.fastOutSlowIn)));
+                  CurvedAnimation(
+                    parent: animationController,
+                    curve: Interval(
+                      (1 / count) * index,
+                      1.0,
+                      curve: Curves.fastOutSlowIn,
+                    ),
+                  ),
+                );
                 animationController.forward();
                 //room book view and room data
                 return RoomeBookView(
@@ -92,9 +99,7 @@ class _RoomBookingScreenState extends State<RoomBookingScreen>
             Material(
               color: Colors.transparent,
               child: InkWell(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(32.0),
-                ),
+                borderRadius: const BorderRadius.all(Radius.circular(32.0)),
                 onTap: () {
                   Navigator.pop(context);
                 },
@@ -121,9 +126,7 @@ class _RoomBookingScreenState extends State<RoomBookingScreen>
             Material(
               color: Colors.transparent,
               child: InkWell(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(32.0),
-                ),
+                borderRadius: const BorderRadius.all(Radius.circular(32.0)),
                 onTap: () {},
                 child: const Padding(
                   padding: EdgeInsets.all(8.0),

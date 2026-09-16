@@ -50,9 +50,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 itemCount: settingsList.length,
                 separatorBuilder: (context, index) => const Padding(
                   padding: EdgeInsets.only(left: 16, right: 16),
-                  child: Divider(
-                    height: 1,
-                  ),
+                  child: Divider(height: 1),
                 ),
                 itemBuilder: (context, index) {
                   final title = settingsList[index].titleTxt;
@@ -62,9 +60,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   return InkWell(
                     onTap: () {
                       if (title == Loc.alized.currency) {
-                        NavigationServices(context)
-                            .gotoCurrencyScreen()
-                            .then((value) {
+                        NavigationServices(context).gotoCurrencyScreen().then((
+                          value,
+                        ) {
                           if (value is String && value != "") {
                             setState(() {
                               currency = value;
@@ -72,9 +70,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           }
                         });
                       } else if (title == Loc.alized.country) {
-                        NavigationServices(context)
-                            .gotoCountryScreen()
-                            .then((value) {
+                        NavigationServices(context).gotoCountryScreen().then((
+                          value,
+                        ) {
                           if (value is String && value != "") {
                             setState(() {
                               country = value;
@@ -99,28 +97,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   child: Text(
                                     settingsList[index].titleTxt,
                                     style: const TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16),
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 16,
+                                    ),
                                   ),
                                 ),
                               ),
                               title == Loc.alized.country
                                   ? Padding(
                                       padding: const EdgeInsets.all(16),
-                                      child: getTextUi(country))
+                                      child: getTextUi(country),
+                                    )
                                   : title == Loc.alized.currency
-                                      ? Padding(
-                                          padding: const EdgeInsets.all(16),
-                                          child: getTextUi(currency),
-                                          //   child:
-                                        )
-                                      : Padding(
-                                          padding: const EdgeInsets.all(16),
-                                          child: Icon(
-                                              settingsList[index].iconData,
-                                              color:
-                                                  AppTheme.secondaryTextColor),
-                                        )
+                                  ? Padding(
+                                      padding: const EdgeInsets.all(16),
+                                      child: getTextUi(currency),
+                                      //   child:
+                                    )
+                                  : Padding(
+                                      padding: const EdgeInsets.all(16),
+                                      child: Icon(
+                                        settingsList[index].iconData,
+                                        color: AppTheme.secondaryTextColor,
+                                      ),
+                                    ),
                             ],
                           ),
                         ),
@@ -129,7 +129,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   );
                 },
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -141,15 +141,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return PopupMenuButton<ThemeModeType>(
       padding: EdgeInsets.zero,
       surfaceTintColor: Colors.transparent,
-      shape: ContinuousRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
+      shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(8)),
       onSelected: (type) {
         type == ThemeModeType.system
             ? themeProvider.updateThemeMode(ThemeModeType.system)
             : type == ThemeModeType.light
-                ? themeProvider.updateThemeMode(ThemeModeType.light)
-                : themeProvider.updateThemeMode(ThemeModeType.dark);
+            ? themeProvider.updateThemeMode(ThemeModeType.light)
+            : themeProvider.updateThemeMode(ThemeModeType.dark);
         setState(() {});
       },
       offset: const Offset(10, 18),
@@ -162,37 +160,39 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 e == ThemeModeType.system
                     ? FontAwesomeIcons.circleHalfStroke
                     : e == ThemeModeType.light
-                        ? FontAwesomeIcons.cloudSun
-                        : FontAwesomeIcons.cloudMoon,
+                    ? FontAwesomeIcons.cloudSun
+                    : FontAwesomeIcons.cloudMoon,
                 e == ThemeModeType.system
                     ? Loc.alized.system
                     : e == ThemeModeType.light
-                        ? Loc.alized.light
-                        : Loc.alized.dark,
+                    ? Loc.alized.light
+                    : Loc.alized.dark,
                 e == themeProvider.themeModeType,
               ),
             ),
           )
           .toList(),
       child: Padding(
-        padding:
-            const EdgeInsets.only(left: 24, right: 24, top: 16, bottom: 16),
+        padding: const EdgeInsets.only(
+          left: 24,
+          right: 24,
+          top: 16,
+          bottom: 16,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              data.titleTxt,
-              style: TextStyles(context).regular(),
-            ),
+            Text(data.titleTxt, style: TextStyles(context).regular()),
             Padding(
               padding: const EdgeInsets.only(right: 8),
               child: Icon(
-                  themeProvider.themeModeType == ThemeModeType.system
-                      ? FontAwesomeIcons.circleHalfStroke
-                      : themeProvider.themeModeType == ThemeModeType.light
-                          ? FontAwesomeIcons.cloudSun
-                          : FontAwesomeIcons.cloudMoon,
-                  color: AppTheme.secondaryTextColor),
+                themeProvider.themeModeType == ThemeModeType.system
+                    ? FontAwesomeIcons.circleHalfStroke
+                    : themeProvider.themeModeType == ThemeModeType.light
+                    ? FontAwesomeIcons.cloudSun
+                    : FontAwesomeIcons.cloudMoon,
+                color: AppTheme.secondaryTextColor,
+              ),
             ),
           ],
         ),
@@ -203,9 +203,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget getTextUi(String text) {
     return Text(
       text,
-      style: TextStyles(context).description().copyWith(
-            fontSize: 16,
-          ),
+      style: TextStyles(context).description().copyWith(fontSize: 16),
     );
   }
 
@@ -216,20 +214,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
         children: [
           Icon(
             icon,
-            color:
-                isCurrent ? AppTheme.primaryColor : AppTheme.primaryTextColor,
+            color: isCurrent
+                ? AppTheme.primaryColor
+                : AppTheme.primaryTextColor,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
             child: Text(
               text,
               style: TextStyles(context).regular().copyWith(
-                    color: isCurrent
-                        ? AppTheme.primaryColor
-                        : AppTheme.primaryTextColor,
-                  ),
+                color: isCurrent
+                    ? AppTheme.primaryColor
+                    : AppTheme.primaryTextColor,
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -256,7 +255,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
           },
           child: Padding(
             padding: const EdgeInsets.only(
-                left: 16.0, bottom: 16, top: 16, right: 16.0),
+              left: 16.0,
+              bottom: 16,
+              top: 16,
+              right: 16.0,
+            ),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -266,7 +269,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 Padding(
                   padding: const EdgeInsets.only(left: 16.0, right: 16),
                   child: Text(languageTexts[i]),
-                )
+                ),
               ],
             ),
           ),
@@ -296,13 +299,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       style: TextStyles(context).bold().copyWith(fontSize: 22),
                     ),
                   ),
-                  const Divider(
-                    height: 16,
-                  ),
+                  const Divider(height: 16),
                   for (var item in languageArray) item,
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const SizedBox(height: 10),
                 ],
               ),
             ),

@@ -7,7 +7,7 @@ class CommonCard extends StatefulWidget {
   final Widget? child;
 
   const CommonCard({Key? key, this.color, this.radius = 16, this.child})
-      : super(key: key);
+    : super(key: key);
   @override
   State<CommonCard> createState() => _CommonCardState();
 }

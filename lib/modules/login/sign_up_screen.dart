@@ -63,7 +63,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       controller: _fnameController,
                       errorText: _errorFName,
                       padding: const EdgeInsets.only(
-                          bottom: 16, left: 24, right: 24),
+                        bottom: 16,
+                        left: 24,
+                        right: 24,
+                      ),
                       titleText: Loc.alized.first_name,
                       hintText: Loc.alized.enter_first_name,
                       keyboardType: TextInputType.name,
@@ -73,7 +76,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       controller: _lnameController,
                       errorText: _errorLName,
                       padding: const EdgeInsets.only(
-                          bottom: 16, left: 24, right: 24),
+                        bottom: 16,
+                        left: 24,
+                        right: 24,
+                      ),
                       titleText: Loc.alized.last_name,
                       hintText: Loc.alized.enter_last_name,
                       keyboardType: TextInputType.name,
@@ -84,7 +90,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       errorText: _errorEmail,
                       titleText: Loc.alized.your_mail,
                       padding: const EdgeInsets.only(
-                          left: 24, right: 24, bottom: 16),
+                        left: 24,
+                        right: 24,
+                        bottom: 16,
+                      ),
                       hintText: Loc.alized.enter_your_email,
                       keyboardType: TextInputType.emailAddress,
                       onChanged: (String txt) {},
@@ -92,7 +101,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     CommonTextFieldView(
                       titleText: Loc.alized.password,
                       padding: const EdgeInsets.only(
-                          left: 24, right: 24, bottom: 24),
+                        left: 24,
+                        right: 24,
+                        bottom: 24,
+                      ),
                       hintText: Loc.alized.enter_password,
                       isObscureText: true,
                       onChanged: (String txt) {},
@@ -100,8 +112,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       controller: _passwordController,
                     ),
                     CommonButton(
-                      padding:
-                          const EdgeInsets.only(left: 24, right: 24, bottom: 8),
+                      padding: const EdgeInsets.only(
+                        left: 24,
+                        right: 24,
+                        bottom: 8,
+                      ),
                       buttonText: Loc.alized.sign_up,
                       onTap: () {
                         if (_allValidation()) {
@@ -135,8 +150,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         ),
                         InkWell(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(8)),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(8),
+                          ),
                           onTap: () {
                             NavigationServices(context).gotoLoginScreen();
                           },
@@ -145,9 +161,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             child: Text(
                               Loc.alized.login,
                               style: TextStyles(context).regular().copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: AppTheme.primaryColor,
-                                  ),
+                                fontWeight: FontWeight.bold,
+                                color: AppTheme.primaryColor,
+                              ),
                             ),
                           ),
                         ),
@@ -155,11 +171,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).padding.bottom + 24,
-                    )
+                    ),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

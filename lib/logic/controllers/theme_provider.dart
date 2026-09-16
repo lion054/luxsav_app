@@ -8,9 +8,7 @@ class ThemeController extends GetxController {
   bool isLightMode = true;
   ThemeModeType themeModeType = ThemeModeType.system;
 
-  ThemeController({
-    required this.themeModeType,
-  });
+  ThemeController({required this.themeModeType});
 
   static Future<ThemeController> init() async {
     ThemeController themeProvider = ThemeController(
@@ -28,12 +26,12 @@ class ThemeController extends GetxController {
       themeModeTypeData == ThemeModeType.light
           ? Brightness.light
           : themeModeTypeData == ThemeModeType.dark
-              ? Brightness.dark
-              : systembrightness,
+          ? Brightness.dark
+          : systembrightness,
     );
   }
 
-// this func is auto check theme and update them
+  // this func is auto check theme and update them
   void checkAndSetThemeMode(Brightness systemBrightness) async {
     bool theLightTheme = isLightMode;
 
@@ -54,6 +52,4 @@ class ThemeController extends GetxController {
       update();
     }
   }
-
-
 }

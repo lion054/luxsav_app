@@ -25,23 +25,33 @@ class NavigationServices {
 
   final BuildContext context;
 
-  Future<dynamic> _pushMaterialPageRoute(Widget widget,
-      {bool fullscreenDialog = false}) async {
+  Future<dynamic> _pushMaterialPageRoute(
+    Widget widget, {
+    bool fullscreenDialog = false,
+  }) async {
     return await Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => widget, fullscreenDialog: fullscreenDialog),
+        builder: (context) => widget,
+        fullscreenDialog: fullscreenDialog,
+      ),
     );
   }
 
   Future gotoSplashScreen() async {
     await Navigator.pushNamedAndRemoveUntil(
-        context, RoutesName.splash, (Route<dynamic> route) => false);
+      context,
+      RoutesName.splash,
+      (Route<dynamic> route) => false,
+    );
   }
 
   void gotoIntroductionScreen() {
-    Navigator.pushNamedAndRemoveUntil(context, RoutesName.introductionScreen,
-        (Route<dynamic> route) => false);
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      RoutesName.introductionScreen,
+      (Route<dynamic> route) => false,
+    );
   }
 
   Future<dynamic> gotoLoginScreen() async {
@@ -61,9 +71,7 @@ class NavigationServices {
   }
 
   Future<dynamic> gotoHotelDetailes(HotelListData hotelData) async {
-    return await _pushMaterialPageRoute(HotelDetailes(
-      hotelData: hotelData,
-    ));
+    return await _pushMaterialPageRoute(HotelDetailes(hotelData: hotelData));
   }
 
   Future<dynamic> gotoSearchScreen() async {
@@ -80,7 +88,8 @@ class NavigationServices {
 
   Future<dynamic> gotoRoomBookingScreen(String hotelname) async {
     return await _pushMaterialPageRoute(
-        RoomBookingScreen(hotelName: hotelname));
+      RoomBookingScreen(hotelName: hotelname),
+    );
   }
 
   Future<dynamic> gotoReviewsListScreen() async {
@@ -108,20 +117,24 @@ class NavigationServices {
   }
 
   Future<dynamic> gotoCurrencyScreen() async {
-    return await _pushMaterialPageRoute(const CurrencyScreen(),
-        fullscreenDialog: true);
+    return await _pushMaterialPageRoute(
+      const CurrencyScreen(),
+      fullscreenDialog: true,
+    );
   }
 
   Future<dynamic> gotoCountryScreen() async {
-    return await _pushMaterialPageRoute(const CountryScreen(),
-        fullscreenDialog: true);
+    return await _pushMaterialPageRoute(
+      const CountryScreen(),
+      fullscreenDialog: true,
+    );
   }
 
   Future<dynamic> gotoHowDoScreen() async {
     return await _pushMaterialPageRoute(const HowDoScreen());
   }
 
-//   void gotoHotelDetailesPage(String hotelname) async {
-//     await _pushMaterialPageRoute(HotelDetailes(hotelName: hotelname));
-//   }
+  //   void gotoHotelDetailesPage(String hotelname) async {
+  //     await _pushMaterialPageRoute(HotelDetailes(hotelName: hotelname));
+  //   }
 }

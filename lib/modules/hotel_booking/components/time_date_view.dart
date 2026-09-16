@@ -27,20 +27,21 @@ class _TimeDateViewState extends State<TimeDateView> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          _getDateRoomUi(Loc.alized.choose_date,
-              "${DateFormat("dd, MMM", languageCode).format(startDate)} - ${DateFormat("dd, MMM", languageCode).format(endDate)}",
-              () {
-            _showDemoDialog(context);
-          }),
-          Container(
-            width: 1,
-            height: 42,
-            color: Colors.grey.withOpacity(0.8),
+          _getDateRoomUi(
+            Loc.alized.choose_date,
+            "${DateFormat("dd, MMM", languageCode).format(startDate)} - ${DateFormat("dd, MMM", languageCode).format(endDate)}",
+            () {
+              _showDemoDialog(context);
+            },
           ),
-          _getDateRoomUi(Loc.alized.number_room, Helper.getRoomText(_roomData),
-              () {
-            _showPopUp();
-          }),
+          Container(width: 1, height: 42, color: Colors.grey.withOpacity(0.8)),
+          _getDateRoomUi(
+            Loc.alized.number_room,
+            Helper.getRoomText(_roomData),
+            () {
+              _showPopUp();
+            },
+          ),
         ],
       ),
     );
@@ -53,13 +54,15 @@ class _TimeDateViewState extends State<TimeDateView> {
           Material(
             color: Colors.transparent,
             child: InkWell(
-              borderRadius: const BorderRadius.all(
-                Radius.circular(4.0),
-              ),
+              borderRadius: const BorderRadius.all(Radius.circular(4.0)),
               onTap: onTap,
               child: Padding(
-                padding:
-                    const EdgeInsets.only(left: 8, right: 8, top: 4, bottom: 4),
+                padding: const EdgeInsets.only(
+                  left: 8,
+                  right: 8,
+                  top: 4,
+                  bottom: 4,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,13 +70,11 @@ class _TimeDateViewState extends State<TimeDateView> {
                     Text(
                       title,
                       // "Choose date",
-                      style: TextStyles(context)
-                          .description()
-                          .copyWith(fontSize: 16),
+                      style: TextStyles(
+                        context,
+                      ).description().copyWith(fontSize: 16),
                     ),
-                    const SizedBox(
-                      height: 8,
-                    ),
+                    const SizedBox(height: 8),
                     Text(
                       subtitle,
                       // "${DateFormat("dd, MMM").format(startDate)} - ${DateFormat("dd, MMM").format(endDate)}",
@@ -97,7 +98,10 @@ class _TimeDateViewState extends State<TimeDateView> {
         barrierDismissible: true,
         minimumDate: DateTime.now(),
         maximumDate: DateTime(
-            DateTime.now().year, DateTime.now().month, DateTime.now().day + 10),
+          DateTime.now().year,
+          DateTime.now().month,
+          DateTime.now().day + 10,
+        ),
         initialEndDate: endDate,
         initialStartDate: startDate,
         onApplyClick: (DateTime startData, DateTime endData) {

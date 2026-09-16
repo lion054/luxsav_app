@@ -9,13 +9,13 @@ class CategoryView extends StatelessWidget {
   final AnimationController animationController;
   final Animation<double> animation;
 
-  const CategoryView(
-      {Key? key,
-      required this.popularList,
-      required this.animationController,
-      required this.animation,
-      required this.callback})
-      : super(key: key);
+  const CategoryView({
+    Key? key,
+    required this.popularList,
+    required this.animationController,
+    required this.animation,
+    required this.callback,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -25,7 +25,10 @@ class CategoryView extends StatelessWidget {
           opacity: animation,
           child: Transform(
             transform: Matrix4.translationValues(
-                100 * (1.0 - animation.value), 0.0, 0.0),
+              100 * (1.0 - animation.value),
+              0.0,
+              0.0,
+            ),
             child: child,
           ),
         );
@@ -35,20 +38,22 @@ class CategoryView extends StatelessWidget {
           callback();
         },
         child: Padding(
-          padding:
-              const EdgeInsets.only(left: 16, bottom: 24, top: 16, right: 8),
+          padding: const EdgeInsets.only(
+            left: 16,
+            bottom: 24,
+            top: 16,
+            right: 8,
+          ),
           child: Card(
             elevation: 8,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16.0)),
+              borderRadius: BorderRadius.circular(16.0),
+            ),
             child: Stack(
               children: <Widget>[
                 AspectRatio(
                   aspectRatio: 2,
-                  child: Image.asset(
-                    popularList.imagePath,
-                    fit: BoxFit.cover,
-                  ),
+                  child: Image.asset(popularList.imagePath, fit: BoxFit.cover),
                 ),
                 Positioned(
                   top: 0,
@@ -72,20 +77,24 @@ class CategoryView extends StatelessWidget {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.only(
-                                left: 8, bottom: 32, top: 8, right: 8),
+                              left: 8,
+                              bottom: 32,
+                              top: 8,
+                              right: 8,
+                            ),
                             child: Text(
                               popularList.titleTxt,
                               style: TextStyles(context).bold().copyWith(
-                                    fontSize: 24,
-                                    color: AppTheme.whiteColor,
-                                  ),
+                                fontSize: 24,
+                                color: AppTheme.whiteColor,
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),

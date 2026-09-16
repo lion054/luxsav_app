@@ -9,9 +9,11 @@ class MapAndListView extends StatelessWidget {
   final List<HotelListData> hotelList;
   final Widget searchBarUI;
 
-  const MapAndListView(
-      {Key? key, required this.hotelList, required this.searchBarUI})
-      : super(key: key);
+  const MapAndListView({
+    Key? key,
+    required this.hotelList,
+    required this.searchBarUI,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,24 +27,22 @@ class MapAndListView extends StatelessWidget {
               Expanded(
                 child: Stack(
                   children: <Widget>[
-                    GoogleMapUIView(
-                      hotelList: hotelList,
-                    ),
+                    GoogleMapUIView(hotelList: hotelList),
                     IgnorePointer(
                       child: Container(
                         height: 80,
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
-                              Theme.of(context)
-                                  .scaffoldBackgroundColor
-                                  .withOpacity(1.0),
-                              Theme.of(context)
-                                  .scaffoldBackgroundColor
-                                  .withOpacity(0.4),
-                              Theme.of(context)
-                                  .scaffoldBackgroundColor
-                                  .withOpacity(0.0),
+                              Theme.of(
+                                context,
+                              ).scaffoldBackgroundColor.withOpacity(1.0),
+                              Theme.of(
+                                context,
+                              ).scaffoldBackgroundColor.withOpacity(0.4),
+                              Theme.of(
+                                context,
+                              ).scaffoldBackgroundColor.withOpacity(0.0),
                             ],
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
@@ -60,14 +60,19 @@ class MapAndListView extends StatelessWidget {
                         child: ListView.builder(
                           itemCount: hotelList.length,
                           padding: const EdgeInsets.only(
-                              top: 8, bottom: 8, right: 16),
+                            top: 8,
+                            bottom: 8,
+                            right: 16,
+                          ),
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) {
                             return MapHotelListView(
                               callback: () {
-                                NavigationServices(context)
-                                    .gotoRoomBookingScreen(
-                                        hotelList[index].titleTxt);
+                                NavigationServices(
+                                  context,
+                                ).gotoRoomBookingScreen(
+                                  hotelList[index].titleTxt,
+                                );
                               },
                               hotelData: hotelList[index],
                             );
@@ -77,7 +82,7 @@ class MapAndListView extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           );
         },

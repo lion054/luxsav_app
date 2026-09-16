@@ -5,9 +5,11 @@ class SliderView extends StatefulWidget {
   final Function(double) onChnagedistValue;
   final double distValue;
 
-  const SliderView(
-      {Key? key, required this.onChnagedistValue, required this.distValue})
-      : super(key: key);
+  const SliderView({
+    Key? key,
+    required this.onChnagedistValue,
+    required this.distValue,
+  }) : super(key: key);
   @override
   State<SliderView> createState() => _SliderViewState();
 }
@@ -27,18 +29,12 @@ class _SliderViewState extends State<SliderView> {
       children: <Widget>[
         Row(
           children: <Widget>[
-            Expanded(
-              flex: distValue.round(),
-              child: const SizedBox(),
-            ),
+            Expanded(flex: distValue.round(), child: const SizedBox()),
             SizedBox(
               width: 170,
               child: Row(
                 children: [
-                  Text(
-                    Loc.alized.less_than,
-                    textAlign: TextAlign.center,
-                  ),
+                  Text(Loc.alized.less_than, textAlign: TextAlign.center),
                   Padding(
                     padding: const EdgeInsets.only(left: 4.0, right: 4.0),
                     child: Text(
@@ -46,17 +42,11 @@ class _SliderViewState extends State<SliderView> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  Text(
-                    Loc.alized.km_text,
-                    textAlign: TextAlign.center,
-                  ),
+                  Text(Loc.alized.km_text, textAlign: TextAlign.center),
                 ],
               ),
             ),
-            Expanded(
-              flex: 100 - distValue.round(),
-              child: const SizedBox(),
-            ),
+            Expanded(flex: 100 - distValue.round(), child: const SizedBox()),
           ],
         ),
         Slider(

@@ -64,7 +64,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       errorText: _errorEmail,
                       titleText: Loc.alized.your_mail,
                       padding: const EdgeInsets.only(
-                          left: 24, right: 24, bottom: 16),
+                        left: 24,
+                        right: 24,
+                        bottom: 16,
+                      ),
                       hintText: Loc.alized.enter_your_email,
                       keyboardType: TextInputType.emailAddress,
                       onChanged: (String txt) {},
@@ -81,7 +84,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     _forgotYourPasswordUI(),
                     CommonButton(
                       padding: const EdgeInsets.only(
-                          left: 24, right: 24, bottom: 16),
+                        left: 24,
+                        right: 24,
+                        bottom: 16,
+                      ),
                       buttonText: Loc.alized.login,
                       onTap: () {
                         if (_allValidation()) {
@@ -92,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

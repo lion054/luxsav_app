@@ -39,10 +39,7 @@ class _HotelRoomeListState extends State<HotelRoomeList> {
                 borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                 child: AspectRatio(
                   aspectRatio: 1,
-                  child: Image.asset(
-                    photosList[index],
-                    fit: BoxFit.cover,
-                  ),
+                  child: Image.asset(photosList[index], fit: BoxFit.cover),
                 ),
               ),
             ),

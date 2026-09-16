@@ -109,30 +109,12 @@ class HotelListData {
   ];
 
   static List<HotelListData> popularList = [
-    HotelListData(
-      imagePath: Localfiles.popular_1,
-      titleTxt: 'Paris',
-    ),
-    HotelListData(
-      imagePath: Localfiles.popular_2,
-      titleTxt: 'Spain',
-    ),
-    HotelListData(
-      imagePath: Localfiles.popular_3,
-      titleTxt: 'Vernazza',
-    ),
-    HotelListData(
-      imagePath: Localfiles.popular_4,
-      titleTxt: 'London',
-    ),
-    HotelListData(
-      imagePath: Localfiles.popular_5,
-      titleTxt: 'Venice',
-    ),
-    HotelListData(
-      imagePath: Localfiles.popular_6,
-      titleTxt: 'Diamond Head',
-    ),
+    HotelListData(imagePath: Localfiles.popular_1, titleTxt: 'Paris'),
+    HotelListData(imagePath: Localfiles.popular_2, titleTxt: 'Spain'),
+    HotelListData(imagePath: Localfiles.popular_3, titleTxt: 'Vernazza'),
+    HotelListData(imagePath: Localfiles.popular_4, titleTxt: 'London'),
+    HotelListData(imagePath: Localfiles.popular_5, titleTxt: 'Venice'),
+    HotelListData(imagePath: Localfiles.popular_6, titleTxt: 'Diamond Head'),
   ];
 
   static List<HotelListData> reviewsList = [
@@ -196,40 +178,45 @@ class HotelListData {
 
   static List<HotelListData> romeList = [
     HotelListData(
-        imagePath:
-            'assets/images/room_1.jpg assets/images/room_2.jpg assets/images/room_3.jpg',
-        titleTxt: 'Deluxe Room',
-        perNight: 180,
-        dateTxt: 'Sleeps 3 people',
-        roomData: RoomData(2, 2)),
+      imagePath:
+          'assets/images/room_1.jpg assets/images/room_2.jpg assets/images/room_3.jpg',
+      titleTxt: 'Deluxe Room',
+      perNight: 180,
+      dateTxt: 'Sleeps 3 people',
+      roomData: RoomData(2, 2),
+    ),
     HotelListData(
-        imagePath:
-            'assets/images/room_4.jpg assets/images/room_5.jpg assets/images/room_6.jpg',
-        titleTxt: 'Premium Room',
-        perNight: 200,
-        dateTxt: 'Sleeps 3 people + 2 children',
-        roomData: RoomData(3, 2)),
+      imagePath:
+          'assets/images/room_4.jpg assets/images/room_5.jpg assets/images/room_6.jpg',
+      titleTxt: 'Premium Room',
+      perNight: 200,
+      dateTxt: 'Sleeps 3 people + 2 children',
+      roomData: RoomData(3, 2),
+    ),
     HotelListData(
-        imagePath:
-            'assets/images/room_7.jpg assets/images/room_8.jpg assets/images/room_9.jpg',
-        titleTxt: 'Queen Room',
-        perNight: 240,
-        dateTxt: 'Sleeps 4 people + 4 children',
-        roomData: RoomData(4, 4)),
+      imagePath:
+          'assets/images/room_7.jpg assets/images/room_8.jpg assets/images/room_9.jpg',
+      titleTxt: 'Queen Room',
+      perNight: 240,
+      dateTxt: 'Sleeps 4 people + 4 children',
+      roomData: RoomData(4, 4),
+    ),
     HotelListData(
-        imagePath:
-            'assets/images/room_10.jpg assets/images/room_11.jpg assets/images/room_12.jpg',
-        titleTxt: 'King Room',
-        perNight: 240,
-        dateTxt: 'Sleeps 4 people + 4 children',
-        roomData: RoomData(4, 4)),
+      imagePath:
+          'assets/images/room_10.jpg assets/images/room_11.jpg assets/images/room_12.jpg',
+      titleTxt: 'King Room',
+      perNight: 240,
+      dateTxt: 'Sleeps 4 people + 4 children',
+      roomData: RoomData(4, 4),
+    ),
     HotelListData(
-        imagePath:
-            'assets/images/room_11.jpg assets/images/room_1.jpg assets/images/room_2.jpg',
-        titleTxt: 'Hollywood Twin\nRoom',
-        perNight: 260,
-        dateTxt: 'Sleeps 4 people + 4 children',
-        roomData: RoomData(4, 4)),
+      imagePath:
+          'assets/images/room_11.jpg assets/images/room_1.jpg assets/images/room_2.jpg',
+      titleTxt: 'Hollywood Twin\nRoom',
+      perNight: 260,
+      dateTxt: 'Sleeps 4 people + 4 children',
+      roomData: RoomData(4, 4),
+    ),
   ];
 
   static List<HotelListData> hotelTypeList = [

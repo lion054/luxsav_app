@@ -54,14 +54,16 @@ class _LuxSavAppState extends State<LuxSavApp> {
                       : TextDirection.ltr,
                   child: MediaQuery(
                     key: ValueKey(
-                        'languageCode ${locController.locale.languageCode}'),
+                      'languageCode ${locController.locale.languageCode}',
+                    ),
                     data: MediaQuery.of(context).copyWith(
                       textScaler: TextScaler.linear(
-                          MediaQuery.of(context).size.width > 360
-                              ? 1.0
-                              : MediaQuery.of(context).size.width >= 340
-                                  ? 0.9
-                                  : 0.8),
+                        MediaQuery.of(context).size.width > 360
+                            ? 1.0
+                            : MediaQuery.of(context).size.width >= 340
+                            ? 0.9
+                            : 0.8,
+                      ),
                     ),
                     child: child ?? const SizedBox(),
                   ),
@@ -74,28 +76,31 @@ class _LuxSavAppState extends State<LuxSavApp> {
     );
   }
 
-// when this application open every time on that time we check and update some theme data
+  // when this application open every time on that time we check and update some theme data
   void _setFirstTimeSomeData(BuildContext context, ThemeData theme) {
     _setStatusBarNavigationBarTheme(theme);
     //we call some theme basic data set in app like color, font, theme mode, language
-    Get.find<ThemeController>()
-        .checkAndSetThemeMode(MediaQuery.of(context).platformBrightness);
+    Get.find<ThemeController>().checkAndSetThemeMode(
+      MediaQuery.of(context).platformBrightness,
+    );
   }
 
   void _setStatusBarNavigationBarTheme(ThemeData themeData) {
     final brightness = !kIsWeb && Platform.isAndroid
         ? themeData.brightness == Brightness.light
-            ? Brightness.dark
-            : Brightness.light
+              ? Brightness.dark
+              : Brightness.light
         : themeData.brightness;
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: brightness,
-      statusBarBrightness: brightness,
-      systemNavigationBarColor: themeData.colorScheme.background,
-      systemNavigationBarDividerColor: Colors.transparent,
-      systemNavigationBarIconBrightness: brightness,
-    ));
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: brightness,
+        statusBarBrightness: brightness,
+        systemNavigationBarColor: themeData.colorScheme.background,
+        systemNavigationBarDividerColor: Colors.transparent,
+        systemNavigationBarIconBrightness: brightness,
+      ),
+    );
   }
 
   Map<String, WidgetBuilder> _buildRoutes() {

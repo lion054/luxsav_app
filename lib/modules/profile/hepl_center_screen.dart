@@ -40,7 +40,8 @@ class _HeplCenterScreenState extends State<HeplCenterScreen> {
             Expanded(
               child: ListView.builder(
                 padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).padding.bottom),
+                  bottom: MediaQuery.of(context).padding.bottom,
+                ),
                 itemCount: helpSearchList.length,
                 itemBuilder: (context, index) {
                   return InkWell(
@@ -65,43 +66,44 @@ class _HeplCenterScreenState extends State<HeplCenterScreen> {
                                     style: TextStyles(context)
                                         .regular()
                                         .copyWith(
-                                            fontWeight: helpSearchList[index]
-                                                        .titleTxt !=
-                                                    ""
-                                                ? FontWeight.bold
-                                                : FontWeight.normal,
-                                            fontSize: helpSearchList[index]
-                                                        .titleTxt !=
-                                                    ""
-                                                ? 18
-                                                : 14),
+                                          fontWeight:
+                                              helpSearchList[index].titleTxt !=
+                                                  ""
+                                              ? FontWeight.bold
+                                              : FontWeight.normal,
+                                          fontSize:
+                                              helpSearchList[index].titleTxt !=
+                                                  ""
+                                              ? 18
+                                              : 14,
+                                        ),
                                   ),
                                 ),
                               ),
                               helpSearchList[index].subTxt != ""
                                   ? Padding(
                                       padding: const EdgeInsets.all(16),
-                                      child: Icon(Icons.keyboard_arrow_right,
-                                          color: Theme.of(context)
-                                              .disabledColor
-                                              .withOpacity(0.3)),
+                                      child: Icon(
+                                        Icons.keyboard_arrow_right,
+                                        color: Theme.of(
+                                          context,
+                                        ).disabledColor.withOpacity(0.3),
+                                      ),
                                     )
-                                  : const SizedBox()
+                                  : const SizedBox(),
                             ],
                           ),
                         ),
                         const Padding(
                           padding: EdgeInsets.only(left: 16, right: 16),
-                          child: Divider(
-                            height: 1,
-                          ),
-                        )
+                          child: Divider(height: 1),
+                        ),
                       ],
                     ),
                   );
                 },
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -121,15 +123,16 @@ class _HeplCenterScreenState extends State<HeplCenterScreen> {
           titleText: Loc.alized.how_can_help_you,
         ),
         Padding(
-            padding: const EdgeInsets.only(left: 24, right: 24, top: 16),
-            child: CommonCard(
-              color: AppTheme.backgroundColor,
-              radius: 36,
-              child: CommonSearchBar(
-                iconData: FontAwesomeIcons.magnifyingGlass,
-                text: Loc.alized.search_help_artical,
-              ),
-            )),
+          padding: const EdgeInsets.only(left: 24, right: 24, top: 16),
+          child: CommonCard(
+            color: AppTheme.backgroundColor,
+            radius: 36,
+            child: CommonSearchBar(
+              iconData: FontAwesomeIcons.magnifyingGlass,
+              text: Loc.alized.search_help_artical,
+            ),
+          ),
+        ),
       ],
     );
   }

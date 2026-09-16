@@ -22,9 +22,13 @@ class _CountryScreenState extends State<CountryScreen> {
   }
 
   void getCountryList() async {
-    countryList = SettingsListData().getCountryListFromJson(json.decode(
-        await DefaultAssetBundle.of(context)
-            .loadString("assets/json/countryList.json")));
+    countryList = SettingsListData().getCountryListFromJson(
+      json.decode(
+        await DefaultAssetBundle.of(
+          context,
+        ).loadString("assets/json/countryList.json"),
+      ),
+    );
     await Future.delayed(const Duration(milliseconds: 500));
     setState(() {});
   }
@@ -53,14 +57,13 @@ class _CountryScreenState extends State<CountryScreen> {
                       child: SizedBox(
                         width: 40,
                         height: 40,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                        ),
+                        child: CircularProgressIndicator(strokeWidth: 2),
                       ),
                     )
                   : ListView.builder(
                       padding: EdgeInsets.only(
-                          bottom: 16 + MediaQuery.of(context).padding.bottom),
+                        bottom: 16 + MediaQuery.of(context).padding.bottom,
+                      ),
                       itemCount: countryList.length,
                       itemBuilder: (context, index) {
                         return InkWell(
@@ -70,8 +73,10 @@ class _CountryScreenState extends State<CountryScreen> {
                           child: Column(
                             children: <Widget>[
                               Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 8, right: 16),
+                                padding: const EdgeInsets.only(
+                                  left: 8,
+                                  right: 16,
+                                ),
                                 child: Row(
                                   children: <Widget>[
                                     Expanded(
@@ -82,8 +87,9 @@ class _CountryScreenState extends State<CountryScreen> {
                                           style: TextStyles(context)
                                               .regular()
                                               .copyWith(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: 16),
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 16,
+                                              ),
                                         ),
                                       ),
                                     ),
@@ -98,22 +104,20 @@ class _CountryScreenState extends State<CountryScreen> {
                                               fontSize: 16,
                                             ),
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
                               const Padding(
                                 padding: EdgeInsets.only(left: 16, right: 16),
-                                child: Divider(
-                                  height: 1,
-                                ),
-                              )
+                                child: Divider(height: 1),
+                              ),
                             ],
                           ),
                         );
                       },
                     ),
-            )
+            ),
           ],
         ),
       ),

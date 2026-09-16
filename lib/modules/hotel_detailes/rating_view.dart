@@ -27,9 +27,9 @@ class RatingView extends StatelessWidget {
                     (hotelData.rating * 2).toStringAsFixed(1),
                     textAlign: TextAlign.left,
                     style: TextStyles(context).bold().copyWith(
-                          fontSize: 38,
-                          color: Theme.of(context).primaryColor,
-                        ),
+                      fontSize: 38,
+                      color: Theme.of(context).primaryColor,
+                    ),
                   ),
                 ),
                 Expanded(
@@ -43,12 +43,12 @@ class RatingView extends StatelessWidget {
                           Loc.alized.overall_rating,
                           textAlign: TextAlign.left,
                           style: TextStyles(context).regular().copyWith(
-                                // fontWeight: FontWeight.w500,
-                                fontSize: 14,
-                                color: Theme.of(context)
-                                    .disabledColor
-                                    .withOpacity(0.8),
-                              ),
+                            // fontWeight: FontWeight.w500,
+                            fontSize: 14,
+                            color: Theme.of(
+                              context,
+                            ).disabledColor.withOpacity(0.8),
+                          ),
                         ),
                         // SmoothStarRating(
                         //   allowHalfRating: true,
@@ -61,24 +61,16 @@ class RatingView extends StatelessWidget {
                       ],
                     ),
                   ),
-                )
+                ),
               ],
             ),
-            const SizedBox(
-              height: 4,
-            ),
+            const SizedBox(height: 4),
             getBarUI('room', 95.0, context),
-            const SizedBox(
-              height: 4,
-            ),
+            const SizedBox(height: 4),
             getBarUI('service', 80.0, context),
-            const SizedBox(
-              height: 4,
-            ),
+            const SizedBox(height: 4),
             getBarUI('location', 65.0, context),
-            const SizedBox(
-              height: 4,
-            ),
+            const SizedBox(height: 4),
             getBarUI('price', 85, context),
           ],
         ),
@@ -97,37 +89,30 @@ class RatingView extends StatelessWidget {
             text,
             textAlign: TextAlign.left,
             style: TextStyles(context).regular().copyWith(
-                  // fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                  color: Theme.of(context).disabledColor.withOpacity(0.8),
-                ),
+              // fontWeight: FontWeight.w500,
+              fontSize: 14,
+              color: Theme.of(context).disabledColor.withOpacity(0.8),
+            ),
           ),
         ),
-        const SizedBox(
-          width: 8,
-        ),
+        const SizedBox(width: 8),
         Expanded(
           child: Row(
             children: <Widget>[
               Expanded(
                 flex: percent.toInt(),
                 child: Padding(
-                    padding: const EdgeInsets.only(top: 2),
-                    child: SizedBox(
-                      height: 4,
-                      child: CommonCard(
-                        color: AppTheme.primaryColor,
-                        radius: 8,
-                      ),
-                    )),
+                  padding: const EdgeInsets.only(top: 2),
+                  child: SizedBox(
+                    height: 4,
+                    child: CommonCard(color: AppTheme.primaryColor, radius: 8),
+                  ),
+                ),
               ),
-              Expanded(
-                flex: 100 - percent.toInt(),
-                child: const SizedBox(),
-              )
+              Expanded(flex: 100 - percent.toInt(), child: const SizedBox()),
             ],
           ),
-        )
+        ),
       ],
     );
   }

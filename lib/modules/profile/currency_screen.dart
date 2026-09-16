@@ -35,7 +35,8 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
             Expanded(
               child: ListView.builder(
                 padding: EdgeInsets.only(
-                    bottom: 16 + MediaQuery.of(context).padding.bottom),
+                  bottom: 16 + MediaQuery.of(context).padding.bottom,
+                ),
                 itemCount: currencyList.length,
                 itemBuilder: (context, index) {
                   return InkWell(
@@ -56,8 +57,9 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
                                     style: TextStyles(context)
                                         .regular()
                                         .copyWith(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 16),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 16,
+                                        ),
                                   ),
                                 ),
                               ),
@@ -72,22 +74,20 @@ class _CurrencyScreenState extends State<CurrencyScreen> {
                                         fontSize: 16,
                                       ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
                         const Padding(
                           padding: EdgeInsets.only(left: 16, right: 16),
-                          child: Divider(
-                            height: 1,
-                          ),
-                        )
+                          child: Divider(height: 1),
+                        ),
                       ],
                     ),
                   );
                 },
               ),
-            )
+            ),
           ],
         ),
       ),

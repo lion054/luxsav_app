@@ -42,7 +42,11 @@ class _ChangepasswordScreenState extends State<ChangepasswordScreen> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(
-                          top: 16.0, bottom: 16.0, left: 24, right: 24),
+                        top: 16.0,
+                        bottom: 16.0,
+                        left: 24,
+                        right: 24,
+                      ),
                       child: Row(
                         children: <Widget>[
                           Expanded(
@@ -63,7 +67,10 @@ class _ChangepasswordScreenState extends State<ChangepasswordScreen> {
                       controller: _newController,
                       titleText: Loc.alized.new_password,
                       padding: const EdgeInsets.only(
-                          left: 24, right: 24, bottom: 16),
+                        left: 24,
+                        right: 24,
+                        bottom: 16,
+                      ),
                       hintText: Loc.alized.enter_new_password,
                       keyboardType: TextInputType.visiblePassword,
                       isObscureText: true,
@@ -74,7 +81,10 @@ class _ChangepasswordScreenState extends State<ChangepasswordScreen> {
                       controller: _confirmController,
                       titleText: Loc.alized.confirm_password,
                       padding: const EdgeInsets.only(
-                          left: 24, right: 24, bottom: 24),
+                        left: 24,
+                        right: 24,
+                        bottom: 24,
+                      ),
                       hintText: Loc.alized.enter_confirm_password,
                       keyboardType: TextInputType.visiblePassword,
                       isObscureText: true,
@@ -83,18 +93,21 @@ class _ChangepasswordScreenState extends State<ChangepasswordScreen> {
                     ),
                     CommonButton(
                       padding: const EdgeInsets.only(
-                          left: 24, right: 24, bottom: 16),
+                        left: 24,
+                        right: 24,
+                        bottom: 16,
+                      ),
                       buttonText: Loc.alized.apply_text,
                       onTap: () {
                         if (_allValidation()) {
                           Navigator.pop(context);
                         }
                       },
-                    )
+                    ),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

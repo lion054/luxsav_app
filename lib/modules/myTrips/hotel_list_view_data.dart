@@ -16,14 +16,14 @@ class HotelListViewData extends StatelessWidget {
   final AnimationController animationController;
   final Animation<double> animation;
 
-  const HotelListViewData(
-      {Key? key,
-      required this.hotelData,
-      required this.animationController,
-      required this.animation,
-      required this.callback,
-      this.isShowDate = false})
-      : super(key: key);
+  const HotelListViewData({
+    Key? key,
+    required this.hotelData,
+    required this.animationController,
+    required this.animation,
+    required this.callback,
+    this.isShowDate = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -72,46 +72,40 @@ class HotelListViewData extends StatelessWidget {
       child: Container(
         height: 150,
         padding: EdgeInsets.only(
-            left: !isShowDate ? 16 : 8,
-            top: 8,
-            bottom: 8,
-            right: isShowDate ? 16 : 8),
+          left: !isShowDate ? 16 : 8,
+          top: 8,
+          bottom: 8,
+          right: isShowDate ? 16 : 8,
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment:
-              isShowDate ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          crossAxisAlignment: isShowDate
+              ? CrossAxisAlignment.end
+              : CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               hotelData.titleTxt,
               maxLines: 2,
               textAlign: isShowDate ? TextAlign.right : TextAlign.left,
-              style: TextStyles(context).bold().copyWith(
-                    fontSize: 16,
-                  ),
+              style: TextStyles(context).bold().copyWith(fontSize: 16),
               overflow: TextOverflow.ellipsis,
             ),
             Text(
               hotelData.subTxt,
-              style: TextStyles(context).description().copyWith(
-                    fontSize: 14,
-                  ),
+              style: TextStyles(context).description().copyWith(fontSize: 14),
             ),
             Text(
               Helper.getDateText(hotelData.date!),
               maxLines: 2,
               textAlign: isShowDate ? TextAlign.right : TextAlign.left,
-              style: TextStyles(context).regular().copyWith(
-                    fontSize: 12,
-                  ),
+              style: TextStyles(context).regular().copyWith(fontSize: 12),
               overflow: TextOverflow.ellipsis,
             ),
             Text(
               Helper.getRoomText(hotelData.roomData!),
               maxLines: 2,
               textAlign: isShowDate ? TextAlign.right : TextAlign.left,
-              style: TextStyles(context).regular().copyWith(
-                    fontSize: 12,
-                  ),
+              style: TextStyles(context).regular().copyWith(fontSize: 12),
               overflow: TextOverflow.ellipsis,
             ),
             Expanded(
@@ -138,16 +132,16 @@ class HotelListViewData extends StatelessWidget {
                           Text(
                             " ${hotelData.dist.toStringAsFixed(1)}",
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyles(context).description().copyWith(
-                                  fontSize: 14,
-                                ),
+                            style: TextStyles(
+                              context,
+                            ).description().copyWith(fontSize: 14),
                           ),
                           Text(
                             Loc.alized.km_to_city,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyles(context).description().copyWith(
-                                  fontSize: 14,
-                                ),
+                            style: TextStyles(
+                              context,
+                            ).description().copyWith(fontSize: 14),
                           ),
                         ],
                       ),
@@ -161,18 +155,19 @@ class HotelListViewData extends StatelessWidget {
                             "\$${hotelData.perNight}",
                             textAlign: TextAlign.left,
                             style: TextStyles(context).regular().copyWith(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 20,
-                                ),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 20,
+                            ),
                           ),
                           Padding(
                             padding: EdgeInsets.only(
-                                top: Get.find<Loc>().isRTL ? 4.0 : 2.0),
+                              top: Get.find<Loc>().isRTL ? 4.0 : 2.0,
+                            ),
                             child: Text(
                               Loc.alized.per_night,
-                              style: TextStyles(context).description().copyWith(
-                                    fontSize: 14,
-                                  ),
+                              style: TextStyles(
+                                context,
+                              ).description().copyWith(fontSize: 14),
                             ),
                           ),
                         ],

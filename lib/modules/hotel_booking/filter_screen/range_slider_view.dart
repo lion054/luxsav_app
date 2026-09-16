@@ -4,9 +4,11 @@ class RangeSliderView extends StatefulWidget {
   final Function(RangeValues) onChnageRangeValues;
   final RangeValues values;
 
-  const RangeSliderView(
-      {Key? key, required this.values, required this.onChnageRangeValues})
-      : super(key: key);
+  const RangeSliderView({
+    Key? key,
+    required this.values,
+    required this.onChnageRangeValues,
+  }) : super(key: key);
   @override
   State<RangeSliderView> createState() => _RangeSliderViewState();
 }
@@ -28,10 +30,7 @@ class _RangeSliderViewState extends State<RangeSliderView> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Expanded(
-                  flex: _values.start.round(),
-                  child: const SizedBox(),
-                ),
+                Expanded(flex: _values.start.round(), child: const SizedBox()),
                 SizedBox(
                   width: 54,
                   child: Text(
@@ -47,10 +46,7 @@ class _RangeSliderViewState extends State<RangeSliderView> {
             ),
             Row(
               children: <Widget>[
-                Expanded(
-                  flex: _values.end.round(),
-                  child: const SizedBox(),
-                ),
+                Expanded(flex: _values.end.round(), child: const SizedBox()),
                 SizedBox(
                   width: 54,
                   child: Text(
@@ -68,8 +64,8 @@ class _RangeSliderViewState extends State<RangeSliderView> {
         ),
         SliderTheme(
           data: const SliderThemeData(
-              //   rangeThumbShape: CustomRangeThumbShape(),
-              ),
+            //   rangeThumbShape: CustomRangeThumbShape(),
+          ),
           child: RangeSlider(
             values: _values,
             min: 10.0,

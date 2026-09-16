@@ -34,8 +34,12 @@ class CommonTextFieldView extends StatelessWidget {
         children: [
           if (isAllowTopTitleView && titleText != '')
             Padding(
-              padding:
-                  const EdgeInsets.only(left: 16, right: 16, top: 4, bottom: 4),
+              padding: const EdgeInsets.only(
+                left: 16,
+                right: 16,
+                top: 4,
+                bottom: 4,
+              ),
               child: Text(
                 titleText ?? "",
                 style: TextStyles(context).description(),
@@ -67,8 +71,9 @@ class CommonTextFieldView extends StatelessWidget {
                       errorText: null,
                       border: InputBorder.none,
                       hintText: hintText,
-                      hintStyle:
-                          TextStyle(color: Theme.of(context).disabledColor),
+                      hintStyle: TextStyle(
+                        color: Theme.of(context).disabledColor,
+                      ),
                     ),
                     keyboardType: keyboardType,
                   ),
@@ -78,15 +83,19 @@ class CommonTextFieldView extends StatelessWidget {
           ),
           if (errorText != null && errorText != '')
             Padding(
-              padding:
-                  const EdgeInsets.only(left: 16, right: 16, top: 4, bottom: 4),
+              padding: const EdgeInsets.only(
+                left: 16,
+                right: 16,
+                top: 4,
+                bottom: 4,
+              ),
               child: Text(
                 errorText ?? "",
-                style: TextStyles(context).description().copyWith(
-                      color: AppTheme.redErrorColor,
-                    ),
+                style: TextStyles(
+                  context,
+                ).description().copyWith(color: AppTheme.redErrorColor),
               ),
-            )
+            ),
         ],
       ),
     );

@@ -12,9 +12,11 @@ class HomeExploreSliderView extends StatefulWidget {
   final double opValue;
   final VoidCallback click;
 
-  const HomeExploreSliderView(
-      {Key? key, this.opValue = 0.0, required this.click})
-      : super(key: key);
+  const HomeExploreSliderView({
+    Key? key,
+    this.opValue = 0.0,
+    required this.click,
+  }) : super(key: key);
   @override
   State<HomeExploreSliderView> createState() => _HomeExploreSliderViewState();
 }
@@ -28,37 +30,49 @@ class _HomeExploreSliderViewState extends State<HomeExploreSliderView> {
 
   @override
   void initState() {
-    pageViewModelData.add(PageViewData(
-      titleText: Loc.alized.cape_town,
-      subText: Loc.alized.five_star,
-      assetsImage: Localfiles.explore_2,
-    ));
-    pageViewModelData.add(PageViewData(
-      titleText: Loc.alized.find_best_deals,
-      subText: Loc.alized.five_star,
-      assetsImage: Localfiles.explore_1,
-    ));
-    pageViewModelData.add(PageViewData(
-      titleText: Loc.alized.find_best_deals,
-      subText: Loc.alized.five_star,
-      assetsImage: Localfiles.explore_3,
-    ));
+    pageViewModelData.add(
+      PageViewData(
+        titleText: Loc.alized.cape_town,
+        subText: Loc.alized.five_star,
+        assetsImage: Localfiles.explore_2,
+      ),
+    );
+    pageViewModelData.add(
+      PageViewData(
+        titleText: Loc.alized.find_best_deals,
+        subText: Loc.alized.five_star,
+        assetsImage: Localfiles.explore_1,
+      ),
+    );
+    pageViewModelData.add(
+      PageViewData(
+        titleText: Loc.alized.find_best_deals,
+        subText: Loc.alized.five_star,
+        assetsImage: Localfiles.explore_3,
+      ),
+    );
 
     sliderTimer = Timer.periodic(const Duration(seconds: 4), (timer) {
       if (mounted) {
         if (currentShowIndex == 0) {
-          pageController.animateTo(MediaQuery.of(context).size.width,
-              duration: const Duration(seconds: 1),
-              curve: Curves.fastOutSlowIn);
+          pageController.animateTo(
+            MediaQuery.of(context).size.width,
+            duration: const Duration(seconds: 1),
+            curve: Curves.fastOutSlowIn,
+          );
         } else {
           if (currentShowIndex == 1) {
-            pageController.animateTo(MediaQuery.of(context).size.width * 2,
-                duration: const Duration(seconds: 1),
-                curve: Curves.fastOutSlowIn);
+            pageController.animateTo(
+              MediaQuery.of(context).size.width * 2,
+              duration: const Duration(seconds: 1),
+              curve: Curves.fastOutSlowIn,
+            );
           } else if (currentShowIndex == 2) {
-            pageController.animateTo(0,
-                duration: const Duration(seconds: 1),
-                curve: Curves.fastOutSlowIn);
+            pageController.animateTo(
+              0,
+              duration: const Duration(seconds: 1),
+              curve: Curves.fastOutSlowIn,
+            );
           }
         }
       }
@@ -110,15 +124,17 @@ class _HomeExploreSliderViewState extends State<HomeExploreSliderView> {
             //         ? 32
             //         : null,
             child: SmoothPageIndicator(
-                controller: pageController, // PageController
-                count: 3,
-                effect: WormEffect(
-                    activeDotColor: Theme.of(context).primaryColor,
-                    dotColor: Theme.of(context).dividerColor,
-                    dotHeight: 10.0,
-                    dotWidth: 10.0,
-                    spacing: 5.0), // your preferred effect
-                onDotClicked: (index) {}),
+              controller: pageController, // PageController
+              count: 3,
+              effect: WormEffect(
+                activeDotColor: Theme.of(context).primaryColor,
+                dotColor: Theme.of(context).dividerColor,
+                dotHeight: 10.0,
+                dotWidth: 10.0,
+                spacing: 5.0,
+              ), // your preferred effect
+              onDotClicked: (index) {},
+            ),
           ),
         ],
       ),
@@ -131,7 +147,7 @@ class PagePopup extends StatelessWidget {
   final double opValue;
 
   const PagePopup({Key? key, required this.imageData, this.opValue = 0.0})
-      : super(key: key);
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -140,10 +156,7 @@ class PagePopup extends StatelessWidget {
         SizedBox(
           height: (MediaQuery.of(context).size.width * 1.3),
           width: MediaQuery.of(context).size.width,
-          child: Image.asset(
-            imageData.assetsImage,
-            fit: BoxFit.cover,
-          ),
+          child: Image.asset(imageData.assetsImage, fit: BoxFit.cover),
         ),
         Positioned(
           bottom: 80,
@@ -158,24 +171,21 @@ class PagePopup extends StatelessWidget {
                 Text(
                   imageData.titleText,
                   textAlign: TextAlign.left,
-                  style: TextStyles(context)
-                      .title()
-                      .copyWith(color: AppTheme.whiteColor),
+                  style: TextStyles(
+                    context,
+                  ).title().copyWith(color: AppTheme.whiteColor),
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
+                const SizedBox(height: 8),
                 Text(
                   imageData.subText,
                   textAlign: TextAlign.left,
                   style: TextStyles(context).regular().copyWith(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: AppTheme.whiteColor),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: AppTheme.whiteColor,
+                  ),
                 ),
-                const SizedBox(
-                  height: 16,
-                ),
+                const SizedBox(height: 16),
               ],
             ),
           ),

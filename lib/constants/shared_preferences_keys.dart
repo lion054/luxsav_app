@@ -13,10 +13,10 @@ class SharedPreferencesKeys {
     await prefs.setInt(key, id);
   }
 
-//   _setBoolData({required String key, required bool text}) async {
-//     SharedPreferences prefs = await SharedPreferences.getInstance();
-//     await prefs.setBool(key, text);
-//   }
+  //   _setBoolData({required String key, required bool text}) async {
+  //     SharedPreferences prefs = await SharedPreferences.getInstance();
+  //     await prefs.setBool(key, text);
+  //   }
 
   Future<String?> _getStringData({required String key}) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -28,10 +28,10 @@ class SharedPreferencesKeys {
     return prefs.getInt(key);
   }
 
-//   Future<bool?> _getBoolData({required String key}) async {
-//     SharedPreferences prefs = await SharedPreferences.getInstance();
-//     return prefs.getBool(key);
-//   }
+  //   Future<bool?> _getBoolData({required String key}) async {
+  //     SharedPreferences prefs = await SharedPreferences.getInstance();
+  //     return prefs.getBool(key);
+  //   }
 
   Future<ThemeModeType> getThemeMode() async {
     int? index = await _getIntData(key: 'ThemeModeType');
@@ -45,8 +45,6 @@ class SharedPreferencesKeys {
   Future setThemeMode(ThemeModeType type) async {
     await _setIntData(key: 'ThemeModeType', id: type.index);
   }
-
-
 
   Future setLanguageType(Locale language) async {
     await _setStringData(key: 'language_type', text: language.languageCode);

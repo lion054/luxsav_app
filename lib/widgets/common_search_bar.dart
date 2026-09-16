@@ -8,14 +8,14 @@ class CommonSearchBar extends StatelessWidget {
   final double height;
   final IconData? iconData;
 
-  const CommonSearchBar(
-      {Key? key,
-      this.text,
-      this.enabled = false,
-      this.height = 48,
-      this.iconData,
-      this.ishsow = true})
-      : super(key: key);
+  const CommonSearchBar({
+    Key? key,
+    this.text,
+    this.enabled = false,
+    this.height = 48,
+    this.iconData,
+    this.ishsow = true,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,11 +33,7 @@ class CommonSearchBar extends StatelessWidget {
                       color: Theme.of(context).primaryColor,
                     )
                   : const SizedBox(),
-              ishsow == true
-                  ? const SizedBox(
-                      width: 8,
-                    )
-                  : const SizedBox(),
+              ishsow == true ? const SizedBox(width: 8) : const SizedBox(),
               Expanded(
                 child: TextField(
                   maxLines: 1,
@@ -50,7 +46,9 @@ class CommonSearchBar extends StatelessWidget {
                     border: InputBorder.none,
                     hintText: text,
                     hintStyle: TextStyles(context).description().copyWith(
-                        color: AppTheme.secondaryTextColor, fontSize: 18),
+                      color: AppTheme.secondaryTextColor,
+                      fontSize: 18,
+                    ),
                   ),
                 ),
               ),

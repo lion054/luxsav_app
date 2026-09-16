@@ -26,7 +26,9 @@ class _SearchScreenState extends State<SearchScreen>
   @override
   void initState() {
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 2000), vsync: this);
+      duration: const Duration(milliseconds: 2000),
+      vsync: this,
+    );
     super.initState();
   }
 
@@ -58,10 +60,15 @@ class _SearchScreenState extends State<SearchScreen>
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
-                  children: <Widget>[
+                  children:
+                      <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 24, right: 24, top: 16, bottom: 16),
+                            left: 24,
+                            right: 24,
+                            top: 16,
+                            bottom: 16,
+                          ),
                           child: CommonCard(
                             color: AppTheme.backgroundColor,
                             radius: 36,
@@ -75,7 +82,10 @@ class _SearchScreenState extends State<SearchScreen>
                         const SearchTypeListView(),
                         Padding(
                           padding: const EdgeInsets.only(
-                              left: 24, right: 24, top: 8),
+                            left: 24,
+                            right: 24,
+                            top: 8,
+                          ),
                           child: Row(
                             children: <Widget>[
                               Expanded(
@@ -92,7 +102,8 @@ class _SearchScreenState extends State<SearchScreen>
                                 color: Colors.transparent,
                                 child: InkWell(
                                   borderRadius: const BorderRadius.all(
-                                      Radius.circular(4.0)),
+                                    Radius.circular(4.0),
+                                  ),
                                   onTap: () {},
                                   child: Padding(
                                     padding: const EdgeInsets.all(8),
@@ -104,15 +115,16 @@ class _SearchScreenState extends State<SearchScreen>
                                           style: TextStyle(
                                             fontWeight: FontWeight.w600,
                                             fontSize: 14,
-                                            color:
-                                                Theme.of(context).primaryColor,
+                                            color: Theme.of(
+                                              context,
+                                            ).primaryColor,
                                           ),
                                         ),
                                       ],
                                     ),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -121,7 +133,7 @@ class _SearchScreenState extends State<SearchScreen>
                       [
                         SizedBox(
                           height: MediaQuery.of(context).padding.bottom + 16,
-                        )
+                        ),
                       ],
                 ),
               ),
@@ -144,28 +156,30 @@ class _SearchScreenState extends State<SearchScreen>
           var animation = Tween(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
               parent: animationController,
-              curve: Interval((1 / lastsSearchesList.length) * cout, 1.0,
-                  curve: Curves.fastOutSlowIn),
+              curve: Interval(
+                (1 / lastsSearchesList.length) * cout,
+                1.0,
+                curve: Curves.fastOutSlowIn,
+              ),
             ),
           );
           animationController.forward();
-          listUI.add(Expanded(
-            child: SerchView(
-              hotelInfo: date,
-              animation: animation,
-              animationController: animationController,
+          listUI.add(
+            Expanded(
+              child: SerchView(
+                hotelInfo: date,
+                animation: animation,
+                animationController: animationController,
+              ),
             ),
-          ));
+          );
           cout += 1;
         } catch (_) {}
       }
       noList.add(
         Padding(
           padding: const EdgeInsets.only(left: 16, right: 16),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
-            children: listUI,
-          ),
+          child: Row(mainAxisSize: MainAxisSize.max, children: listUI),
         ),
       );
     }

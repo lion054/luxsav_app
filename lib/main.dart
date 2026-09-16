@@ -13,25 +13,26 @@ void main() async {
 
   await Get.putAsync<Loc>(() => Loc().init(), permanent: true);
 
-  await Get.putAsync<ThemeController>(() => ThemeController.init(),
-      permanent: true);
+  await Get.putAsync<ThemeController>(
+    () => ThemeController.init(),
+    permanent: true,
+  );
 
-  await SystemChrome.setPreferredOrientations(
-          [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown])
-      .then((_) => runApp(const LuxSavApp()));
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((_) => runApp(const LuxSavApp()));
 }
 
 /// The bundled brand fonts are under the SIL Open Font License, which asks that
 /// the licence ships with them. This makes them appear on the licences page.
 void _registerFontLicenses() {
-  const fonts = {
-    'Cormorant Garamond': 'CormorantGaramond',
-    'Inter': 'Inter',
-  };
+  const fonts = {'Cormorant Garamond': 'CormorantGaramond', 'Inter': 'Inter'};
   LicenseRegistry.addLicense(() async* {
     for (final entry in fonts.entries) {
-      final text = await rootBundle
-          .loadString('assets/fonts/licenses/${entry.value}-OFL.txt');
+      final text = await rootBundle.loadString(
+        'assets/fonts/licenses/${entry.value}-OFL.txt',
+      );
       yield LicenseEntryWithLineBreaks([entry.key], text);
     }
   });

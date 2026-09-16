@@ -38,17 +38,22 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
   @override
   void initState() {
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 1000), vsync: this);
+      duration: const Duration(milliseconds: 1000),
+      vsync: this,
+    );
     _animationController = AnimationController(
-        duration: const Duration(milliseconds: 0), vsync: this);
+      duration: const Duration(milliseconds: 0),
+      vsync: this,
+    );
     scrollController.addListener(() {
       if (scrollController.offset <= 0) {
         _animationController.animateTo(0.0);
       } else if (scrollController.offset > 0.0 &&
           scrollController.offset < searchBarHieght) {
         // we need around searchBarHieght scrolling values in 0.0 to 1.0
-        _animationController
-            .animateTo((scrollController.offset / searchBarHieght));
+        _animationController.animateTo(
+          (scrollController.offset / searchBarHieght),
+        );
       } else {
         _animationController.animateTo(1.0);
       }
@@ -101,17 +106,24 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                       ? 10
                                       : hotelList.length;
                                   var animation = Tween(begin: 0.0, end: 1.0)
-                                      .animate(CurvedAnimation(
+                                      .animate(
+                                        CurvedAnimation(
                                           parent: animationController,
                                           curve: Interval(
-                                              (1 / count) * index, 1.0,
-                                              curve: Curves.fastOutSlowIn)));
+                                            (1 / count) * index,
+                                            1.0,
+                                            curve: Curves.fastOutSlowIn,
+                                          ),
+                                        ),
+                                      );
                                   animationController.forward();
                                   return HotelListView(
                                     callback: () {
-                                      NavigationServices(context)
-                                          .gotoRoomBookingScreen(
-                                              hotelList[index].titleTxt);
+                                      NavigationServices(
+                                        context,
+                                      ).gotoRoomBookingScreen(
+                                        hotelList[index].titleTxt,
+                                      );
                                     },
                                     hotelData: hotelList[index],
                                     animation: animation,
@@ -124,15 +136,17 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                               animation: _animationController,
                               builder: (BuildContext context, Widget? child) {
                                 return Positioned(
-                                  top: -searchBarHieght *
+                                  top:
+                                      -searchBarHieght *
                                       (_animationController.value),
                                   left: 0,
                                   right: 0,
                                   child: Column(
                                     children: <Widget>[
                                       Container(
-                                        color: Theme.of(context)
-                                            .scaffoldBackgroundColor,
+                                        color: Theme.of(
+                                          context,
+                                        ).scaffoldBackgroundColor,
                                         child: Column(
                                           children: <Widget>[
                                             //hotel search view
@@ -151,7 +165,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                             ),
                           ],
                         ),
-                      )
+                      ),
               ],
             ),
           ),
@@ -167,8 +181,12 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
         children: <Widget>[
           Expanded(
             child: Padding(
-              padding:
-                  const EdgeInsets.only(right: 8, top: 8, bottom: 8, left: 8),
+              padding: const EdgeInsets.only(
+                right: 8,
+                top: 8,
+                bottom: 8,
+                left: 8,
+              ),
               child: CommonCard(
                 color: AppTheme.backgroundColor,
                 radius: 36,
@@ -191,8 +209,11 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Icon(FontAwesomeIcons.magnifyingGlass,
-                      size: 20, color: AppTheme.backgroundColor),
+                  child: Icon(
+                    FontAwesomeIcons.magnifyingGlass,
+                    size: 20,
+                    color: AppTheme.backgroundColor,
+                  ),
                 ),
               ),
             ),
@@ -205,7 +226,10 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
   Widget _getAppBarUI() {
     return Padding(
       padding: EdgeInsets.only(
-          top: MediaQuery.of(context).padding.top, left: 8, right: 8),
+        top: MediaQuery.of(context).padding.top,
+        left: 8,
+        right: 8,
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.end,
@@ -219,9 +243,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
             child: Material(
               color: Colors.transparent,
               child: InkWell(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(32.0),
-                ),
+                borderRadius: const BorderRadius.all(Radius.circular(32.0)),
                 onTap: () {
                   Navigator.pop(context);
                 },
@@ -250,9 +272,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                 Material(
                   color: Colors.transparent,
                   child: InkWell(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(32.0),
-                    ),
+                    borderRadius: const BorderRadius.all(Radius.circular(32.0)),
                     onTap: () {},
                     child: const Padding(
                       padding: EdgeInsets.all(8.0),
@@ -263,9 +283,7 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                 Material(
                   color: Colors.transparent,
                   child: InkWell(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(32.0),
-                    ),
+                    borderRadius: const BorderRadius.all(Radius.circular(32.0)),
                     onTap: () {
                       setState(() {
                         _isShowMap = !_isShowMap;
@@ -273,15 +291,17 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Icon(_isShowMap
-                          ? Icons.sort
-                          : FontAwesomeIcons.mapLocationDot),
+                      child: Icon(
+                        _isShowMap
+                            ? Icons.sort
+                            : FontAwesomeIcons.mapLocationDot,
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

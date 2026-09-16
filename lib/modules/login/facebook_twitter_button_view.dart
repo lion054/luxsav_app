@@ -13,9 +13,7 @@ class FacebookTwitterButtonView extends StatelessWidget {
   Widget _fTButtonUI() {
     return Row(
       children: <Widget>[
-        const SizedBox(
-          width: 24,
-        ),
+        const SizedBox(width: 24),
         Expanded(
           child: CommonButton(
             padding: EdgeInsets.zero,
@@ -23,9 +21,7 @@ class FacebookTwitterButtonView extends StatelessWidget {
             buttonTextWidget: _buttonTextUI(),
           ),
         ),
-        const SizedBox(
-          width: 16,
-        ),
+        const SizedBox(width: 16),
         Expanded(
           child: CommonButton(
             padding: EdgeInsets.zero,
@@ -33,9 +29,7 @@ class FacebookTwitterButtonView extends StatelessWidget {
             buttonTextWidget: _buttonTextUI(isFacebook: false),
           ),
         ),
-        const SizedBox(
-          width: 24,
-        )
+        const SizedBox(width: 24),
       ],
     );
   }
@@ -45,15 +39,19 @@ class FacebookTwitterButtonView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Icon(isFacebook ? FontAwesomeIcons.facebookF : FontAwesomeIcons.twitter,
-            size: 20, color: Colors.white),
-        const SizedBox(
-          width: 4,
+        Icon(
+          isFacebook ? FontAwesomeIcons.facebookF : FontAwesomeIcons.twitter,
+          size: 20,
+          color: Colors.white,
         ),
+        const SizedBox(width: 4),
         Text(
           isFacebook ? "Facebook" : "Twitter",
           style: const TextStyle(
-              fontWeight: FontWeight.w500, fontSize: 16, color: Colors.white),
+            fontWeight: FontWeight.w500,
+            fontSize: 16,
+            color: Colors.white,
+          ),
         ),
       ],
     );

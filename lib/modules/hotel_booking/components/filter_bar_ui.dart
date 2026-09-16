@@ -14,16 +14,17 @@ class FilterBarUI extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Padding(
-            padding:
-                const EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 4),
+            padding: const EdgeInsets.only(
+              left: 16,
+              right: 16,
+              top: 8,
+              bottom: 4,
+            ),
             child: Row(
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "530",
-                    style: TextStyles(context).regular(),
-                  ),
+                  child: Text("530", style: TextStyles(context).regular()),
                 ),
                 Expanded(
                   child: Padding(
@@ -37,9 +38,7 @@ class FilterBarUI extends StatelessWidget {
                 Material(
                   color: Colors.transparent,
                   child: InkWell(
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(4.0),
-                    ),
+                    borderRadius: const BorderRadius.all(Radius.circular(4.0)),
                     onTap: () {
                       NavigationServices(context).gotoFiltersScreen();
                     },
@@ -53,8 +52,10 @@ class FilterBarUI extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Icon(Icons.sort,
-                                color: Theme.of(context).primaryColor),
+                            child: Icon(
+                              Icons.sort,
+                              color: Theme.of(context).primaryColor,
+                            ),
                           ),
                         ],
                       ),
@@ -68,10 +69,8 @@ class FilterBarUI extends StatelessWidget {
             top: 0,
             left: 0,
             right: 0,
-            child: Divider(
-              height: 1,
-            ),
-          )
+            child: Divider(height: 1),
+          ),
         ],
       ),
     );

@@ -11,12 +11,12 @@ class SerchView extends StatelessWidget {
   final AnimationController animationController;
   final Animation<double> animation;
 
-  const SerchView(
-      {Key? key,
-      required this.hotelInfo,
-      required this.animationController,
-      required this.animation})
-      : super(key: key);
+  const SerchView({
+    Key? key,
+    required this.hotelInfo,
+    required this.animationController,
+    required this.animation,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +36,7 @@ class SerchView extends StatelessWidget {
                 children: <Widget>[
                   AspectRatio(
                     aspectRatio: 1.5,
-                    child: Image.asset(
-                      hotelInfo.imagePath,
-                      fit: BoxFit.cover,
-                    ),
+                    child: Image.asset(hotelInfo.imagePath, fit: BoxFit.cover),
                   ),
                   Expanded(
                     child: Padding(
@@ -56,28 +53,28 @@ class SerchView extends StatelessWidget {
                             Helper.getRoomText(hotelInfo.roomData!),
                             // Helper.getRoomText(hotelInfo.roomData!),
                             style: TextStyles(context).regular().copyWith(
-                                  fontWeight: FontWeight.w100,
-                                  fontSize: 12,
-                                  color: Theme.of(context)
-                                      .disabledColor
-                                      .withOpacity(0.6),
-                                ),
+                              fontWeight: FontWeight.w100,
+                              fontSize: 12,
+                              color: Theme.of(
+                                context,
+                              ).disabledColor.withOpacity(0.6),
+                            ),
                           ),
                           Text(
                             Helper.getLastSearchDate(hotelInfo.date!),
                             // Helper.getRoomText(hotelInfo.roomData!),
                             style: TextStyles(context).regular().copyWith(
-                                  fontWeight: FontWeight.w100,
-                                  fontSize: 12,
-                                  color: Theme.of(context)
-                                      .disabledColor
-                                      .withOpacity(0.6),
-                                ),
+                              fontWeight: FontWeight.w100,
+                              fontSize: 12,
+                              color: Theme.of(
+                                context,
+                              ).disabledColor.withOpacity(0.6),
+                            ),
                           ),
                         ],
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

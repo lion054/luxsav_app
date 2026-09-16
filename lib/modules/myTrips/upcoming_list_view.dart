@@ -7,7 +7,7 @@ class UpcomingListView extends StatefulWidget {
   final AnimationController animationController;
 
   const UpcomingListView({Key? key, required this.animationController})
-      : super(key: key);
+    : super(key: key);
   @override
   State<UpcomingListView> createState() => _UpcomingListViewState();
 }
@@ -29,16 +29,23 @@ class _UpcomingListViewState extends State<UpcomingListView> {
       scrollDirection: Axis.vertical,
       itemBuilder: (context, index) {
         var count = hotelList.length > 10 ? 10 : hotelList.length;
-        var animation = Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+        var animation = Tween(begin: 0.0, end: 1.0).animate(
+          CurvedAnimation(
             parent: widget.animationController,
-            curve: Interval((1 / count) * index, 1.0,
-                curve: Curves.fastOutSlowIn)));
+            curve: Interval(
+              (1 / count) * index,
+              1.0,
+              curve: Curves.fastOutSlowIn,
+            ),
+          ),
+        );
         widget.animationController.forward();
         //Upcoming UI view and hotel list
         return HotelListView(
           callback: () {
-            NavigationServices(context)
-                .gotoRoomBookingScreen(hotelList[index].titleTxt);
+            NavigationServices(
+              context,
+            ).gotoRoomBookingScreen(hotelList[index].titleTxt);
           },
           hotelData: hotelList[index],
           animation: animation,

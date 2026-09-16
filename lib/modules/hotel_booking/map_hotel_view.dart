@@ -11,9 +11,11 @@ class MapHotelListView extends StatelessWidget {
   final VoidCallback callback;
   final HotelListData hotelData;
 
-  const MapHotelListView(
-      {Key? key, required this.hotelData, required this.callback})
-      : super(key: key);
+  const MapHotelListView({
+    Key? key,
+    required this.hotelData,
+    required this.callback,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,20 +50,18 @@ class MapHotelListView extends StatelessWidget {
                               hotelData.titleTxt,
                               maxLines: 2,
                               textAlign: TextAlign.left,
-                              style: TextStyles(context).bold().copyWith(
-                                    fontSize: 16,
-                                  ),
+                              style: TextStyles(
+                                context,
+                              ).bold().copyWith(fontSize: 16),
                               overflow: TextOverflow.ellipsis,
                             ),
                             Text(
                               hotelData.subTxt,
-                              style: TextStyles(context).description().copyWith(
-                                    fontSize: 14,
-                                  ),
+                              style: TextStyles(
+                                context,
+                              ).description().copyWith(fontSize: 14),
                             ),
-                            const Expanded(
-                              child: SizedBox(),
-                            ),
+                            const Expanded(child: SizedBox()),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.end,
@@ -84,18 +84,14 @@ class MapHotelListView extends StatelessWidget {
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyles(context)
                                               .description()
-                                              .copyWith(
-                                                fontSize: 14,
-                                              ),
+                                              .copyWith(fontSize: 14),
                                         ),
                                         Text(
                                           Loc.alized.km_to_city,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyles(context)
                                               .description()
-                                              .copyWith(
-                                                fontSize: 14,
-                                              ),
+                                              .copyWith(fontSize: 14),
                                         ),
                                       ],
                                     ),
@@ -114,18 +110,15 @@ class MapHotelListView extends StatelessWidget {
                                       Text(
                                         "\$${hotelData.perNight}",
                                         textAlign: TextAlign.left,
-                                        style:
-                                            TextStyles(context).bold().copyWith(
-                                                  fontSize: 22,
-                                                ),
+                                        style: TextStyles(
+                                          context,
+                                        ).bold().copyWith(fontSize: 22),
                                       ),
                                       Text(
                                         Loc.alized.per_night,
-                                        style: TextStyles(context)
-                                            .description()
-                                            .copyWith(
-                                              fontSize: 14,
-                                            ),
+                                        style: TextStyles(
+                                          context,
+                                        ).description().copyWith(fontSize: 14),
                                       ),
                                     ],
                                   ),
@@ -142,8 +135,9 @@ class MapHotelListView extends StatelessWidget {
                   color: Colors.transparent,
                   child: InkWell(
                     highlightColor: Colors.transparent,
-                    splashColor:
-                        Theme.of(context).primaryColor.withOpacity(0.1),
+                    splashColor: Theme.of(
+                      context,
+                    ).primaryColor.withOpacity(0.1),
                     onTap: () {
                       callback();
                     },

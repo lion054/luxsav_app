@@ -41,8 +41,9 @@ class ReviewsView extends StatelessWidget {
                       radius: 8,
                       color: AppTheme.whiteColor,
                       child: ClipRRect(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(8.0)),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(8.0),
+                        ),
                         child: AspectRatio(
                           aspectRatio: 1,
                           child: Image.asset(
@@ -60,25 +61,23 @@ class ReviewsView extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       reviewsList.titleTxt,
-                      style: TextStyles(context).bold().copyWith(
-                            fontSize: 14,
-                          ),
+                      style: TextStyles(context).bold().copyWith(fontSize: 14),
                     ),
                     Row(
                       children: [
                         Text(
                           Loc.alized.last_update,
                           style: TextStyles(context).description().copyWith(
-                                fontWeight: FontWeight.w100,
-                                color: Theme.of(context).disabledColor,
-                              ),
+                            fontWeight: FontWeight.w100,
+                            color: Theme.of(context).disabledColor,
+                          ),
                         ),
                         Text(
                           reviewsList.dateTxt,
                           style: TextStyles(context).description().copyWith(
-                                fontWeight: FontWeight.w100,
-                                color: Theme.of(context).disabledColor,
-                              ),
+                            fontWeight: FontWeight.w100,
+                            color: Theme.of(context).disabledColor,
+                          ),
                         ),
                       ],
                     ),
@@ -86,9 +85,9 @@ class ReviewsView extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           "(${reviewsList.rating})",
-                          style: TextStyles(context).regular().copyWith(
-                                fontWeight: FontWeight.w100,
-                              ),
+                          style: TextStyles(
+                            context,
+                          ).regular().copyWith(fontWeight: FontWeight.w100),
                         ),
                         //   SmoothStarRating(
                         //     allowHalfRating: true,
@@ -101,7 +100,7 @@ class ReviewsView extends StatelessWidget {
                       ],
                     ),
                   ],
-                )
+                ),
               ],
             ),
             Padding(
@@ -109,9 +108,9 @@ class ReviewsView extends StatelessWidget {
               child: Text(
                 reviewsList.subTxt,
                 style: TextStyles(context).description().copyWith(
-                      fontWeight: FontWeight.w100,
-                      color: Theme.of(context).disabledColor,
-                    ),
+                  fontWeight: FontWeight.w100,
+                  color: Theme.of(context).disabledColor,
+                ),
               ),
             ),
             Row(
@@ -132,10 +131,10 @@ class ReviewsView extends StatelessWidget {
                             Loc.alized.reply,
                             textAlign: TextAlign.left,
                             style: TextStyles(context).regular().copyWith(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14,
-                                  color: Theme.of(context).primaryColor,
-                                ),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                              color: Theme.of(context).primaryColor,
+                            ),
                           ),
                           SizedBox(
                             height: 38,
@@ -153,9 +152,7 @@ class ReviewsView extends StatelessWidget {
                 ),
               ],
             ),
-            const Divider(
-              height: 1,
-            )
+            const Divider(height: 1),
           ],
         ),
       ),

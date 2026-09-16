@@ -40,16 +40,17 @@ class CommonButton extends StatelessWidget {
               Theme.of(context).brightness == Brightness.dark ? 0.6 : 0.2,
             ),
             child: Center(
-              child: buttonTextWidget ??
+              child:
+                  buttonTextWidget ??
                   Text(
                     buttonText ?? "",
                     style: TextStyles(context).regular().copyWith(
-                          // Default follows the theme: white on green (light),
-                          // charcoal on gold (dark) — white on gold fails contrast.
-                          color: textColor ??
-                              Theme.of(context).colorScheme.onPrimary,
-                          fontSize: 16,
-                        ),
+                      // Default follows the theme: white on green (light),
+                      // charcoal on gold (dark) — white on gold fails contrast.
+                      color:
+                          textColor ?? Theme.of(context).colorScheme.onPrimary,
+                      fontSize: 16,
+                    ),
                   ),
             ),
           ),

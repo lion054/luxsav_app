@@ -27,7 +27,9 @@ class _BottomTabScreenState extends State<BottomTabScreen>
   @override
   void initState() {
     _animationController = AnimationController(
-        duration: const Duration(milliseconds: 400), vsync: this);
+      duration: const Duration(milliseconds: 400),
+      vsync: this,
+    );
     _indexView = Container();
     WidgetsBinding.instance.addPostFrameCallback((_) => _startLoadScreen());
     super.initState();
@@ -37,9 +39,7 @@ class _BottomTabScreenState extends State<BottomTabScreen>
     await Future.delayed(const Duration(milliseconds: 480));
     setState(() {
       _isFirstTime = false;
-      _indexView = HomeExploreScreen(
-        animationController: _animationController,
-      );
+      _indexView = HomeExploreScreen(animationController: _animationController);
     });
     _animationController.forward();
   }
@@ -54,14 +54,11 @@ class _BottomTabScreenState extends State<BottomTabScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: SizedBox(
-          height: 60 + MediaQuery.of(context).padding.bottom,
-          child: getBottomBarUI(bottomBarType)),
+        height: 60 + MediaQuery.of(context).padding.bottom,
+        child: getBottomBarUI(bottomBarType),
+      ),
       body: _isFirstTime
-          ? const Center(
-              child: CircularProgressIndicator(
-                strokeWidth: 2,
-              ),
-            )
+          ? const Center(child: CircularProgressIndicator(strokeWidth: 2))
           : _indexView,
     );
   }
@@ -129,9 +126,7 @@ class _BottomTabScreenState extends State<BottomTabScreen>
                   ),
                 ],
               ),
-              SizedBox(
-                height: MediaQuery.of(context).padding.bottom,
-              )
+              SizedBox(height: MediaQuery.of(context).padding.bottom),
             ],
           ),
         );
