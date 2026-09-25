@@ -28,7 +28,7 @@ Live today: 4 businesses with an Enterprise plan (three complimentary until 1 Ap
 
 1. **Three plan systems.** The older "User Plans" (Basic 199, Standard 499, Extended 799 a month; used by nothing, no purchases) sit beside the "Vendor Plans" that are actually used (Starter 99, Professional 399, Enterprise 799). The admin menu shows both, and vendors can reach "My Plans". Recommend retiring the older one for vendors.
 2. **Self-service.** Vendors cannot pay for or change a plan. Recommend the platform bills them through TourPay (the platform is itself a business there) and assigns the plan when the invoice is paid.
-3. **Approval gives no plan.** A newly approved business is blocked from adding listings until someone assigns one. Recommend a default trial plan (for example 14 days) set at approval.
+3. **~~Approval gives no plan.~~ Done (2026-09-26):** a company that signs up starts a free trial (default 14 days on the cheapest published plan; length and plan are set in Admin › Settings › Vendor). Companies approved by hand from an old request still need a plan assigned.
 4. **Commission is not in the plan.** The plan's commission fields are all zero and unused; the real rate is a platform default of 10%, with an optional override per business. Decide where the commission belongs.
 5. **Subscription screens use the payout permissions** (`vendor_payout_view` and `vendor_payout_manage`). Give them their own.
 

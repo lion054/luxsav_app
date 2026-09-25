@@ -42,6 +42,18 @@ One map, `config/areas.php`, read by one middleware, `AreaGuard`, and checked by
 - **Staff TourPay** is now a read-only view across all businesses, in the admin layout (list with totals per currency, filters, and a detail page).
 - **Deny by default.** A test lists every admin, user and vendor page and fails if one is not placed in an area, so a new screen cannot ship without someone deciding who it is for.
 
+## 3a. Sign-up creates a company (built 2026-09-26)
+
+The portal's main sign-up (`/register`, and the vendor form on the public site) now creates a **vendor company**, not a customer. The person becomes the company's owner and adds their own employees as staff from Vendor › Team.
+
+- **The form asks for the company:** company name, owner name, phone, email, password (a strong one), and country and city.
+- **Email is verified first.** The vendor area needs a verified email, which stops throwaway sign-ups. The welcome note waits for the first real page.
+- **A free trial starts at once** (default 14 days on the cheapest published plan) so a new company can add listings straight away; when it ends, the plan notice says so and only adding listings stops.
+- **Admin controls** (Admin › Settings › Vendor): require approval for new companies (they can then sign in but have no vendor access until approved), the trial length (0 = no trial) and which plan the trial uses.
+- **The platform team is told** of each new company, and each is recorded as an approved vendor request.
+- **Customers who want to become vendors** (an old account) still use "Become a vendor".
+- The sign-up is limited to 10 attempts a minute per address, and two bugs that stopped guests using the public vendor form were fixed.
+
 ## 3b. Company staff (built 2026-09-26)
 
 Before this, "team members" did not exist in practice: the Team screen stored an invitation that nothing read, so a team member who signed in got their own empty account. Edit, Save and Delete on that screen had no code behind them, and the invitation's accept link could never be opened (the guest was sent to login, a signed-in person to `/admin`).
