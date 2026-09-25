@@ -2,16 +2,18 @@
 
 Review of the admin and vendor accounts (2026-09-25): who can open what, what was wrong, and what now stops it.
 
-## 1. The accounts
+## 1. The accounts (the SaaS model)
 
-| Role | Users (local) | Permissions | Where they belong |
+There are three kinds of account, and one rule: **every staff member belongs to exactly one vendor company.**
+
+| Who | What they are | Sees | Role and permission |
 |---|---|---|---|
-| **Administrator** | 1 | 133, including both `dashboard_access` (staff) and `dashboard_vendor_access` (vendor) | the admin area, and the vendor area for their own business |
-| **Vendor** | 4 | 46: catalogue create/edit for each service type, coupons, news, enquiries, media, `dashboard_vendor_access` | the vendor area |
-| **Customer** | 4 | none | their own account pages |
-| *Custom staff roles* | none yet | anything made in Role Manager, for example staff with `dashboard_access` but no vendor access | the admin area only |
+| **Super admin** (lionel@tsokatravel.com) | the platform itself | everything: all companies, plans, subscriptions, users, integrations | `administrator`, `dashboard_access` |
+| **Vendor company** (the owner) | a separate company using the portal, one tenant each | only its own things | `vendor`, `dashboard_vendor_access` |
+| **Company staff** | an employee of one vendor company | only that company's things, and only the parts the owner ticked | `vendor_staff` (no permissions of its own) |
+| **Customer** | someone who books | their own bookings, profile, wallet | `customer` |
 
-The administrator role holds both sets of permissions, so the default administrator never meets the problems below. They appear as soon as a staff role without a vendor account exists, and for vendors and customers who wander.
+Staff never enter the admin area, and never see the owner-only pages (team, subscription, API keys, integrations, payouts, wallet). Plans and subscriptions belong to the company, not to individual staff.
 
 ## 2. What was wrong
 
@@ -39,6 +41,18 @@ One map, `config/areas.php`, read by one middleware, `AreaGuard`, and checked by
 - **Extra staff permissions** for screens with no check of their own: wallet credit and plan requests need `user_update`; modules, tools, e-mail and SMS tests need `setting_update`; statistics and the credit report need `report_view`; the template live editor needs `template_update`; each availability calendar needs that service's `_update`; TourPay needs `tourpay_view`.
 - **Staff TourPay** is now a read-only view across all businesses, in the admin layout (list with totals per currency, filters, and a detail page).
 - **Deny by default.** A test lists every admin, user and vendor page and fails if one is not placed in an area, so a new screen cannot ship without someone deciding who it is for.
+
+## 3b. Company staff (built 2026-09-26)
+
+Before this, "team members" did not exist in practice: the Team screen stored an invitation that nothing read, so a team member who signed in got their own empty account. Edit, Save and Delete on that screen had no code behind them, and the invitation's accept link could never be opened (the guest was sent to login, a signed-in person to `/admin`).
+
+- **Attached to one company.** `users.vendor_id` links a person to their company (the tenant resolver already read it; the column never existed). A person can be on one team only.
+- **Work as the company.** For the pages a staff member may open, the request runs as the company, so every list, report and record is the company's. Their own profile, password and two-factor stay their own. The audit trail names the real person.
+- **The owner decides what each person can open**, by ticking modules: bookings and check-in; customers, loyalty and occasions; catalogue and pricing; finance (TourPay, invoices, statement); marketing; reports and analytics; Tanova trips, inbox and concierge. The company dashboard and Today are always included.
+- **Deny by default.** A page in none of the lists is refused, the sidebar and header show only what a person may open, and a test fails if a new page is not placed (`config/staff_access.php`). The booking operations page was caught this way.
+- **Adding staff.** The owner enters name, email and modules on Vendor › Team. A new account is created, the person gets an email with a link to choose their password and join, and the owner can change their access, send the invitation again, or remove them at any time (removal ends access at once).
+- **Who can be added.** Not yourself, not another company's owner, not a platform account, not someone who already works for another company.
+- **The super admin** creates or edits staff on Users: the staff role requires choosing the company, so no staff account exists without one.
 
 ## 4. Access matrix (verified by tests)
 
