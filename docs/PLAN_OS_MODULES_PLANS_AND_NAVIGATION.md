@@ -1,6 +1,6 @@
 # Plan: business types, plans, sign-up and the vendor navigation
 
-Written 2026-09-26. Nothing here is built yet; it is the plan, with the decisions it needs from you at the end.
+Written 2026-09-26. Section 13 records the decisions taken and what has been built; sections 1 to 12 are the original plan.
 
 ## 1. What you told me, in one sentence
 
@@ -188,3 +188,50 @@ Phases 1 and 2 give the visible relief first (a lodge stops seeing tours). Each 
 7. **Staff seats** as a plan limit: yes?
 8. **Names**: keep "Stay OS / Exp OS / Trans OS" as visible brand names next to plain labels, or plain labels only?
 9. **The four live companies**: confirm they stay all-in-one with their current end dates.
+
+## 13. Decisions taken (2026-09-26) and what was built
+
+### Decisions
+
+| # | Question | Decision |
+|---|---|---|
+| 1 | The OS list | The six: Stay, Exp, Trans, Event, Airline, Visa. All offered at sign-up and grantable by the platform team. |
+| 2 | Dining and Tanova AI | Available to everyone on every plan. |
+| 3 | The plans | Four, named **Hana** (1 OS), **Liam** (any 3), **Kuda** (any 4), **Hina** (every OS). The company chooses which OS. Prices in US dollars sized for the South African market. |
+| 4 | Extra OS | Yes: a company on a limited plan can add one OS at a time, priced per plan. |
+| 5 | Trial | 30 days on the plan chosen at sign-up, no card. |
+| 6 | Paying the platform | Directly to the super admin: the company places an order, the super admin confirms it once the money is in (new admin screen: Vendor Plans > Plan orders). |
+| 7 | Staff seats | A plan limit. |
+| 8 | Names | The OS names are visible in the menu, on sign-up and on the plan page. |
+| 9 | The live companies | Everything (Hina) until 31 May 2028. |
+
+### The plans (defaults, all editable in the admin plan builder)
+
+| | Hana | Liam | Kuda | Hina |
+|---|---|---|---|---|
+| Per month | $19 | $49 | $79 | $149 |
+| Per year (10 months) | $190 | $490 | $790 | $1,490 |
+| OS included | 1 of your choice | any 3 | any 4 | all six |
+| Extra OS, per month | $12 | $10 | $8 | not needed |
+| Staff seats | 2 | 5 | 10 | unlimited |
+| Listings per type | 25 | 100 | 250 | unlimited |
+
+### Built (in the portal, tested; not deployed)
+
+- **One definition of an OS** (`config/os_modules.php`) and one service that answers "what does this company operate" (`CompanyOs`). The sidebar, the create screens, the API and the team screen all ask it.
+- **Plans**: four plans in the existing plan tables (the old three keep their ids, so nothing attached to them moves), with OS count, staff seats, extra-OS price, tagline, popular flag, visibility and order.
+- **Sign-up** is now four steps: you, your company, **what you offer and your plan** (pick the OS, the cheapest plan that fits is recommended, plans that cannot cover the choice are dimmed), password. The trial starts on the chosen plan.
+- **Sidebar**: Home, Bookings, Products (a group per OS the company operates, and one "Add to your plan" block for the rest), Tanova AI, Marketing, Reports, Money, Company. About 22 entries for a lodge instead of 49. The plan and its days left sit at the top. Tanova AI, Concierge and Integrations moved into the sidebar and out of the top bar. My Plans, Booking History and All Catalogs are gone from the menu. The eight "New" badges are gone.
+- **Plan & billing** (one page, replaces My Subscription and My Plans): status, what you operate (choose or change), what you have used, the four plans with a monthly/yearly switch, orders to pay with a reference and your payment instructions, and history.
+- **Paying**: an order is created with a reference; the super admin confirms it under Vendor Plans > Plan orders (how it was paid, a note); the plan starts or extends and the company is emailed. Renewing adds to the end of the current period, a plan change starts at once, an extra OS mid-period is charged for the days left, and on a trial an extra OS is free (the first payment includes it).
+- **Limits**: creating a listing needs the OS that covers its type (403 `plan_os_not_included`), through the portal and the API. Staff seats are checked when adding a person. Reaching a limit never stops bookings, payments or customers.
+- **Reminders**: `vendors:plan-reminders` emails companies 7, 3 and 1 day before a trial or plan ends, and the day after; each once.
+- **Founders**: `vendors:grant-founders` gives the existing companies Hina until 31 May 2028 (run with `--dry-run` first).
+- **API**: `GET /me` now lists the OS a company operates, so its own website can show the same badges.
+- **Admin**: the plan builder has the new fields, plan orders has its own screen with a waiting count, and assigning a plan by hand takes the OS.
+
+### Not built yet
+
+- Marketplace grouped by OS (stays and transfers on the Tanova marketplace): the marketplace lists tours only today, so this is a feature of its own.
+- Hubs with tabs for Marketing, Money and Reports: the entries are still separate, only grouped and renamed.
+- Card payment for plans (orders are paid outside the portal).
